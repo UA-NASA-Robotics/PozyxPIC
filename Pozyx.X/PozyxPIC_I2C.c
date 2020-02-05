@@ -29,7 +29,7 @@ static struct operator_values I2C_1_values = {0, 0, 0, 0, 0, 0, 1};
 // function pointer for transition functions
 void (*FunctionI2Cone)(void);
 
-void InitI2Cone(void)
+void InitI2C(void)
 {
     I2C1BRG = 500.8;//591*4; // set baud rate (edited back FROM 591*4)
     IPC4bits.MI2C1IP = 2; // priority level 2
@@ -44,7 +44,7 @@ void InitI2Cone(void)
 
 // initiates a send of an array containing a set number of data
 
-bool SendI2Cone(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much)
+bool SendI2C(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much)
 {
     //LED3 ^= 1;
     // see if a transmit or receive is in prograss
@@ -70,7 +70,7 @@ bool SendI2Cone(unsigned char s_address, unsigned char d_address, unsigned char 
 
 // initiate a receive moving data to an array of a set number of data
 
-bool ReceiveI2Cone(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much)
+bool ReceiveI2C(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much)
 {
    
     //see if a transmit or receive is in prograss
@@ -98,7 +98,7 @@ bool ReceiveI2Cone(unsigned char s_address, unsigned char d_address, unsigned ch
 
 // send the slave address
 
-void SendSlaveAddressI2Cone(void)
+void SendSlaveAddressI2C(void)
 {
     if(I2C_1_values.direction == RECEIVE)
     {
@@ -115,7 +115,7 @@ void SendSlaveAddressI2Cone(void)
 
 // send data address if receiving or send files byte if sending
 
-void SendDataAddressI2Cone(void)
+void SendDataAddressI2C(void)
 {
     // if ack is recieved then slave responded
     if (I2C1STATbits.ACKSTAT == 0) //ack received
@@ -147,7 +147,7 @@ void SendDataAddressI2Cone(void)
     }
 }
 
-void SendDataI2Cone(void)
+void SendDataI2C(void)
 {
     if (I2C1STATbits.ACKSTAT == 0) //ack received
     {
@@ -172,7 +172,7 @@ void SendDataI2Cone(void)
 
 // send a stop to then later send start
 
-void SendRestartI2Cone(void)
+void SendRestartI2C(void)
 {
     I2C1CONbits.PEN = 1; //send stop
     FunctionI2Cone = &SendStartI2Cone; // load start function
@@ -180,7 +180,7 @@ void SendRestartI2Cone(void)
 
 // send start as a followup to the restart
 
-void SendStartI2Cone(void)
+void SendStartI2C(void)
 {
     I2C1CONbits.SEN = 1; // send start condition
     FunctionI2Cone = &SendReadRequestI2Cone; // load send read request function
@@ -189,13 +189,13 @@ void SendStartI2Cone(void)
 
 // send read request
 
-void SendReadRequestI2Cone(void)
+void SendReadRequestI2C(void)
 {
     I2C1TRN = (I2C_1_values.slave_address + 1); // send slave address plus 1
     FunctionI2Cone = &FirstReceiveI2Cone; // load first receive function
 }
 
-void FirstReceiveI2Cone(void)
+void FirstReceiveI2C(void)
 {
     
     if (I2C1STATbits.ACKSTAT == 0) //ack received
@@ -210,7 +210,7 @@ void FirstReceiveI2Cone(void)
     }
 }
 
-void ReceiveByteI2Cone(void)
+void ReceiveByteI2C(void)
 {
     I2C_1_values.data[I2C_1_values.data_index] = I2C1RCV;
     I2C_1_values.data_index++;
@@ -228,35 +228,35 @@ void ReceiveByteI2Cone(void)
     }
 }
 
-void EnableReceiveI2Cone(void)
+void EnableReceiveI2C(void)
 {
     I2C1CONbits.RCEN = 1; // enable receive
     FunctionI2Cone = &ReceiveByteI2Cone;
 }
-void NACKFollowUpI2Cone(void)
+void NACKFollowUpI2C(void)
 {
     StopFunctionI2Cone();
     FunctionI2Cone = &SuccessFunctionI2Cone;
 }
-void StopFunctionI2Cone(void)
+void StopFunctionI2C(void)
 {
     I2C1CONbits.PEN = 1; //send stop
 }
 
-void FailFunctionI2Cone(void)
+void FailFunctionI2C(void)
 {
     
     I2C_1_values.status = FAILED;
    
 }
 
-void SuccessFunctionI2Cone(void)
+void SuccessFunctionI2C(void)
 {
     I2C_1_values.status = SUCCESS;
     
 }
 
-unsigned char StatusI2Cone(void)
+unsigned char StatusI2C(void)
 {
     return I2C_1_values.status;
 }

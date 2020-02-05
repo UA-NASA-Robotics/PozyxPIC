@@ -96,7 +96,7 @@ int PozyxClass::begin(boolean print_result, int mode, int interrupts, int interr
   if((interrupt_pin != 0) && (interrupt_pin != 1))
     return POZYX_FAILURE;
 
-  Wire.begin();
+  I2C.begin();
 
   // wait a bit until the pozyx board is up and running
   delay(250);
