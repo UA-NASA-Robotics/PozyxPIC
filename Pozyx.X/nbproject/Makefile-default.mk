@@ -39,13 +39,13 @@ FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/Pozyx.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX
 endif
 
 ifeq ($(COMPARE_BUILD), true)
-COMPARISON_BUILD=
+COMPARISON_BUILD=-mafrlcsj
 else
 COMPARISON_BUILD=
 endif
 
 ifdef SUB_IMAGE_ADDRESS
-
+SUB_IMAGE_ADDRESS_COMMAND=--image-address $(SUB_IMAGE_ADDRESS)
 else
 SUB_IMAGE_ADDRESS_COMMAND=
 endif
@@ -57,18 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=
+SOURCEFILES_QUOTED_IF_SPACED=../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/Initialize.c ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/main.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=
-POSSIBLE_DEPFILES=
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/285630724/Initialize.o ${OBJECTDIR}/_ext/285630724/main.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/285630724/Initialize.o.d ${OBJECTDIR}/_ext/285630724/main.o.d
 
 # Object Files
-OBJECTFILES=
+OBJECTFILES=${OBJECTDIR}/_ext/285630724/Initialize.o ${OBJECTDIR}/_ext/285630724/main.o
 
 # Source Files
-SOURCEFILES=
-
+SOURCEFILES=../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/Initialize.c ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/main.c
 
 
 CFLAGS=
@@ -95,7 +94,35 @@ MP_LINKER_FILE_OPTION=,--script=p33EP512GM604.gld
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+${OBJECTDIR}/_ext/285630724/Initialize.o: ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/Initialize.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/285630724" 
+	@${RM} ${OBJECTDIR}/_ext/285630724/Initialize.o.d 
+	@${RM} ${OBJECTDIR}/_ext/285630724/Initialize.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/Initialize.c  -o ${OBJECTDIR}/_ext/285630724/Initialize.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/285630724/Initialize.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/285630724/Initialize.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/285630724/main.o: ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/285630724" 
+	@${RM} ${OBJECTDIR}/_ext/285630724/main.o.d 
+	@${RM} ${OBJECTDIR}/_ext/285630724/main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/main.c  -o ${OBJECTDIR}/_ext/285630724/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/285630724/main.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/285630724/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 else
+${OBJECTDIR}/_ext/285630724/Initialize.o: ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/Initialize.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/285630724" 
+	@${RM} ${OBJECTDIR}/_ext/285630724/Initialize.o.d 
+	@${RM} ${OBJECTDIR}/_ext/285630724/Initialize.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/Initialize.c  -o ${OBJECTDIR}/_ext/285630724/Initialize.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/285630724/Initialize.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/285630724/Initialize.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/285630724/main.o: ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/285630724" 
+	@${RM} ${OBJECTDIR}/_ext/285630724/main.o.d 
+	@${RM} ${OBJECTDIR}/_ext/285630724/main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/main.c  -o ${OBJECTDIR}/_ext/285630724/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/285630724/main.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/285630724/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 endif
 
 # ------------------------------------------------------------------------------------
@@ -115,13 +142,13 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/Pozyx.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/Pozyx.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG=__DEBUG   -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -Wl,--local-stack,,--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D__DEBUG=__DEBUG,,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST)  
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/Pozyx.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG=__DEBUG   -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)      -Wl,--local-stack,,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D__DEBUG=__DEBUG,,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml$(MP_EXTRA_LD_POST) 
 	
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/Pozyx.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/Pozyx.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -Wl,--local-stack,,--defsym=__MPLAB_BUILD=1,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST)  
-	${MP_CC_DIR}\\xc16-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/Pozyx.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} -a  -omf=elf   
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/Pozyx.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -Wl,--local-stack,,--defsym=__MPLAB_BUILD=1,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml$(MP_EXTRA_LD_POST) 
+	${MP_CC_DIR}\\xc16-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/Pozyx.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} -a  -omf=elf  
 	
 endif
 
@@ -137,3 +164,11 @@ endif
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r build/default
 	${RM} -r dist/default
+
+# Enable dependency checking
+.dep.inc: .depcheck-impl
+
+DEPFILES=$(shell mplabwildcard ${POSSIBLE_DEPFILES})
+ifneq (${DEPFILES},)
+include ${DEPFILES}
+endif
