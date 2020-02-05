@@ -5,8 +5,8 @@
  * Created on December 14, 2014, 8:04 PM(modified: April 27, 2016)
  */
 
-#ifndef I2C_API_GYRO_H
-#define	I2C_API_GYRO_H
+#ifndef PozyxPIC_I2C_H
+#define	PozyxPIC_I2C_H
 
 #define PENDING 0
 #define SUCCESS 1
@@ -71,5 +71,5 @@ void NACKFollowUpI2Cone(void);
 bool writeBits(char devAddr, char regAddr, char bitStart, char length, char data);
 bool writeBit(char devAddr, char regAddr, char bitNum, char data);
 
-#endif	/* I2C_API_GYROH */
+#endif	/* PozyxPIC_I2C_H */
 

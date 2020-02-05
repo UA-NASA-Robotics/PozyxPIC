@@ -6,7 +6,10 @@
 */
 
 #include "Pozyx.h"
-#include <Wire.h>
+#include "PozyxPIC_I2C.h"
+
+//#include <Wire.h>   OLD, FROM ARDUINO
+
 
 #if defined(__SAM3X8E__)
 // Arduino Due

@@ -6,7 +6,9 @@
 */
 
 #include "Pozyx.h"
-#include <Wire.h>
+#include "PozyxPIC_I2C.h"
+
+//#include <Wire.h>
 
 extern "C" {
   #include "Pozyx_definitions.h"

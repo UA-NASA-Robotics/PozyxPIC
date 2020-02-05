@@ -7,7 +7,7 @@
 #define FCY     (FOSC/2)
 #include <libpic30.h>
 
-#include "I2C_API_GYRO.h"
+#include "PozyxPIC_I2C.h"
 
 
 // general struct for storing settings
