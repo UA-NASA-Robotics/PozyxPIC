@@ -14,6 +14,7 @@
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X</sourceRootElem>
+                <sourceRootElem>.</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

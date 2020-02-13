@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/Initialize.c ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/main.c
+SOURCEFILES_QUOTED_IF_SPACED=Pozyx_lib.c Initialize.c PozyxPIC_I2C.c Pozyx_Core.c main.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/285630724/Initialize.o ${OBJECTDIR}/_ext/285630724/main.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/285630724/Initialize.o.d ${OBJECTDIR}/_ext/285630724/main.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Pozyx_lib.o ${OBJECTDIR}/Initialize.o ${OBJECTDIR}/PozyxPIC_I2C.o ${OBJECTDIR}/Pozyx_Core.o ${OBJECTDIR}/main.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/Pozyx_lib.o.d ${OBJECTDIR}/Initialize.o.d ${OBJECTDIR}/PozyxPIC_I2C.o.d ${OBJECTDIR}/Pozyx_Core.o.d ${OBJECTDIR}/main.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/285630724/Initialize.o ${OBJECTDIR}/_ext/285630724/main.o
+OBJECTFILES=${OBJECTDIR}/Pozyx_lib.o ${OBJECTDIR}/Initialize.o ${OBJECTDIR}/PozyxPIC_I2C.o ${OBJECTDIR}/Pozyx_Core.o ${OBJECTDIR}/main.o
 
 # Source Files
-SOURCEFILES=../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/Initialize.c ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/main.c
+SOURCEFILES=Pozyx_lib.c Initialize.c PozyxPIC_I2C.c Pozyx_Core.c main.c
 
 
 CFLAGS=
@@ -94,34 +94,76 @@ MP_LINKER_FILE_OPTION=,--script=p33EP512GM604.gld
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/_ext/285630724/Initialize.o: ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/Initialize.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/285630724" 
-	@${RM} ${OBJECTDIR}/_ext/285630724/Initialize.o.d 
-	@${RM} ${OBJECTDIR}/_ext/285630724/Initialize.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/Initialize.c  -o ${OBJECTDIR}/_ext/285630724/Initialize.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/285630724/Initialize.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
-	@${FIXDEPS} "${OBJECTDIR}/_ext/285630724/Initialize.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Pozyx_lib.o: Pozyx_lib.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Pozyx_lib.o.d 
+	@${RM} ${OBJECTDIR}/Pozyx_lib.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Pozyx_lib.c  -o ${OBJECTDIR}/Pozyx_lib.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Pozyx_lib.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/Pozyx_lib.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/285630724/main.o: ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/285630724" 
-	@${RM} ${OBJECTDIR}/_ext/285630724/main.o.d 
-	@${RM} ${OBJECTDIR}/_ext/285630724/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/main.c  -o ${OBJECTDIR}/_ext/285630724/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/285630724/main.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
-	@${FIXDEPS} "${OBJECTDIR}/_ext/285630724/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Initialize.o: Initialize.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Initialize.o.d 
+	@${RM} ${OBJECTDIR}/Initialize.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Initialize.c  -o ${OBJECTDIR}/Initialize.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Initialize.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/Initialize.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/PozyxPIC_I2C.o: PozyxPIC_I2C.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/PozyxPIC_I2C.o.d 
+	@${RM} ${OBJECTDIR}/PozyxPIC_I2C.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  PozyxPIC_I2C.c  -o ${OBJECTDIR}/PozyxPIC_I2C.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/PozyxPIC_I2C.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/PozyxPIC_I2C.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/Pozyx_Core.o: Pozyx_Core.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Pozyx_Core.o.d 
+	@${RM} ${OBJECTDIR}/Pozyx_Core.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Pozyx_Core.c  -o ${OBJECTDIR}/Pozyx_Core.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Pozyx_Core.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/Pozyx_Core.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/main.o.d 
+	@${RM} ${OBJECTDIR}/main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 else
-${OBJECTDIR}/_ext/285630724/Initialize.o: ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/Initialize.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/285630724" 
-	@${RM} ${OBJECTDIR}/_ext/285630724/Initialize.o.d 
-	@${RM} ${OBJECTDIR}/_ext/285630724/Initialize.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/Initialize.c  -o ${OBJECTDIR}/_ext/285630724/Initialize.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/285630724/Initialize.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
-	@${FIXDEPS} "${OBJECTDIR}/_ext/285630724/Initialize.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Pozyx_lib.o: Pozyx_lib.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Pozyx_lib.o.d 
+	@${RM} ${OBJECTDIR}/Pozyx_lib.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Pozyx_lib.c  -o ${OBJECTDIR}/Pozyx_lib.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Pozyx_lib.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/Pozyx_lib.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/285630724/main.o: ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/285630724" 
-	@${RM} ${OBJECTDIR}/_ext/285630724/main.o.d 
-	@${RM} ${OBJECTDIR}/_ext/285630724/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../../../../../../microchip/harmony/v2_05_01/apps/Test_dspGM604.X/main.c  -o ${OBJECTDIR}/_ext/285630724/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/285630724/main.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
-	@${FIXDEPS} "${OBJECTDIR}/_ext/285630724/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/Initialize.o: Initialize.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Initialize.o.d 
+	@${RM} ${OBJECTDIR}/Initialize.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Initialize.c  -o ${OBJECTDIR}/Initialize.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Initialize.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/Initialize.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/PozyxPIC_I2C.o: PozyxPIC_I2C.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/PozyxPIC_I2C.o.d 
+	@${RM} ${OBJECTDIR}/PozyxPIC_I2C.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  PozyxPIC_I2C.c  -o ${OBJECTDIR}/PozyxPIC_I2C.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/PozyxPIC_I2C.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/PozyxPIC_I2C.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/Pozyx_Core.o: Pozyx_Core.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Pozyx_Core.o.d 
+	@${RM} ${OBJECTDIR}/Pozyx_Core.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Pozyx_Core.c  -o ${OBJECTDIR}/Pozyx_Core.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Pozyx_Core.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/Pozyx_Core.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/main.o.d 
+	@${RM} ${OBJECTDIR}/main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 

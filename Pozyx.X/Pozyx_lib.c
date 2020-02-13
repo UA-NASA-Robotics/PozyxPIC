@@ -1438,7 +1438,7 @@ void __attribute__((weak)) __assert (const char *func, const char *file, int lin
 void __attribute__((weak)) __assert_pozyx (const char *__func, const char *__file, int __lineno)
 {
     // print out whatever you like here, function name, filename, line#, expression that failed.
-  if (Serial){
+#ifdef POZYX_DEBUG
     Serial.print("Assertion failed in function : ");
     Serial.println(__func);
     Serial.print("Filename: ");
@@ -1447,8 +1447,7 @@ void __attribute__((weak)) __assert_pozyx (const char *__func, const char *__fil
     Serial.println(__lineno);
 
     // platform independent delay to allow the string to be printed
-    delay(10);
-  }
+#endif
 
   // halt after outputting information
   abort();

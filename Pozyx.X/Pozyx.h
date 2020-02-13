@@ -434,7 +434,7 @@ public:
     * @retval #POZYX_SUCCESS success.
     * @retval #POZYX_FAILURE function failed.
     */
-    static int begin(boolean print_result = false, int mode = MODE_INTERRUPT,  int interrupts = POZYX_INT_MASK_ALL, int interrupt_pin = POZYX_INT_PIN0);
+    static int begin( int interrupt_pin = POZYX_INT_PIN0);
 
 
     /**

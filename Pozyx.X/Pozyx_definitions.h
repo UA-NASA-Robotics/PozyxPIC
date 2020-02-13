@@ -20,6 +20,9 @@
 #ifndef POZYX_DEFINITIONS_h
 #define POZYX_DEFINITIONS_h
 
+//#define POZYX_DEBUG
+
+
 #define _POZYX_LIB_VERSION          1
 #define _POZYX_FEET_PER_METER       3.2808399
 #define _POZYX_INCH_PER_METER       39.3700787
