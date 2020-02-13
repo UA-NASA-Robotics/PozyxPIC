@@ -21,21 +21,21 @@ extern "C" {
   #include "Pozyx_definitions.h"
 }
 
-int PozyxClass::_interrupt;
-int PozyxClass::_mode;
+int _interrupt;
+int _mode;
 
-int PozyxClass::_hw_version;       // pozyx harware version
-int PozyxClass::_fw_version;       // pozyx firmware version. (By updating the firmware on the pozyx device, this value can change);
+int _hw_version;       // pozyx harware version
+int _fw_version;       // pozyx firmware version. (By updating the firmware on the pozyx device, this value can change);
 
 /**
  * The interrupt handler for the pozyx device: keeping it uber short!
  */
-void PozyxClass::IRQ()
+void IRQ()
 {
   _interrupt = 1;
 }
 
-boolean PozyxClass::waitForFlag(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt)
+boolean waitForFlag(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt)
 {
   long timer = millis();
   int status;
@@ -70,7 +70,7 @@ boolean PozyxClass::waitForFlag(uint8_t interrupt_flag, int timeout_ms, uint8_t 
   return false;
 }
 
-boolean PozyxClass::waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt)
+boolean waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt)
 {
   int tmp = _mode;
   _mode = MODE_POLLING;
@@ -79,7 +79,7 @@ boolean PozyxClass::waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms, uin
   return result;
 }
 
-int PozyxClass::begin(boolean print_result, int mode, int interrupts, int interrupt_pin){
+int begin(boolean print_result, int mode, int interrupts, int interrupt_pin){
 
   int status = POZYX_SUCCESS;
 
@@ -96,9 +96,9 @@ int PozyxClass::begin(boolean print_result, int mode, int interrupts, int interr
   if((interrupt_pin != 0) && (interrupt_pin != 1))
     return POZYX_FAILURE;
 
-  InitI2C();
-  //Wire.begin();
-
+  //Wire.begin();           W_A
+    InitI2C();
+  
   // wait a bit until the pozyx board is up and running
   delay(250);
 
@@ -191,7 +191,7 @@ int PozyxClass::begin(boolean print_result, int mode, int interrupts, int interr
 /**
   * Reads a number of bytes from the specified pozyx register address using I2C
   */
-int PozyxClass::regRead(uint8_t reg_address, uint8_t *pData, int size)
+int regRead(uint8_t reg_address, uint8_t *pData, int size)
 {
   // BUFFER_LENGTH is defined in wire.h, it limits the maximum amount of bytes that can be transmitted/received with i2c in one go
   // because of this, we may have to split up the i2c reads in smaller chunks
@@ -222,7 +222,7 @@ int PozyxClass::regRead(uint8_t reg_address, uint8_t *pData, int size)
 /**
   * Writes a number of bytes to the specified pozyx register address using I2C
   */
-int PozyxClass::regWrite(uint8_t reg_address, uint8_t *pData, int size)
+int regWrite(uint8_t reg_address, uint8_t *pData, int size)
 {
   // BUFFER_LENGTH is defined in wire.h, it limits the maximum amount of bytes that can be transmitted/received with i2c in one go
   // because of this, we may have to split up the i2c writes in smaller chunks
@@ -250,7 +250,7 @@ int PozyxClass::regWrite(uint8_t reg_address, uint8_t *pData, int size)
 /**
   * Call a register function using i2c with given parameters, the data from the function is stored in pData
   */
-int PozyxClass::regFunction(uint8_t reg_address, uint8_t *params, int param_size, uint8_t *pData, int size)
+int regFunction(uint8_t reg_address, uint8_t *params, int param_size, uint8_t *pData, int size)
 {
   assert(BUFFER_LENGTH >= size+1);           // Arduino-specific code for the i2c
   assert(BUFFER_LENGTH >= param_size+1);     // Arduino-specific code for the i2c
@@ -282,7 +282,7 @@ int PozyxClass::regFunction(uint8_t reg_address, uint8_t *params, int param_size
 /**
  * Wirelessly write a number of bytes to a specified register address on a remote Pozyx device using UWB.
  */
-int PozyxClass::remoteRegWrite(uint16_t destination, uint8_t reg_address, uint8_t *pData, int size)
+int remoteRegWrite(uint16_t destination, uint8_t reg_address, uint8_t *pData, int size)
 {
   // some checks
   if(!IS_REG_WRITABLE(reg_address))      return POZYX_FAILURE;    // the register is not writable
@@ -330,7 +330,7 @@ int PozyxClass::remoteRegWrite(uint16_t destination, uint8_t reg_address, uint8_
 /**
  * Wirelessly read a number of bytes from a specified register address on a remote Pozyx device using UWB.
  */
-int PozyxClass::remoteRegRead(uint16_t destination, uint8_t reg_address, uint8_t *pData, int size)
+int remoteRegRead(uint16_t destination, uint8_t reg_address, uint8_t *pData, int size)
 {
   // some checks
   if(!IS_REG_READABLE(reg_address))      return POZYX_FAILURE;        // the register is not readable
@@ -397,7 +397,7 @@ int PozyxClass::remoteRegRead(uint16_t destination, uint8_t reg_address, uint8_t
 /*
  * Wirelessly call a register function with given parameters on a remote Pozyx device using UWB, the data from the function is stored in pData
  */
-int PozyxClass::remoteRegFunction(uint16_t destination, uint8_t reg_address, uint8_t *params, int param_size, uint8_t *pData, int size)
+int remoteRegFunction(uint16_t destination, uint8_t reg_address, uint8_t *params, int param_size, uint8_t *pData, int size)
 {
   // some checks
   if(!IS_FUNCTIONCALL(reg_address))      return POZYX_FAILURE;        // the register is not a function
@@ -470,7 +470,7 @@ int PozyxClass::remoteRegFunction(uint16_t destination, uint8_t reg_address, uin
   }
 }
 
-int PozyxClass::writeTXBufferData(uint8_t data[], int size, int offset)
+int writeTXBufferData(uint8_t data[], int size, int offset)
 {
   if (offset + size > MAX_BUF_SIZE){
     return POZYX_FAILURE;
@@ -497,7 +497,7 @@ int PozyxClass::writeTXBufferData(uint8_t data[], int size, int offset)
   return status;
 }
 
-int PozyxClass::readRXBufferData(uint8_t* pData, int size)
+int readRXBufferData(uint8_t* pData, int size)
 {
   if (size > MAX_BUF_SIZE){
     return POZYX_FAILURE;
@@ -524,7 +524,7 @@ int PozyxClass::readRXBufferData(uint8_t* pData, int size)
   return status;
 }
 
-int PozyxClass::sendTXBufferData(uint16_t destination)
+int sendTXBufferData(uint16_t destination)
 {
   int status;
 
@@ -542,7 +542,7 @@ int PozyxClass::sendTXBufferData(uint16_t destination)
 /*
  * This function sends some data bytes to the destination
  */
-int PozyxClass::sendData(uint16_t destination, uint8_t *pData, int size)
+int sendData(uint16_t destination, uint8_t *pData, int size)
 {
   if(size > MAX_BUF_SIZE)          return POZYX_FAILURE;        // trying to send too much data
 
@@ -572,7 +572,7 @@ int PozyxClass::sendData(uint16_t destination, uint8_t *pData, int size)
 /**
   * Writes a number of bytes to the specified pozyx register address using I2C
   */
-int PozyxClass::i2cWriteWrite(const uint8_t reg_address, const uint8_t *pData, int size)
+int i2cWriteWrite(const uint8_t reg_address, const uint8_t *pData, int size)
 {
   /*Serial.print("\t\ti2cWriteWrite(0x");
   Serial.print(reg_address, HEX);
@@ -588,22 +588,32 @@ int PozyxClass::i2cWriteWrite(const uint8_t reg_address, const uint8_t *pData, i
   
   int n, error;
 
-  Wire.beginTransmission(POZYX_I2C_ADDRESS);
+  SendI2C(POZYX_I2C_ADDRESS, reg_address, pData, size);                 //wire.beginTransmission(POZYX_I2C_ADDRESS);      W_A
+  
   // write the starting register address
-  n = Wire.write(reg_address);
+  n = SendI2C(POZYX_I2C_ADDRESS, reg_address, pData, size);             //n = Wire.write(reg_address);                    W_A
+  
   if (n != 1)
     return (POZYX_FAILURE);
 
-  error = Wire.endTransmission(false); // hold the bus for a repeated start
+  // hold the bus for a repeated start
+  error = ReceiveI2C(POZYX_I2C_ADDRESS, reg_address, pData, size);      //error = Wire.endTransmission(false);            W_A
+  
   if (error != 0)
     return (POZYX_FAILURE);
 
-  Wire.beginTransmission(POZYX_I2C_ADDRESS);
-  n = Wire.write(pData, size);  // write data bytes
+  
+  SendI2C(POZYX_I2C_ADDRESS, reg_address, pData, size);                 //Wire.beginTransmission(POZYX_I2C_ADDRESS);      W_A
+  
+  // write data bytes
+  n = SendI2C(POZYX_I2C_ADDRESS, reg_address, pData, size);             //n = Wire.write(pData, size);                    W_A
+  
   if (n != size)
     return (POZYX_FAILURE);
 
-  error = Wire.endTransmission(true); // release the I2C-bus
+  // release the I2C-bus
+  error = ReceiveI2C(POZYX_I2C_ADDRESS, reg_address, pData, size);      //error = Wire.endTransmission(true);           W_A
+  
   if (error != 0)
     return (POZYX_FAILURE);
   
@@ -615,7 +625,7 @@ int PozyxClass::i2cWriteWrite(const uint8_t reg_address, const uint8_t *pData, i
 /**
   * Call a register function using I2C with given parameters
   */
-int PozyxClass::i2cWriteRead(uint8_t* write_data, int write_len, uint8_t* read_data, int read_len)
+int i2cWriteRead(uint8_t* write_data, int write_len, uint8_t* read_data, int read_len)
 {
   /*Serial.print("\t\ti2cWriteRead([0x");
   for(int i = 0; i < write_len; i++) {
@@ -629,23 +639,30 @@ int PozyxClass::i2cWriteRead(uint8_t* write_data, int write_len, uint8_t* read_d
   
   int i, n;
 
-  Wire.beginTransmission(POZYX_I2C_ADDRESS);
-  for(i=0; i<write_len; i++){
-    n = Wire.write(*(write_data+i));  // write parameter bytes
+  if(write_len >1){
+    n = SendI2C(POZYX_I2C_ADDRESS, write_data[0], &write_data[1], write_len-1);                              //Wire.beginTransmission(POZYX_I2C_ADDRESS);      W_A
   }
+  
+  
+//  for(i=0; i<write_len; i++){
+//    n = Wire.write(*(write_data+i));  // write parameter bytes
+//  }
 
   if (n != 1)
     return (POZYX_FAILURE);
   
   //Serial.println("\t\t\tWrite success");
 
-  n = Wire.endTransmission(false);    // hold the I2C-bus for a repeated start
+  //n = Wire.endTransmission(false);    // hold the I2C-bus for a repeated start
 
-  if (n != 0)
-    return (POZYX_FAILURE);
+//  if (n != 0)
+//    return (POZYX_FAILURE);
 
   // Third parameter is true: relase I2C-bus after data is read.
-  Wire.requestFrom(POZYX_I2C_ADDRESS, read_len, true);
+ 
+  ReceiveI2C(POZYX_I2C_ADDRESS, write_data[0], read_data, read_len);
+  /*Wire.requestFrom(POZYX_I2C_ADDRESS, read_len, true);
+  
   i = 0;
 
   while(Wire.available())
@@ -655,7 +672,7 @@ int PozyxClass::i2cWriteRead(uint8_t* write_data, int write_len, uint8_t* read_d
     else
       Wire.read();
   }
-
+    */
   if ( i != read_len){
     return (POZYX_FAILURE);
   }

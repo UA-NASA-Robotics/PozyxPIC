@@ -26,6 +26,12 @@ bool SendI2C(unsigned char s_address, unsigned char d_address, unsigned char * d
 bool ReceiveI2C(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much);
 //bool ReceiveI2Ctwo(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much);
 
+//////////////////////////
+//                      //
+//  SUPPORT FUNCTIONS   //
+//                      //
+//////////////////////////
+
 void SendSlaveAddressI2C(void);
 //void SendSlaveAddressI2Ctwo(void);
 
