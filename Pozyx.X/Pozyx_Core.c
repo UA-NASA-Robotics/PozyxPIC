@@ -4,28 +4,32 @@
  * This file contains the defintion of the core POZYX functions and variables
  *
  */
-
+#include "Initialize.h"
 #include "Pozyx.h"
 #include "PozyxPIC_I2C.h"
-
+#include <String.h>
+#include <math.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include "Timers.h"
 //#include <Wire.h>   OLD, FROM ARDUINO
 
 
-#if defined(__SAM3X8E__)
-// Arduino Due
-#define Wire Wire1
-#endif
 
-
-extern "C" {
 #include "Pozyx_definitions.h"
-}
+/**
+ * Provides an interface to an attached Pozyx shield.
+ * 
+ */
 
-int _interrupt;
-int _mode;
+int _mode; // the mode of operation, can be MODE_INTERRUPT or MODE_POLLING
+int _interrupt; // variable to indicate that an interrupt has occured
 
-int _hw_version; // pozyx harware version
-int _fw_version; // pozyx firmware version. (By updating the firmware on the pozyx device, this value can change);
+
+int _hw_version; // Pozyx harware version
+int _fw_version; // Pozyx software (firmware) version. (By updating the firmware on the Pozyx device, this value can change)
+
 
 /**
  * The interrupt handler for the pozyx device: keeping it uber short!
@@ -34,7 +38,7 @@ void IRQ() {
     _interrupt = 1;
 }
 
-boolean waitForFlag(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt) {
+bool waitForFlag(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt) {
     long timer = millis();
     int status;
 
@@ -65,10 +69,10 @@ boolean waitForFlag(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt) 
     return false;
 }
 
-boolean waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt) {
+bool waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt) {
     int tmp = _mode;
     _mode = MODE_POLLING;
-    boolean result = waitForFlag(interrupt_flag, timeout_ms, interrupt);
+    bool result = waitForFlag(interrupt_flag, timeout_ms, interrupt);
     _mode = tmp;
     return result;
 }
@@ -168,7 +172,7 @@ int begin() {
 
         // use interrupt as provided and initiate the interrupt mask
         uint8_t int_mask = POZYX_INT_MASK_ALL;
-        configInterruptPin(5 + interrupt_pin, PIN_MODE_PUSHPULL, PIN_ACTIVE_LOW, 0);
+        configInterruptPin(5 + interrupt_pin, PIN_MODE_PUSHPULL, PIN_ACTIVE_LOW, 0,NULL);
 
         if (regWrite(POZYX_INT_MASK, &int_mask, 1) == POZYX_FAILURE) {
             return POZYX_FAILURE;
@@ -187,26 +191,26 @@ int regRead(uint8_t reg_address, uint8_t *pData, int size) {
     // BUFFER_LENGTH is defined in wire.h, it limits the maximum amount of bytes that can be transmitted/received with i2c in one go
     // because of this, we may have to split up the i2c reads in smaller chunks
 
-//    if (!IS_REG_READABLE(reg_address))
-//        return POZYX_FAILURE;
-//
-//    int n_runs = ceil((float) size / BUFFER_LENGTH);
-//    int i;
-//    int status = 1;
-//    uint8_t reg;
-//
-//    for (i = 0; i < n_runs; i++) {
-//        int offset = i*BUFFER_LENGTH;
-//        reg = reg_address + offset;
-//
-//        if (i + 1 != n_runs) {
-//            status &= i2cWriteRead(&reg, 1, pData + offset, BUFFER_LENGTH);
-//        } else {
-//            status &= i2cWriteRead(&reg, 1, pData + offset, size - offset);
-//        }
-//    }
-    POZYX_I2C_ADDRESS, reg_address, pData, size);;
-    return status;
+    if (!IS_REG_READABLE(reg_address))
+        return POZYX_FAILURE;
+
+    int n_runs = ceil((float) size / BUFFER_LENGTH);
+    int i;
+    int status = 1;
+    uint8_t reg;
+
+    for (i = 0; i < n_runs; i++) {
+        int offset = i*BUFFER_LENGTH;
+        reg = reg_address + offset;
+
+        if (i + 1 != n_runs) {
+            status &= i2cWriteRead(&reg, 1, pData + offset, BUFFER_LENGTH);
+        } else {
+            status &= i2cWriteRead(&reg, 1, pData + offset, size - offset);
+        }
+    }
+    
+    return ReceiveI2C(POZYX_I2C_ADDRESS, reg_address, pData, size);
 }
 
 /**
@@ -239,8 +243,8 @@ int regWrite(uint8_t reg_address, uint8_t *pData, int size) {
  * Call a register function using i2c with given parameters, the data from the function is stored in pData
  */
 int regFunction(uint8_t reg_address, uint8_t *params, int param_size, uint8_t *pData, int size) {
-    assert(BUFFER_LENGTH >= size + 1); // Arduino-specific code for the i2c
-    assert(BUFFER_LENGTH >= param_size + 1); // Arduino-specific code for the i2c
+//    assert(BUFFER_LENGTH >= size + 1); // Arduino-specific code for the i2c
+//    assert(BUFFER_LENGTH >= param_size + 1); // Arduino-specific code for the i2c
 
     if (!IS_FUNCTIONCALL(reg_address))
         return POZYX_FAILURE;
@@ -552,35 +556,11 @@ int i2cWriteWrite(const uint8_t reg_address, const uint8_t *pData, int size) {
     Serial.print(size);
     Serial.println(")");*/
 
-    int n, error;
-
-    SendI2C(POZYX_I2C_ADDRESS, reg_address, pData, size); //wire.beginTransmission(POZYX_I2C_ADDRESS);      W_A
-
-    // write the starting register address
-    n = SendI2C(POZYX_I2C_ADDRESS, reg_address, pData, size); //n = Wire.write(reg_address);                    W_A
-
-    if (n != 1)
-        return (POZYX_FAILURE);
-
-    // hold the bus for a repeated start
-    error = ReceiveI2C(POZYX_I2C_ADDRESS, reg_address, pData, size); //error = Wire.endTransmission(false);            W_A
-
-    if (error != 0)
-        return (POZYX_FAILURE);
+    bool success;
 
 
-    SendI2C(POZYX_I2C_ADDRESS, reg_address, pData, size); //Wire.beginTransmission(POZYX_I2C_ADDRESS);      W_A
-
-    // write data bytes
-    n = SendI2C(POZYX_I2C_ADDRESS, reg_address, pData, size); //n = Wire.write(pData, size);                    W_A
-
-    if (n != size)
-        return (POZYX_FAILURE);
-
-    // release the I2C-bus
-    error = ReceiveI2C(POZYX_I2C_ADDRESS, reg_address, pData, size); //error = Wire.endTransmission(true);           W_A
-
-    if (error != 0)
+    success = SendI2CRepeatStart(POZYX_I2C_ADDRESS, reg_address, pData, size);
+    if (success == false)
         return (POZYX_FAILURE);
 
     //Serial.println("\t\t\tsuccess");
@@ -602,43 +582,18 @@ int i2cWriteRead(uint8_t* write_data, int write_len, uint8_t* read_data, int rea
     Serial.print(read_len);
     Serial.println(")");*/
 
-    int i, n;
+    int n;
 
     if (write_len > 1) {
         n = SendI2C(POZYX_I2C_ADDRESS, write_data[0], &write_data[1], write_len - 1); //Wire.beginTransmission(POZYX_I2C_ADDRESS);      W_A
     }
-
-
-    //  for(i=0; i<write_len; i++){
-    //    n = Wire.write(*(write_data+i));  // write parameter bytes
-    //  }
-
-    if (n != 1)
+    if (n != true)
         return (POZYX_FAILURE);
 
-    //Serial.println("\t\t\tWrite success");
 
-    //n = Wire.endTransmission(false);    // hold the I2C-bus for a repeated start
-
-    //  if (n != 0)
-    //    return (POZYX_FAILURE);
-
-    // Third parameter is true: relase I2C-bus after data is read.
-
-    ReceiveI2C(POZYX_I2C_ADDRESS, write_data[0], read_data, read_len);
-    /*Wire.requestFrom(POZYX_I2C_ADDRESS, read_len, true);
-  
-    i = 0;
-
-    while(Wire.available())
-    {
-      if(i<read_len)
-        read_data[i++]=Wire.read();
-      else
-        Wire.read();
-    }
-     */
-    if (i != read_len) {
+    n = ReceiveI2C(POZYX_I2C_ADDRESS, write_data[0], read_data, read_len);
+    
+    if (n != true) {
         return (POZYX_FAILURE);
     }
 
@@ -654,5 +609,5 @@ int i2cWriteRead(uint8_t* write_data, int write_len, uint8_t* read_data, int rea
     return (POZYX_SUCCESS); // return : no error
 }
 
-PozyxClass Pozyx;
+
 

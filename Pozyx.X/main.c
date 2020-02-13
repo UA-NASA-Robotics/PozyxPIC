@@ -3,9 +3,7 @@
 #include <xc.h>
 #include "Initialize.h"
 
-#define FCY 60000000UL
 
-#include <libpic30.h>
 
 
 #define DelayVal 50
