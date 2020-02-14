@@ -1,9 +1,10 @@
 #include <xc.h>
 #include <stdbool.h>
+
 //#include "Initialize.h"
 
 
-#define FOSC    (72000000ULL)
+#define FOSC    (60000000ULL)
 #define FCY     (FOSC/2)
 #include <libpic30.h>
 
@@ -30,11 +31,16 @@ static struct operator_values I2C_1_values = {0, 0, 0, 0, 0, 0, 1, 0};
 void (*FunctionI2C)(void);
 
 void InitI2C(void) {
-    I2C1BRG = 500.8; //591*4; // set baud rate (edited back FROM 591*4)
-    IPC4bits.MI2C1IP = 2; // priority level 2
-    IFS1bits.MI2C1IF = 0; // clear flag
-    IEC1bits.MI2C1IE = 1; // enable interrupt flag
-    I2C1CONbits.I2CEN = 1; // enable i2c one
+
+    // Continues module operation in Idle mode
+    I2C2CONbits.I2CSIDL = 0;
+    I2C2BRG = 500.8; //591*4; // set baud rate (edited back FROM 591*4)
+    
+    IPC12bits.MI2C2IP = 2; // priority level 2
+    IFS3bits.MI2C2IF = 0; // clear flag
+    IEC3bits.MI2C2IE = 1; // enable interrupt flag
+    // Enable the I2C2 module and configures the SDA2 and SCL2 pins as serial ports pins
+    I2C2CONbits.I2CEN = 1;
 }
 
 
@@ -57,7 +63,7 @@ bool SendI2CRepeatStart(unsigned char s_address, unsigned char d_address, unsign
         I2C_1_values.status = PENDING;
         I2C_1_values.writeRS = true;
         FunctionI2C = &SendSlaveAddressI2C; // load the send slave address function
-        I2C1CONbits.SEN = 1; // send start condition
+        I2C2CONbits.SEN = 1; // send start condition
         return true; // return successful
     } else {
         return false; // return failed if an i2c request is already running
@@ -78,7 +84,7 @@ bool SendI2C(unsigned char s_address, unsigned char d_address, unsigned char * d
         I2C_1_values.status = PENDING;
         I2C_1_values.writeRS = false;
         FunctionI2C = &SendSlaveAddressI2C; // load the send slave address function
-        I2C1CONbits.SEN = 1; // send start condition
+        I2C2CONbits.SEN = 1; // send start condition
         return true; // return successful
     } else {
         return false; // return failed if an i2c request is already running
@@ -102,7 +108,7 @@ bool ReceiveI2C(unsigned char s_address, unsigned char d_address, unsigned char 
         I2C_1_values.direction = RECEIVE;
         I2C_1_values.status = PENDING;
         FunctionI2C = &SendSlaveAddressI2C; // load the send slave address function
-        I2C1CONbits.SEN = 1; // send start condition
+        I2C2CONbits.SEN = 1; // send start condition
         return true; // return successful
     } else {
         return false; // return failed if an i2c request is already running
@@ -113,9 +119,9 @@ bool ReceiveI2C(unsigned char s_address, unsigned char d_address, unsigned char 
 
 void SendSlaveAddressI2C(void) {
     if (I2C_1_values.direction == RECEIVE) {
-        I2C1TRN = I2C_1_values.slave_address | 0x00; // load slave address into buffer
+        I2C2TRN = I2C_1_values.slave_address | 0x00; // load slave address into buffer
     } else {
-        I2C1TRN = I2C_1_values.slave_address | 0x00; // load slave address into buffer
+        I2C2TRN = I2C_1_values.slave_address | 0x00; // load slave address into buffer
     }
 
     FunctionI2C = &SendDataAddressI2C; // load the send data address function
@@ -126,17 +132,17 @@ void SendSlaveAddressI2C(void) {
 
 void SendDataAddressI2C(void) {
     // if ack is recieved then slave responded
-    if (I2C1STATbits.ACKSTAT == 0) //ack received
+    if (I2C2STATbits.ACKSTAT == 0) //ack received
     {
 
         // check the direction sending or receiving
         if (I2C_1_values.direction == RECEIVE) // receiving
         {
-            I2C1TRN = I2C_1_values.data_address; // load data address value
+            I2C2TRN = I2C_1_values.data_address; // load data address value
             FunctionI2C = &SendStartI2C; // load send restart function
         } else if (I2C_1_values.direction == TRANSMIT) // transmitting
         {
-            I2C1TRN = I2C_1_values.data_address; // load data address value
+            I2C2TRN = I2C_1_values.data_address; // load data address value
             if (I2C_1_values.writeRS == true) {
                 FunctionI2C = &SendDataI2C; // load function that will continue sending
             }
@@ -155,11 +161,11 @@ void SendDataAddressI2C(void) {
 }
 
 void SendDataI2C(void) {
-    if (I2C1STATbits.ACKSTAT == 0) //ack received
+    if (I2C2STATbits.ACKSTAT == 0) //ack received
     {
         //if index is less than how much data, send data and increment index
         if (I2C_1_values.data_index < I2C_1_values.how_much_data) {
-            I2C1TRN = I2C_1_values.data[I2C_1_values.data_index]; // load data into buffer
+            I2C2TRN = I2C_1_values.data[I2C_1_values.data_index]; // load data into buffer
             I2C_1_values.data_index++; // increment index
         } else //all data has been sent
         {
@@ -176,14 +182,14 @@ void SendDataI2C(void) {
 // send a stop to then later send start
 
 void SendRestartI2C(void) {
-    I2C1CONbits.PEN = 1; //send stop
+    I2C2CONbits.PEN = 1; //send stop
     FunctionI2C = &SendStartI2C; // load start function
 }
 
 // send start as a followup to the restart
 
 void SendStartI2C(void) {
-    I2C1CONbits.SEN = 1; // send start condition
+    I2C2CONbits.SEN = 1; // send start condition
     if (I2C_1_values.writeRS == true) {
         FunctionI2C = &SendDataI2C;
         I2C_1_values.direction = TRANSMIT;
@@ -196,15 +202,15 @@ void SendStartI2C(void) {
 // send read request
 
 void SendReadRequestI2C(void) {
-    I2C1TRN = (I2C_1_values.slave_address + 1); // send slave address plus 1
+    I2C2TRN = (I2C_1_values.slave_address + 1); // send slave address plus 1
     FunctionI2C = &FirstReceiveI2C; // load first receive function
 }
 
 void FirstReceiveI2C(void) {
 
-    if (I2C1STATbits.ACKSTAT == 0) //ack received
+    if (I2C2STATbits.ACKSTAT == 0) //ack received
     {
-        I2C1CONbits.RCEN = 1; // enable receive
+        I2C2CONbits.RCEN = 1; // enable receive
         FunctionI2C = &ReceiveByteI2C;
     } else //nack received
     {
@@ -214,21 +220,21 @@ void FirstReceiveI2C(void) {
 }
 
 void ReceiveByteI2C(void) {
-    I2C_1_values.data[I2C_1_values.data_index] = I2C1RCV;
+    I2C_1_values.data[I2C_1_values.data_index] = I2C2RCV;
     I2C_1_values.data_index++;
     if (I2C_1_values.data_index < I2C_1_values.how_much_data) {
-        I2C1CONbits.ACKDT = 0; //Setup ACK (EDITED()
-        I2C1CONbits.ACKEN = 1; // send ACK
+        I2C2CONbits.ACKDT = 0; //Setup ACK (EDITED()
+        I2C2CONbits.ACKEN = 1; // send ACK
         FunctionI2C = &EnableReceiveI2C;
     } else {
-        I2C1CONbits.ACKDT = 1; //Setup NACK (EDITED()
-        I2C1CONbits.ACKEN = 1; // send NACK
+        I2C2CONbits.ACKDT = 1; //Setup NACK (EDITED()
+        I2C2CONbits.ACKEN = 1; // send NACK
         FunctionI2C = &NACKFollowUpI2C;
     }
 }
 
 void EnableReceiveI2C(void) {
-    I2C1CONbits.RCEN = 1; // enable receive
+    I2C2CONbits.RCEN = 1; // enable receive
     FunctionI2C = &ReceiveByteI2C;
 }
 
@@ -238,7 +244,7 @@ void NACKFollowUpI2C(void) {
 }
 
 void StopFunctionI2C(void) {
-    I2C1CONbits.PEN = 1; //send stop
+    I2C2CONbits.PEN = 1; //send stop
 }
 
 void FailFunctionI2C(void) {
@@ -256,18 +262,18 @@ unsigned char StatusI2C(void) {
     return I2C_1_values.status;
 }
 
-void __attribute__((interrupt, no_auto_psv)) _MI2C1Interrupt(void) {
+void __attribute__((interrupt, no_auto_psv)) _MI2C2Interrupt(void) {
     //LED2 ^= 1;
-    if (I2C1STATbits.BCL == 1) {
+    if (I2C2STATbits.BCL == 1) {
         StopFunctionI2C();
         FunctionI2C = &FailFunctionI2C;
-        I2C1STATbits.BCL = 0;
+        I2C2STATbits.BCL = 0;
 
     } else {
         FunctionI2C();
         //LATEbits.LATE7 ^= 1;
     }
-    IFS1bits.MI2C1IF = 0; // clear interrupt flag
+    IFS3bits.MI2C2IF = 0; // clear interrupt flag
 }
 
 bool writeBits(char devAddr, char regAddr, char bitStart, char length, char data) {

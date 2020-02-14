@@ -115,19 +115,18 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x4f2           0x76b  (1899)
 .const                       0x6f2               0x4b6           0x711  (1809)
-.text                        0xba8              0x2fd4          0x47be  (18366)
-.dinit                      0x3b7c                0x28            0x3c  (60)
-.init.delay32               0x3ba4                0x1c            0x2a  (42)
-.text                       0x3bc0                 0x6             0x9  (9)
+.text                        0xba8              0x300a          0x480f  (18447)
+.dinit                      0x3bb2                0x28            0x3c  (60)
+.init.delay32               0x3bda                0x1c            0x2a  (42)
 
-                 Total program memory used (bytes):         0x56a9  (22185) 4%
+                 Total program memory used (bytes):         0x56f1  (22257) 4%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0x1fc]
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.ivt._MI2C1Interrupt          0x36                 0x2             0x3  (3)
+.ivt._MI2C2Interrupt          0x78                 0x2             0x3  (3)
 
 
 Data Memory  [Origin = 0x1000, Length = 0xc000]
@@ -177,9 +176,9 @@ External Symbols in Program Memory (by address):
 
                   0x000200                  __resetPRI
                   0x00023c                  __psv_init
-                  0x000248                  __data_init
                   0x000248                  __data_init_extended
-                  0x000326                  __MI2C1Interrupt
+                  0x000248                  __data_init
+                  0x000326                  __MI2C2Interrupt
                   0x00035a                  __DefaultInterrupt
                   0x000360                  ___subsf3
                   0x000362                  ___addsf3
@@ -293,7 +292,7 @@ External Symbols in Program Memory (by address):
                   0x002c5a                  _IRQ
                   0x002c64                  _waitForFlag
                   0x002cd6                  _waitForFlag_safe
-                  0x002cf8                  _begin
+                  0x002cf8                  _Pozyx_begin
                   0x002dde                  _regRead
                   0x002ec0                  _regWrite
                   0x002f86                  _regFunction
@@ -307,64 +306,65 @@ External Symbols in Program Memory (by address):
                   0x003668                  _i2cWriteWrite
                   0x003692                  _i2cWriteRead
                   0x0036ee                  _InitI2C
-                  0x003708                  _SendI2CRepeatStart
-                  0x003764                  _SendI2C
-                  0x0037c0                  _ReceiveI2C
-                  0x003816                  _SendSlaveAddressI2C
-                  0x00383a                  _SendDataAddressI2C
-                  0x00388c                  _SendDataI2C
-                  0x0038d2                  _SendRestartI2C
-                  0x0038de                  _SendStartI2C
-                  0x0038fe                  _SendReadRequestI2C
-                  0x003912                  _FirstReceiveI2C
-                  0x003930                  _ReceiveByteI2C
-                  0x00396e                  _EnableReceiveI2C
-                  0x00397a                  _NACKFollowUpI2C
-                  0x003986                  _StopFunctionI2C
-                  0x00398e                  _FailFunctionI2C
-                  0x00399a                  _SuccessFunctionI2C
-                  0x0039a6                  _StatusI2C
-                  0x0039b0                  _writeBits
-                  0x003a24                  _writeBit
-                  0x003a64                  _millis
-                  0x003a6e                  _timerDone
-                  0x003aa4                  _setTimerInterval
-                  0x003ac8                  _resetTimer
-                  0x003ad8                  _globalTimerTracker
-                  0x003aea                  _delay
-                  0x003b0e                  _Start_Initialization
-                  0x003b2c                  _oscillator
-                  0x003ba4                  ___delay32
-                  0x003bc0                  _main
+                  0x00370a                  _SendI2CRepeatStart
+                  0x003766                  _SendI2C
+                  0x0037c2                  _ReceiveI2C
+                  0x003818                  _SendSlaveAddressI2C
+                  0x00383c                  _SendDataAddressI2C
+                  0x00388e                  _SendDataI2C
+                  0x0038d4                  _SendRestartI2C
+                  0x0038e0                  _SendStartI2C
+                  0x003900                  _SendReadRequestI2C
+                  0x003914                  _FirstReceiveI2C
+                  0x003932                  _ReceiveByteI2C
+                  0x003970                  _EnableReceiveI2C
+                  0x00397c                  _NACKFollowUpI2C
+                  0x003988                  _StopFunctionI2C
+                  0x003990                  _FailFunctionI2C
+                  0x00399c                  _SuccessFunctionI2C
+                  0x0039a8                  _StatusI2C
+                  0x0039b2                  _writeBits
+                  0x003a26                  _writeBit
+                  0x003a66                  _millis
+                  0x003a70                  _timerDone
+                  0x003aa6                  _setTimerInterval
+                  0x003aca                  _resetTimer
+                  0x003ada                  _globalTimerTracker
+                  0x003aec                  _delay
+                  0x003b10                  _Start_Initialization
+                  0x003b2e                  _oscillator
+                  0x003b7e                  _main
+                  0x003bda                  ___delay32
                   0x0557fa                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x00396e                  _EnableReceiveI2C
-                  0x00398e                  _FailFunctionI2C
-                  0x003912                  _FirstReceiveI2C
+                  0x003970                  _EnableReceiveI2C
+                  0x003990                  _FailFunctionI2C
+                  0x003914                  _FirstReceiveI2C
                   0x002c5a                  _IRQ
                   0x0036ee                  _InitI2C
-                  0x00397a                  _NACKFollowUpI2C
-                  0x003930                  _ReceiveByteI2C
-                  0x0037c0                  _ReceiveI2C
-                  0x00383a                  _SendDataAddressI2C
-                  0x00388c                  _SendDataI2C
-                  0x003764                  _SendI2C
-                  0x003708                  _SendI2CRepeatStart
-                  0x0038fe                  _SendReadRequestI2C
-                  0x0038d2                  _SendRestartI2C
-                  0x003816                  _SendSlaveAddressI2C
-                  0x0038de                  _SendStartI2C
-                  0x003b0e                  _Start_Initialization
-                  0x0039a6                  _StatusI2C
-                  0x003986                  _StopFunctionI2C
-                  0x00399a                  _SuccessFunctionI2C
+                  0x00397c                  _NACKFollowUpI2C
+                  0x002cf8                  _Pozyx_begin
+                  0x003932                  _ReceiveByteI2C
+                  0x0037c2                  _ReceiveI2C
+                  0x00383c                  _SendDataAddressI2C
+                  0x00388e                  _SendDataI2C
+                  0x003766                  _SendI2C
+                  0x00370a                  _SendI2CRepeatStart
+                  0x003900                  _SendReadRequestI2C
+                  0x0038d4                  _SendRestartI2C
+                  0x003818                  _SendSlaveAddressI2C
+                  0x0038e0                  _SendStartI2C
+                  0x003b10                  _Start_Initialization
+                  0x0039a8                  _StatusI2C
+                  0x003988                  _StopFunctionI2C
+                  0x00399c                  _SuccessFunctionI2C
                   0x00035a                  __DefaultInterrupt
                   0x0557fa                  __FGS.sec
-                  0x000326                  __MI2C1Interrupt
+                  0x000326                  __MI2C2Interrupt
                   0x000362                  ___addsf3
-                  0x003ba4                  ___delay32
+                  0x003bda                  ___delay32
                   0x00042c                  ___divsf3
                   0x0004fe                  ___fixsfsi
                   0x000658                  ___floatdisf
@@ -385,12 +385,11 @@ External Symbols in Program Memory (by name):
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
                   0x002996                  _addDevice
-                  0x002cf8                  _begin
                   0x00041c                  _ceilf
                   0x002b3e                  _clearConfiguration
                   0x002980                  _clearDevices
                   0x0029f8                  _configInterruptPin
-                  0x003aea                  _delay
+                  0x003aec                  _delay
                   0x00279a                  _doAnchorCalibration
                   0x002726                  _doDiscovery
                   0x0021c8                  _doPositioning
@@ -448,15 +447,15 @@ External Symbols in Program Memory (by name):
                   0x000f4c                  _getUWBSettings
                   0x000ce0                  _getUpdateInterval
                   0x000c2c                  _getWhoAmI
-                  0x003ad8                  _globalTimerTracker
+                  0x003ada                  _globalTimerTracker
                   0x003692                  _i2cWriteRead
                   0x003668                  _i2cWriteWrite
                   0x002c0c                  _isRegisterSaved
-                  0x003bc0                  _main
+                  0x003b7e                  _main
                   0x0006d6                  _memcpy
                   0x0006e4                  _memset
-                  0x003a64                  _millis
-                  0x003b2c                  _oscillator
+                  0x003a66                  _millis
+                  0x003b2e                  _oscillator
                   0x0034fc                  _readRXBufferData
                   0x002f86                  _regFunction
                   0x002dde                  _regRead
@@ -466,7 +465,7 @@ External Symbols in Program Memory (by name):
                   0x003162                  _remoteRegRead
                   0x003042                  _remoteRegWrite
                   0x001dec                  _resetSystem
-                  0x003ac8                  _resetTimer
+                  0x003aca                  _resetTimer
                   0x002b14                  _saveAnchorIds
                   0x002a30                  _saveConfiguration
                   0x002b02                  _saveNetwork
@@ -488,19 +487,19 @@ External Symbols in Program Memory (by name):
                   0x000d0c                  _setRangingProtocol
                   0x000efc                  _setSelectionOfAnchors
                   0x001114                  _setSensorMode
-                  0x003aa4                  _setTimerInterval
+                  0x003aa6                  _setTimerInterval
                   0x00107c                  _setTxPower
                   0x00104a                  _setUWBChannel
                   0x000f9c                  _setUWBSettings
                   0x001016                  _setUWBSettingsExceptGain
                   0x000cf6                  _setUpdateInterval
                   0x000bd0                  _setWrite
-                  0x003a6e                  _timerDone
+                  0x003a70                  _timerDone
                   0x000bf8                  _useFunction
                   0x002c64                  _waitForFlag
                   0x002cd6                  _waitForFlag_safe
-                  0x003a24                  _writeBit
-                  0x0039b0                  _writeBits
+                  0x003a26                  _writeBit
+                  0x0039b2                  _writeBits
                   0x003422                  _writeTXBufferData
 
 Memory Configuration
@@ -571,7 +570,7 @@ LOAD c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libfx-elf.a
  .handle          0x0002fa         0x2c jump_table
  *(.isr*)
  .isr.text        0x000326         0x34 build/default/production/PozyxPIC_I2C.o
-                  0x000326                  __MI2C1Interrupt
+                  0x000326                  __MI2C2Interrupt
  .isr             0x00035a          0x4 default_isr
                   0x00035a                  __DefaultInterrupt
  *(.libc)
@@ -666,33 +665,33 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x4f14
+.debug_info       0x000000       0x509d
  *(.debug_info)
  .debug_info      0x000000        0x707 build/default/production/Initialize.o
- .debug_info      0x000707        0xe6f build/default/production/PozyxPIC_I2C.o
- .debug_info      0x001576        0xbac build/default/production/Pozyx_Core.o
- .debug_info      0x002122        0x12a build/default/production/main.o
- .debug_info      0x00224c       0x2a59 build/default/production/Pozyx_lib.o
- .debug_info      0x004ca5        0x26f build/default/production/Timers.o
+ .debug_info      0x000707        0xe27 build/default/production/PozyxPIC_I2C.o
+ .debug_info      0x00152e        0xbb1 build/default/production/Pozyx_Core.o
+ .debug_info      0x0020df        0x2f6 build/default/production/main.o
+ .debug_info      0x0023d5       0x2a59 build/default/production/Pozyx_lib.o
+ .debug_info      0x004e2e        0x26f build/default/production/Timers.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x6d7
+.debug_abbrev     0x000000        0x750
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0xfb build/default/production/Initialize.o
  .debug_abbrev    0x0000fb        0x1c7 build/default/production/PozyxPIC_I2C.o
  .debug_abbrev    0x0002c2        0x169 build/default/production/Pozyx_Core.o
- .debug_abbrev    0x00042b         0x36 build/default/production/main.o
- .debug_abbrev    0x000461        0x169 build/default/production/Pozyx_lib.o
- .debug_abbrev    0x0005ca        0x10d build/default/production/Timers.o
+ .debug_abbrev    0x00042b         0xaf build/default/production/main.o
+ .debug_abbrev    0x0004da        0x169 build/default/production/Pozyx_lib.o
+ .debug_abbrev    0x000643        0x10d build/default/production/Timers.o
 
-.debug_line       0x000000        0x8e8
+.debug_line       0x000000        0x99c
  *(.debug_line)
  .debug_line      0x000000        0x102 build/default/production/Initialize.o
- .debug_line      0x000102        0x19c build/default/production/PozyxPIC_I2C.o
- .debug_line      0x00029e        0x1ea build/default/production/Pozyx_Core.o
- .debug_line      0x000488         0x35 build/default/production/main.o
- .debug_line      0x0004bd        0x3d3 build/default/production/Pozyx_lib.o
- .debug_line      0x000890         0x58 build/default/production/Timers.o
+ .debug_line      0x000102        0x19d build/default/production/PozyxPIC_I2C.o
+ .debug_line      0x00029f        0x1ea build/default/production/Pozyx_Core.o
+ .debug_line      0x000489         0xe8 build/default/production/main.o
+ .debug_line      0x000571        0x3d3 build/default/production/Pozyx_lib.o
+ .debug_line      0x000944         0x58 build/default/production/Timers.o
 
 .debug_frame      0x000000        0xfd0
  *(.debug_frame)
@@ -703,13 +702,14 @@ __FUID3
  .debug_frame     0x0004fa        0xa1a build/default/production/Pozyx_lib.o
  .debug_frame     0x000f14         0xbc build/default/production/Timers.o
 
-.debug_str        0x000000        0x366
+.debug_str        0x000000        0x370
  *(.debug_str)
  .debug_str       0x000000         0x1f build/default/production/Initialize.o
- .debug_str       0x00001f         0x5d build/default/production/PozyxPIC_I2C.o
- .debug_str       0x00007c         0xdf build/default/production/Pozyx_Core.o
- .debug_str       0x00015b        0x1f7 build/default/production/Pozyx_lib.o
- .debug_str       0x000352         0x14 build/default/production/Timers.o
+ .debug_str       0x00001f         0x5e build/default/production/PozyxPIC_I2C.o
+ .debug_str       0x00007d         0xdf build/default/production/Pozyx_Core.o
+ .debug_str       0x00015c          0x9 build/default/production/main.o
+ .debug_str       0x000165        0x1f7 build/default/production/Pozyx_lib.o
+ .debug_str       0x00035c         0x14 build/default/production/Timers.o
 
 .debug_loc
  *(.debug_loc)
@@ -718,20 +718,20 @@ __FUID3
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0xb39
+                  0x000000        0xb3f
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0x4b build/default/production/Initialize.o
  .debug_pubnames
                   0x00004b        0x1a6 build/default/production/PozyxPIC_I2C.o
  .debug_pubnames
-                  0x0001f1        0x156 build/default/production/Pozyx_Core.o
+                  0x0001f1        0x15c build/default/production/Pozyx_Core.o
  .debug_pubnames
-                  0x000347         0x1b build/default/production/main.o
+                  0x00034d         0x1b build/default/production/main.o
  .debug_pubnames
-                  0x000362        0x74f build/default/production/Pozyx_lib.o
+                  0x000368        0x74f build/default/production/Pozyx_lib.o
  .debug_pubnames
-                  0x000ab1         0x88 build/default/production/Timers.o
+                  0x000ab7         0x88 build/default/production/Timers.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -2873,72 +2873,72 @@ LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
-                  0x000090        0x3e3
+                  0x000090        0x40f
  .debug_pubtypes
                   0x000090         0x8a build/default/production/Initialize.o
  .debug_pubtypes
-                  0x00011a         0xd2 build/default/production/PozyxPIC_I2C.o
+                  0x00011a         0xd4 build/default/production/PozyxPIC_I2C.o
  .debug_pubtypes
-                  0x0001ec         0x2b build/default/production/Pozyx_Core.o
+                  0x0001ee         0x2b build/default/production/Pozyx_Core.o
  .debug_pubtypes
-                  0x000217         0x12 build/default/production/main.o
+                  0x000219         0x3c build/default/production/main.o
  .debug_pubtypes
-                  0x000229        0x22b build/default/production/Pozyx_lib.o
+                  0x000255        0x22b build/default/production/Pozyx_lib.o
  .debug_pubtypes
-                  0x000454         0x1f build/default/production/Timers.o
+                  0x000480         0x1f build/default/production/Timers.o
 
 __c30_signature
-                  0x000473         0x96
+                  0x00049f         0x96
  __c30_signature
-                  0x000473          0x6 build/default/production/Initialize.o
+                  0x00049f          0x6 build/default/production/Initialize.o
  __c30_signature
-                  0x000479          0x6 build/default/production/PozyxPIC_I2C.o
+                  0x0004a5          0x6 build/default/production/PozyxPIC_I2C.o
  __c30_signature
-                  0x00047f          0x6 build/default/production/Pozyx_Core.o
+                  0x0004ab          0x6 build/default/production/Pozyx_Core.o
  __c30_signature
-                  0x000485          0x6 build/default/production/main.o
+                  0x0004b1          0x6 build/default/production/main.o
  __c30_signature
-                  0x00048b          0x6 build/default/production/Pozyx_lib.o
+                  0x0004b7          0x6 build/default/production/Pozyx_lib.o
  __c30_signature
-                  0x000491          0x6 build/default/production/Timers.o
+                  0x0004bd          0x6 build/default/production/Timers.o
  __c30_signature
-                  0x000497          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o)
+                  0x0004c3          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o)
  __c30_signature
-                  0x00049d          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libpic30-elf.a(data_init_extended.o)
+                  0x0004c9          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libpic30-elf.a(data_init_extended.o)
  __c30_signature
-                  0x0004a3          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+                  0x0004cf          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
  __c30_signature
-                  0x0004a9          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(addsf3.epeo)
+                  0x0004d5          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(addsf3.epeo)
  __c30_signature
-                  0x0004af          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(ceilf.epeo)
+                  0x0004db          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(ceilf.epeo)
  __c30_signature
-                  0x0004b5          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(divsf3.epeo)
+                  0x0004e1          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(divsf3.epeo)
  __c30_signature
-                  0x0004bb          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fchop.epeo)
+                  0x0004e7          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fchop.epeo)
  __c30_signature
-                  0x0004c1          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fixsfsi.epeo)
+                  0x0004ed          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fixsfsi.epeo)
  __c30_signature
-                  0x0004c7          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatsisf.epeo)
+                  0x0004f3          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatsisf.epeo)
  __c30_signature
-                  0x0004cd          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatunsisf.epeo)
+                  0x0004f9          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatunsisf.epeo)
  __c30_signature
-                  0x0004d3          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fpack.epeo)
+                  0x0004ff          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fpack.epeo)
  __c30_signature
-                  0x0004d9          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(funpack.epeo)
+                  0x000505          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(funpack.epeo)
  __c30_signature
-                  0x0004df          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(funpack2.epeo)
+                  0x00050b          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(funpack2.epeo)
  __c30_signature
-                  0x0004e5          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(futil.epeo)
+                  0x000511          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(futil.epeo)
  __c30_signature
-                  0x0004eb          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(mulsf3.epeo)
+                  0x000517          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(mulsf3.epeo)
  __c30_signature
-                  0x0004f1          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatdisf.epeo)
+                  0x00051d          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatdisf.epeo)
  __c30_signature
-                  0x0004f7          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatundisf.epeo)
+                  0x000523          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatundisf.epeo)
  __c30_signature
-                  0x0004fd          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libc-elf.a(memcpy.epeo)
+                  0x000529          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libc-elf.a(memcpy.epeo)
  __c30_signature
-                  0x000503          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libc-elf.a(memset.epeo)
+                  0x00052f          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libc-elf.a(memset.epeo)
 
 .nbss               0x1000         0x16
  .nbss              0x1000          0xc build/default/production/Timers.o
@@ -2959,10 +2959,10 @@ __c30_signature
 .data               0x103e          0xa
  .data              0x103e          0xa build/default/production/PozyxPIC_I2C.o
 
-.ivt._MI2C1Interrupt
-                  0x000036          0x2
- .ivt._MI2C1Interrupt
-                  0x000036          0x2 build/default/production/PozyxPIC_I2C.o
+.ivt._MI2C2Interrupt
+                  0x000078          0x2
+ .ivt._MI2C2Interrupt
+                  0x000078          0x2 build/default/production/PozyxPIC_I2C.o
 
 .config_IESO      0x0557f8          0x2
  .config_IESO     0x0557f8          0x2 build/default/production/main.o
@@ -2985,7 +2985,7 @@ __c30_signature
 .const              0x86f2        0x4b6 load address 0x0006f2  
  .const             0x86f2        0x4b6 build/default/production/Pozyx_lib.o
 
-.text             0x000ba8       0x2fd4
+.text             0x000ba8       0x300a
  .text            0x000ba8       0x20b2 build/default/production/Pozyx_lib.o
                   0x000ba8                  _getRead
                   0x000bd0                  _setWrite
@@ -3081,7 +3081,7 @@ __c30_signature
                   0x002c5a                  _IRQ
                   0x002c64                  _waitForFlag
                   0x002cd6                  _waitForFlag_safe
-                  0x002cf8                  _begin
+                  0x002cf8                  _Pozyx_begin
                   0x002dde                  _regRead
                   0x002ec0                  _regWrite
                   0x002f86                  _regFunction
@@ -3094,45 +3094,43 @@ __c30_signature
                   0x0035ce                  _sendData
                   0x003668                  _i2cWriteWrite
                   0x003692                  _i2cWriteRead
- .text            0x0036ee        0x376 build/default/production/PozyxPIC_I2C.o
+ .text            0x0036ee        0x378 build/default/production/PozyxPIC_I2C.o
                   0x0036ee                  _InitI2C
-                  0x003708                  _SendI2CRepeatStart
-                  0x003764                  _SendI2C
-                  0x0037c0                  _ReceiveI2C
-                  0x003816                  _SendSlaveAddressI2C
-                  0x00383a                  _SendDataAddressI2C
-                  0x00388c                  _SendDataI2C
-                  0x0038d2                  _SendRestartI2C
-                  0x0038de                  _SendStartI2C
-                  0x0038fe                  _SendReadRequestI2C
-                  0x003912                  _FirstReceiveI2C
-                  0x003930                  _ReceiveByteI2C
-                  0x00396e                  _EnableReceiveI2C
-                  0x00397a                  _NACKFollowUpI2C
-                  0x003986                  _StopFunctionI2C
-                  0x00398e                  _FailFunctionI2C
-                  0x00399a                  _SuccessFunctionI2C
-                  0x0039a6                  _StatusI2C
-                  0x0039b0                  _writeBits
-                  0x003a24                  _writeBit
- .text            0x003a64         0xaa build/default/production/Timers.o
-                  0x003a64                  _millis
-                  0x003a6e                  _timerDone
-                  0x003aa4                  _setTimerInterval
-                  0x003ac8                  _resetTimer
-                  0x003ad8                  _globalTimerTracker
-                  0x003aea                  _delay
- .text            0x003b0e         0x6e build/default/production/Initialize.o
-                  0x003b0e                  _Start_Initialization
-                  0x003b2c                  _oscillator
+                  0x00370a                  _SendI2CRepeatStart
+                  0x003766                  _SendI2C
+                  0x0037c2                  _ReceiveI2C
+                  0x003818                  _SendSlaveAddressI2C
+                  0x00383c                  _SendDataAddressI2C
+                  0x00388e                  _SendDataI2C
+                  0x0038d4                  _SendRestartI2C
+                  0x0038e0                  _SendStartI2C
+                  0x003900                  _SendReadRequestI2C
+                  0x003914                  _FirstReceiveI2C
+                  0x003932                  _ReceiveByteI2C
+                  0x003970                  _EnableReceiveI2C
+                  0x00397c                  _NACKFollowUpI2C
+                  0x003988                  _StopFunctionI2C
+                  0x003990                  _FailFunctionI2C
+                  0x00399c                  _SuccessFunctionI2C
+                  0x0039a8                  _StatusI2C
+                  0x0039b2                  _writeBits
+                  0x003a26                  _writeBit
+ .text            0x003a66         0xaa build/default/production/Timers.o
+                  0x003a66                  _millis
+                  0x003a70                  _timerDone
+                  0x003aa6                  _setTimerInterval
+                  0x003aca                  _resetTimer
+                  0x003ada                  _globalTimerTracker
+                  0x003aec                  _delay
+ .text            0x003b10         0x6e build/default/production/Initialize.o
+                  0x003b10                  _Start_Initialization
+                  0x003b2e                  _oscillator
+ .text            0x003b7e         0x34 build/default/production/main.o
+                  0x003b7e                  _main
 
-.dinit            0x003b7c         0x28
- .dinit           0x003b7c         0x28 data_init
+.dinit            0x003bb2         0x28
+ .dinit           0x003bb2         0x28 data_init
 
-.init.delay32     0x003ba4         0x1c
- .init.delay32    0x003ba4         0x1c c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
-                  0x003ba4                  ___delay32
-
-.text             0x003bc0          0x6
- .text            0x003bc0          0x6 build/default/production/main.o
-                  0x003bc0                  _main
+.init.delay32     0x003bda         0x1c
+ .init.delay32    0x003bda         0x1c c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+                  0x003bda                  ___delay32

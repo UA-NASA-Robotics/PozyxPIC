@@ -400,7 +400,7 @@ bool waitForFlag(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt);
  * @retval #POZYX_SUCCESS success.
  * @retval #POZYX_FAILURE function failed.
  */
-int begin();
+int Pozyx_begin();
 
 
 /**

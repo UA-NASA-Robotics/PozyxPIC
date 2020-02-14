@@ -77,10 +77,10 @@ bool waitForFlag_safe(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt
     return result;
 }
 
-int begin() {
+int Pozyx_begin() {
     int mode = MODE_INTERRUPT;
     int status = POZYX_SUCCESS;
-    int interrupt_pin = POZYX_INT_MASK_ALL;
+    int interrupt_pin = POZYX_INT_PIN0;
 #ifdef POZYX_DEBUG
     Serial.println("Pozyx Shield");
     Serial.println("------------");
@@ -157,17 +157,9 @@ int begin() {
     if (_mode == MODE_INTERRUPT) {
         // set the function that must be called upon an interrupt
         // put your main code here, to run repeatedly:
-//#if defined(__SAMD21G18A__) || defined(__ATSAMD21G18A__)
-//        // Arduino Tian
-//        int tian_interrupt_pin = interrupt_pin;
-//        attachInterrupt(interrupt_pin + 2, IRQ, RISING);
-//#elif defined(__AVR_ATmega328P__) || defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
-//        // Arduino UNO, Mega
+        
 //        attachInterrupt(interrupt_pin, IRQ, RISING);
-//#else
-//        Serial.println("This is not a board supported by Pozyx, interrupts may not work");
-//        attachInterrupt(interrupt_pin, IRQ, RISING);
-//#endif
+
         //TODO: Setup Interrupt Pins
 
         // use interrupt as provided and initiate the interrupt mask
