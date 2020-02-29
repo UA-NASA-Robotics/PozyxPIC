@@ -22,6 +22,8 @@ bool SendI2CRepeatStart(unsigned char s_address, unsigned char d_address, unsign
 bool SendI2C(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much);
 
 bool ReceiveI2C(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much);
+bool SendReadI2C(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much, unsigned char * rxdat, unsigned char rxhow_much);
+
 
 //////////////////////////
 //                      //

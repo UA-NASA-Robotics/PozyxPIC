@@ -29,13 +29,14 @@ int _interrupt; // variable to indicate that an interrupt has occured
 
 int _hw_version; // Pozyx harware version
 int _fw_version; // Pozyx software (firmware) version. (By updating the firmware on the Pozyx device, this value can change)
-
+void attachInterrupt();
 
 /**
  * The interrupt handler for the pozyx device: keeping it uber short!
  */
 void IRQ() {
     _interrupt = 1;
+    LED2^=1;
 }
 
 bool waitForFlag(uint8_t interrupt_flag, int timeout_ms, uint8_t *interrupt) {
@@ -158,9 +159,7 @@ int Pozyx_begin() {
         // set the function that must be called upon an interrupt
         // put your main code here, to run repeatedly:
         
-//        attachInterrupt(interrupt_pin, IRQ, RISING);
-
-        //TODO: Setup Interrupt Pins
+        attachInterrupt();
 
         // use interrupt as provided and initiate the interrupt mask
         uint8_t int_mask = POZYX_INT_MASK_ALL;
@@ -179,6 +178,7 @@ int Pozyx_begin() {
 /**
  * Reads a number of bytes from the specified pozyx register address using I2C
  */
+int n_runs;
 int regRead(uint8_t reg_address, uint8_t *pData, int size) {
     // BUFFER_LENGTH is defined in wire.h, it limits the maximum amount of bytes that can be transmitted/received with i2c in one go
     // because of this, we may have to split up the i2c reads in smaller chunks
@@ -202,7 +202,7 @@ int regRead(uint8_t reg_address, uint8_t *pData, int size) {
         }
     }
     
-    return ReceiveI2C(POZYX_I2C_ADDRESS, reg_address, pData, size);
+    return status;//ReceiveI2C(POZYX_I2C_ADDRESS, reg_address, pData, size);
 }
 
 /**
@@ -215,7 +215,7 @@ int regWrite(uint8_t reg_address, uint8_t *pData, int size) {
     if (!IS_REG_WRITABLE(reg_address))
         return POZYX_FAILURE;
 
-    int n_runs = ceil((float) size / BUFFER_LENGTH);
+    int n_runs = (int)ceil((float) size / BUFFER_LENGTH);
     int i;
     int status = 1;
 
@@ -574,17 +574,10 @@ int i2cWriteRead(uint8_t* write_data, int write_len, uint8_t* read_data, int rea
     Serial.print(read_len);
     Serial.println(")");*/
 
-    int n;
+    int n = true;
 
-    if (write_len > 1) {
-        n = SendI2C(POZYX_I2C_ADDRESS, write_data[0], &write_data[1], write_len - 1); //Wire.beginTransmission(POZYX_I2C_ADDRESS);      W_A
-    }
-    if (n != true)
-        return (POZYX_FAILURE);
+    n = SendReadI2C(POZYX_I2C_ADDRESS, write_data[0],&write_data[1], write_len - 1 ,read_data, read_len);
 
-
-    n = ReceiveI2C(POZYX_I2C_ADDRESS, write_data[0], read_data, read_len);
-    
     if (n != true) {
         return (POZYX_FAILURE);
     }
@@ -599,6 +592,39 @@ int i2cWriteRead(uint8_t* write_data, int write_len, uint8_t* read_data, int rea
     Serial.println("]");*/
 
     return (POZYX_SUCCESS); // return : no error
+}
+
+void attachInterrupt()
+{
+    // RB9->RP41 setting to input trigger
+    TRISBbits.TRISB9 = 1;
+    
+    RPINR7bits.IC1R = 41;
+    //    CNI: Change Notification Interrupt
+    //    Priority: 1
+    IPC4bits.CNIP = 1;
+            /****************************************************************************
+     * Interrupt On Change: any
+     ***************************************************************************/
+    CNENBbits.CNIEB9 = 1;    //Pin : RB9
+
+    /****************************************************************************
+     * Interrupt On Change: Interrupt Enable
+     ***************************************************************************/
+    IFS1bits.CNIF = 0; //Clear CNI interrupt flag
+    IEC1bits.CNIE = 1; //Enable CNI interrupt
+    
+}
+/* Interrupt service routine for the CNI interrupt. */
+void __attribute__ (( interrupt, no_auto_psv )) _CNInterrupt ( void )
+{
+    if(IFS1bits.CNIF == 1)
+    {
+        if(PORTBbits.RB9 == 1)
+            IRQ();
+        // Clear the flag
+        IFS1bits.CNIF = 0;
+    }
 }
 
 

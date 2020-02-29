@@ -2,7 +2,9 @@
 //********TIMER.C file code****************
 //*****************************************
 #include "Timers.h"
+#include <xc.h>
 #include <stdlib.h>
+#include "Initialize.h"
 unsigned long globalTime;
 
 unsigned long millis(void)
@@ -46,7 +48,12 @@ void delay(int interval)
     time.lastMillis=millis();
     while(!timerDone(&time));
 }
-
+void __attribute__((interrupt, no_auto_psv)) _T1Interrupt(void)
+{
+    globalTimerTracker();
+    LED3^=1;
+    IFS0bits.T1IF = 0; // clear interrupt flag
+}
 //*****************************************
 //**********    END OF C file  ************
 //*****************************************

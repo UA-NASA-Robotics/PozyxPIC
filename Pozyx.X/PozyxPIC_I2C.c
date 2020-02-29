@@ -10,22 +10,29 @@
 
 #include "PozyxPIC_I2C.h"
 
-
+typedef enum {
+    WriteWrite = 0,
+    WriteRead,
+    Normal
+} TransMissionMode_t;
 // general struct for storing settings
 
 struct operator_values {
     unsigned char slave_address;
     unsigned char data_address;
-    unsigned char * data;
-    unsigned char how_much_data;
-    unsigned char data_index;
+    unsigned char * Rxdata;
+    unsigned char * Txdata;
+    unsigned char Rxcount;
+    unsigned char Txcount;
+    unsigned char Rxdata_index;
+    unsigned char Txdata_index;
     unsigned char direction;
     unsigned char status;
-    bool writeRS;
+    TransMissionMode_t transMode;
 };
 
 // initialize the setting struct
-static struct operator_values I2C_1_values = {0, 0, 0, 0, 0, 0, 1, 0};
+static struct operator_values I2C_1_values = {0, 0, 0, 0, 0, 0, 1, Normal};
 
 // function pointer for transition functions
 void (*FunctionI2C)(void);
@@ -35,14 +42,14 @@ void InitI2C(void) {
     // Continues module operation in Idle mode
     I2C2CONbits.I2CSIDL = 0;
     I2C2BRG = 500.8; //591*4; // set baud rate (edited back FROM 591*4)
-    
+
     IPC12bits.MI2C2IP = 2; // priority level 2
     IFS3bits.MI2C2IF = 0; // clear flag
     IEC3bits.MI2C2IE = 1; // enable interrupt flag
     // Enable the I2C2 module and configures the SDA2 and SCL2 pins as serial ports pins
     I2C2CONbits.I2CEN = 1;
+    I2C_1_values.status = SUCCESS;
 }
-
 
 
 
@@ -56,15 +63,51 @@ bool SendI2CRepeatStart(unsigned char s_address, unsigned char d_address, unsign
         //populate struct with needed data
         I2C_1_values.slave_address = s_address << 1;
         I2C_1_values.data_address = d_address;
-        I2C_1_values.data = dat;
-        I2C_1_values.how_much_data = how_much;
-        I2C_1_values.data_index = 0;
+        I2C_1_values.Txdata = dat;
+        I2C_1_values.Txcount = how_much;
+        I2C_1_values.Txdata_index = 0;
         I2C_1_values.direction = RECEIVE;
         I2C_1_values.status = PENDING;
-        I2C_1_values.writeRS = true;
+        I2C_1_values.transMode = WriteWrite;
         FunctionI2C = &SendSlaveAddressI2C; // load the send slave address function
         I2C2CONbits.SEN = 1; // send start condition
-        return true; // return successful
+        while (!(I2C_1_values.status == SUCCESS || I2C_1_values.status == FAILED));
+        if (I2C_1_values.status == SUCCESS)
+            return true; // return successful
+        else
+            return false;
+    } else {
+        return false; // return failed if an i2c request is already running
+    }
+}
+
+bool SendReadI2C(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much, unsigned char * rxdat, unsigned char rxhow_much) {
+    //LED3 ^= 1;
+    // see if a transmit or receive is in prograss
+    if ((I2C_1_values.status == SUCCESS) || (I2C_1_values.status == FAILED)) {
+        //populate struct with needed data
+        I2C_1_values.slave_address = s_address << 1;
+        I2C_1_values.data_address = d_address;
+        I2C_1_values.Txdata = dat;
+        I2C_1_values.Txcount = how_much;
+        I2C_1_values.Txdata_index = 0;
+        I2C_1_values.Rxdata = rxdat;
+        I2C_1_values.Rxcount = rxhow_much;
+        I2C_1_values.Rxdata_index = 0;
+        I2C_1_values.direction = TRANSMIT;
+        I2C_1_values.status = PENDING;
+        I2C_1_values.transMode = WriteRead;
+        if (how_much == 0) {
+            I2C_1_values.direction = RECEIVE;
+            I2C_1_values.transMode = Normal;
+        }
+        FunctionI2C = &SendSlaveAddressI2C; // load the send slave address function
+        I2C2CONbits.SEN = 1; // send start condition
+        while (!(I2C_1_values.status == SUCCESS || I2C_1_values.status == FAILED));
+        if (I2C_1_values.status == SUCCESS)
+            return true; // return successful
+        else
+            return false;
     } else {
         return false; // return failed if an i2c request is already running
     }
@@ -77,20 +120,23 @@ bool SendI2C(unsigned char s_address, unsigned char d_address, unsigned char * d
         //populate struct with needed data
         I2C_1_values.slave_address = s_address << 1;
         I2C_1_values.data_address = d_address;
-        I2C_1_values.data = dat;
-        I2C_1_values.how_much_data = how_much;
-        I2C_1_values.data_index = 0;
+        I2C_1_values.Txdata = dat;
+        I2C_1_values.Txcount = how_much;
+        I2C_1_values.Txdata_index = 0;
         I2C_1_values.direction = TRANSMIT;
         I2C_1_values.status = PENDING;
-        I2C_1_values.writeRS = false;
+        I2C_1_values.transMode = Normal;
         FunctionI2C = &SendSlaveAddressI2C; // load the send slave address function
         I2C2CONbits.SEN = 1; // send start condition
-        return true; // return successful
+        while (!(I2C_1_values.status == SUCCESS || I2C_1_values.status == FAILED));
+        if (I2C_1_values.status == SUCCESS)
+            return true; // return successful
+        else
+            return false;
     } else {
         return false; // return failed if an i2c request is already running
     }
 }
-
 // initiate a receive moving data to an array of a set number of data
 
 bool ReceiveI2C(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much) {
@@ -102,14 +148,19 @@ bool ReceiveI2C(unsigned char s_address, unsigned char d_address, unsigned char 
         //populate struct with needed data
         I2C_1_values.slave_address = s_address << 1;
         I2C_1_values.data_address = d_address;
-        I2C_1_values.data = dat;
-        I2C_1_values.how_much_data = how_much;
-        I2C_1_values.data_index = 0;
+        I2C_1_values.Rxdata = dat;
+        I2C_1_values.Rxcount = how_much;
+        I2C_1_values.Rxdata_index = 0;
         I2C_1_values.direction = RECEIVE;
         I2C_1_values.status = PENDING;
+        I2C_1_values.transMode = Normal;
         FunctionI2C = &SendSlaveAddressI2C; // load the send slave address function
         I2C2CONbits.SEN = 1; // send start condition
-        return true; // return successful
+        while (!(I2C_1_values.status == SUCCESS || I2C_1_values.status == FAILED));
+        if (I2C_1_values.status == SUCCESS)
+            return true; // return successful
+        else
+            return false;
     } else {
         return false; // return failed if an i2c request is already running
     }
@@ -121,10 +172,15 @@ void SendSlaveAddressI2C(void) {
     if (I2C_1_values.direction == RECEIVE) {
         I2C2TRN = I2C_1_values.slave_address | 0x00; // load slave address into buffer
     } else {
+
         I2C2TRN = I2C_1_values.slave_address | 0x00; // load slave address into buffer
     }
+    if (I2C_1_values.transMode == WriteWrite && I2C_1_values.direction == TRANSMIT) {
+        FunctionI2C = &SendDataI2C; // load function that will continue sending
+    } else {
+        FunctionI2C = &SendDataAddressI2C; // load the send data address function
+    }
 
-    FunctionI2C = &SendDataAddressI2C; // load the send data address function
 
 }
 
@@ -143,9 +199,9 @@ void SendDataAddressI2C(void) {
         } else if (I2C_1_values.direction == TRANSMIT) // transmitting
         {
             I2C2TRN = I2C_1_values.data_address; // load data address value
-            if (I2C_1_values.writeRS == true) {
-                FunctionI2C = &SendDataI2C; // load function that will continue sending
-            }
+            //if (I2C_1_values.writeRS == true) {
+            FunctionI2C = &SendDataI2C; // load function that will continue sending
+            //}
         } else //neither transmit or receive (just in case)
         {
             StopFunctionI2C(); // initiate stop
@@ -164,13 +220,20 @@ void SendDataI2C(void) {
     if (I2C2STATbits.ACKSTAT == 0) //ack received
     {
         //if index is less than how much data, send data and increment index
-        if (I2C_1_values.data_index < I2C_1_values.how_much_data) {
-            I2C2TRN = I2C_1_values.data[I2C_1_values.data_index]; // load data into buffer
-            I2C_1_values.data_index++; // increment index
-        } else //all data has been sent
+        if (I2C_1_values.Txdata_index < I2C_1_values.Txcount) {
+            I2C2TRN = I2C_1_values.Txdata[I2C_1_values.Txdata_index]; // load data into buffer
+            I2C_1_values.Txdata_index++; // increment index
+        }
+        else //all data has been sent
         {
-            StopFunctionI2C(); // since all data hase been sent initiate stop
-            FunctionI2C = &SuccessFunctionI2C; // load sucess function
+            if (I2C_1_values.transMode == WriteRead && I2C_1_values.direction == TRANSMIT) {
+                I2C2CONbits.SEN = 1; // send start condition
+                FunctionI2C = &SendReadRequestI2C;
+                I2C_1_values.direction = RECEIVE;
+            } else {
+                StopFunctionI2C(); // since all data hase been sent initiate stop
+                FunctionI2C = &SuccessFunctionI2C; // load sucess function
+            }
         }
     } else //nack received
     {
@@ -190,8 +253,8 @@ void SendRestartI2C(void) {
 
 void SendStartI2C(void) {
     I2C2CONbits.SEN = 1; // send start condition
-    if (I2C_1_values.writeRS == true) {
-        FunctionI2C = &SendDataI2C;
+    if (I2C_1_values.transMode == WriteWrite) {
+        FunctionI2C = &SendSlaveAddressI2C;
         I2C_1_values.direction = TRANSMIT;
     } else
         FunctionI2C = &SendReadRequestI2C; // load send read request function
@@ -220,9 +283,9 @@ void FirstReceiveI2C(void) {
 }
 
 void ReceiveByteI2C(void) {
-    I2C_1_values.data[I2C_1_values.data_index] = I2C2RCV;
-    I2C_1_values.data_index++;
-    if (I2C_1_values.data_index < I2C_1_values.how_much_data) {
+    I2C_1_values.Rxdata[I2C_1_values.Rxdata_index] = I2C2RCV;
+    I2C_1_values.Rxdata_index++;
+    if (I2C_1_values.Rxdata_index < I2C_1_values.Rxcount) {
         I2C2CONbits.ACKDT = 0; //Setup ACK (EDITED()
         I2C2CONbits.ACKEN = 1; // send ACK
         FunctionI2C = &EnableReceiveI2C;
@@ -244,6 +307,7 @@ void NACKFollowUpI2C(void) {
 }
 
 void StopFunctionI2C(void) {
+
     I2C2CONbits.PEN = 1; //send stop
 }
 
