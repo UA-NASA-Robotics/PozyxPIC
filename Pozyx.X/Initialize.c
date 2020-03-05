@@ -2,15 +2,17 @@
 #include <stdbool.h>
 #include "Initialize.h"
 #include <stdio.h>
-
+#include "mcc_generated_files/can1.h"
+#include "mcc_generated_files/dma.h"
+#include "uart1_config.h"
 
 
 
 #define GLOBAL_INTERRUPTS  INTCON2bits.GIE
 int receiveArray[20];
-void Start_Initialization()
-{
-    
+
+void Start_Initialization() {
+
     //GLOBAL_INTERRUPTS = OFF;
     //Initialization Function Calls go in here<GLOBAL_INTERRUPTS(OFF)/> to <GLOBAL_INTERRUPTS(ON)>
     oscillator();
@@ -23,27 +25,34 @@ void Start_Initialization()
     pinModeLED6 = OUTPUT;
     pinModeLED7 = OUTPUT;
     pinModeLED8 = OUTPUT;
+
+     TRISA = 0x0797;
+    TRISB = 0xFFFF;
+    TRISC = 0x03BE;
     
-    TRISC = 0xE;
     ANSELC = 0xD;
-    
+
     /* Set the PPS */
     __builtin_write_OSCCONL(OSCCON & 0xbf);
-    
-    RPOR6bits.RP54R = 0x000E;       //CAN TX
-    RPINR26bits.C1RXR = 0x0037;     //CAN RX
-    
-    RPINR18bits.U1RXR = 0x0031;    //RC1-> UART1:U1RX
-    RPOR5bits.RP48R = 0x0001;       //RC0-> UART1:U1TX
-    
+
+    RPOR6bits.RP54R = 0x000E; //CAN TX
+    RPINR26bits.C1RXR = 0x0037; //CAN RX
+
+    RPINR18bits.U1RXR = 0x0031; //RC1-> UART1:U1RX
+    RPOR5bits.RP48R = 0x0001; //RC0-> UART1:U1TX
+
     __builtin_write_OSCCONL(OSCCON | 0x40);
-    
+    DMA_Initialize();
+    CAN1_TransmitEnable();
+    CAN1_ReceiveEnable();
+    /*Initialize uart1 processes*/
+    uart1_init();
     __builtin_enable_interrupts();
+    
+
 }
 
-
-void oscillator(void)
-{
+void oscillator(void) {
     // FRCDIV FRC/1; PLLPRE 3; DOZE 1:8; PLLPOST 1:2; DOZEN disabled; ROI disabled; 
     CLKDIV = 0x3001;
     // TUN Center frequency; 
@@ -71,13 +80,13 @@ void oscillator(void)
     while (OSCCONbits.OSWEN != 0);
     while (OSCCONbits.LOCK != 1);
 }
-void timerOne(void)
-{
+
+void timerOne(void) {
 
     T1CONbits.TCKPS = 0b10; // 64 divider
-    PR1 = 469;              // 0.001s timer
-    IPC0bits.T1IP = 1;      // interrupt priority level 1
-    IFS0bits.T1IF = 0;      // clear interrupt flag
-    IEC0bits.T1IE = 1;      // enable timer 1 interrupt
-    T1CONbits.TON = 1;      // turn on timer
+    PR1 = 469; // 0.001s timer
+    IPC0bits.T1IP = 1; // interrupt priority level 1
+    IFS0bits.T1IF = 0; // clear interrupt flag
+    IEC0bits.T1IE = 1; // enable timer 1 interrupt
+    T1CONbits.TON = 1; // turn on timer
 }

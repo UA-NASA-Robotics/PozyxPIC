@@ -39,7 +39,7 @@ extern "C" {
         DATA_3,
         DATA_4
     } GlobalDeviceData_t;
-    #define GLOBAL_DEVICES 10
+    #define GLOBAL_DEVICES 11
     #define GLOBAL_DATA_INDEX_PER_DEVICE 7
     #define getGBL_START_INDEX(c) c*GLOBAL_DATA_INDEX_PER_DEVICE
     #define getGBL_DEVICE_STATUS(c) c*GLOBAL_DATA_INDEX_PER_DEVICE + DEVICE_STATUS

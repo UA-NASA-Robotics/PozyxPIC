@@ -7,13 +7,15 @@
 #include "PozyxWrapper.h"
 #include "FastTransfer_CAN.h"
 #include "uart1_config.h"
-
+#include "FastTransfer/ft.h"
 /*MCC_GENERATED_FILES - move into separate folder/include environment for cleanliness?*/
 #include "mcc_generated_files/can1.h"
 #include "mcc_generated_files/dma.h"
 #include "mcc_generated_files/ecan1.h"
 
 #define DelayVal 50
+FT_t FT_handle;
+FTC_t ftc_handle;
 
 int main(void) {
     //__delay_ms(50);
@@ -23,42 +25,31 @@ int main(void) {
     InitI2C();
     /* Boot the Pozyx and initialize the system*/
     //PozyxBoot();
-    /* Get the dead band for the gyro to eliminate drift*/
-
+/*Initialize FastTransfer for uart processes*/
+    FT_Init(&FT_handle, ROUTER_CARD, uart1_put_c, uart1_get, uart1_rx_empty);
     /*Initialize FastTransfer_CAN processes*/
-    initCANFT();
-
-    /*Initialize uart1 processes*/
-    uart1_init();
-
-    /*MCC GENERATED FILE STARTUP*/
-
-    //Initialize Can1
-    CAN1_Initialize();
-
-    //Initialize DMA
-    DMA_Initialize();
+    FTC_Init(&ftc_handle, ROUTER_CARD, 1, CAN1_Initialize, CAN1_transmit, CAN1_receive);
     
-    //Initialize Transmissions from Can1
-    CAN1_TransmitEnable();
-    CAN1_ReceiveEnable();
+    
+    /* Get the dead band for the gyro to eliminate drift*/
 
     //Calibrate Gyro for header
     //calibrateGyro();
 
-//    initGlobalData(1, getPozyx_X, 300);
-//    initGlobalData(2, getPozyx_Y, 300);
-//    initGlobalData(3, getPozyx_H, 300);
-    uCAN_MSG msg;
-    msg.frame.id = 06;
-    msg.frame.idType = CAN_FRAME_STD;
-    msg.frame.msgtype = 0;
-    msg.frame.dlc = 1;
-    msg.frame.data0 = 0x55;
+    //    initGlobalData(1, getPozyx_X, 300);
+    //    initGlobalData(2, getPozyx_Y, 300);
+    //    initGlobalData(3, getPozyx_H, 300);
+
     while (1) {
-        //CAN1_transmit(CAN_PRIORITY_HIGH, &msg);
-        //uart1_put(0x69);
-        U1TXREG = 0x69;
+        FT_ToSend(&FT_handle, 0, 11);
+        FT_ToSend(&FT_handle, 1, 0xffff);
+        FT_Send(&FT_handle, 6);
+        //ToSendCAN(4, 0x55AA);
+        //sendDataCAN(6);
+        FTC_ToSend(&ftc_handle, 4, 0x55AA);
+        FTC_Send(&ftc_handle, 6);
+        //LATBbits.LATB10 ^= 1;
+        //CommunicationsHandle();
         //        /* Get the range data from the Pozyx and calculate the location */
         //        updateStatus();
         //        /* Calculate the location of the robot with the center as the base point */

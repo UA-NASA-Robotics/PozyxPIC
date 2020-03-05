@@ -12,7 +12,7 @@
 
 #include <xc.h>
 
-#define FCY 60000000UL
+#define FCY 30000000UL
 
 #include <libpic30.h>
 
