@@ -4,6 +4,16 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <logicalFolder name="FastTransfer"
+                     displayName="FastTransfer"
+                     projectFiles="true">
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="MCC_Config" projectFiles="true">
+        <itemPath>mcc_generated_files/can1.h</itemPath>
+        <itemPath>mcc_generated_files/can_types.h</itemPath>
+        <itemPath>mcc_generated_files/dma.h</itemPath>
+        <itemPath>mcc_generated_files/ecan1.h</itemPath>
+      </logicalFolder>
       <itemPath>Config.h</itemPath>
       <itemPath>Initialize.h</itemPath>
       <itemPath>Pozyx.h</itemPath>
@@ -12,6 +22,10 @@
       <itemPath>Timers.h</itemPath>
       <itemPath>PozyxWrapper.h</itemPath>
       <itemPath>DataPublishing.h</itemPath>
+      <itemPath>CommsDefenition.h</itemPath>
+      <itemPath>CommsIDs.h</itemPath>
+      <itemPath>FastTransfer_CAN.h</itemPath>
+      <itemPath>uart1_config.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -20,6 +34,15 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="FastTransfer"
+                     displayName="FastTransfer"
+                     projectFiles="true">
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="MCC_Config" projectFiles="true">
+        <itemPath>mcc_generated_files/can1.c</itemPath>
+        <itemPath>mcc_generated_files/dma.c</itemPath>
+        <itemPath>mcc_generated_files/ecan1.c</itemPath>
+      </logicalFolder>
       <logicalFolder name="f1" displayName="PozyxHandler" projectFiles="true">
         <itemPath>PozyxPIC_I2C.c</itemPath>
         <itemPath>Pozyx_lib.c</itemPath>
@@ -30,6 +53,8 @@
       <itemPath>Timers.c</itemPath>
       <itemPath>PozyxWrapper.c</itemPath>
       <itemPath>DataPublishing.c</itemPath>
+      <itemPath>FastTransfer_CAN.c</itemPath>
+      <itemPath>uart1_config.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -202,6 +227,9 @@
         <property key="relaxed-math" value="false"/>
         <property key="save-temps" value="false"/>
       </C30Global>
+      <pk4hybrid>
+        <property key="memories.programmemory.ranges" value="0-557eb"/>
+      </pk4hybrid>
     </conf>
   </confs>
 </configurationDescriptor>
