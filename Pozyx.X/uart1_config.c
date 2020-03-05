@@ -27,10 +27,16 @@ void uart1_init(void) {
     rbuffer_init(&u1rx_buffer);
     rbuffer_init(&u1tx_buffer);
     
-    RPINR18bits.U1RXR = 0b0111000; // rx on rp57 (rx-0, RC9/pin5)
-    RPOR7bits.RP57R = 0b000001;    // tx on rp56 (tx-0, RC8/pin4)
-    U1MODEbits.BRGH = 1;           // high speed 4x baud
-    U1BRG = 130-1;                 // need to work on macro->mplab does not like
+    
+//    RPINR18bits.U1RXR = 0x0031;    //RC1-> UART1:U1RX
+//    RPOR5bits.RP48R = 0x0001;       //RC0-> UART1:U1TX
+    
+            
+//    RPINR18bits.U1RXR = 0b0111000; // rx on rp57 (rx-0, RC9/pin5)
+//    RPOR7bits.RP57R = 0b000001;    // tx on rp56 (tx-0, RC8/pin4)
+    U1MODEbits.BRGH = 0;           // high speed 4x baud
+    U1MODEbits.STSEL = 0;
+    U1BRG = 0x40;                 // need to work on macro->mplab does not like
     U1STAbits.UTXISEL0 = 1;        // interrupt on last bit received
     IFS0bits.U1TXIF = 0;           // clear interrupt flag
     IEC0bits.U1TXIE = 1;           // enable interrupts

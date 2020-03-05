@@ -1,6 +1,7 @@
 #include <xc.h>
 #include <stdbool.h>
 #include "Initialize.h"
+#include <stdio.h>
 
 
 
@@ -22,7 +23,22 @@ void Start_Initialization()
     pinModeLED6 = OUTPUT;
     pinModeLED7 = OUTPUT;
     pinModeLED8 = OUTPUT;
-     __builtin_enable_interrupts();
+    
+    TRISC = 0xE;
+    ANSELC = 0xD;
+    
+    /* Set the PPS */
+    __builtin_write_OSCCONL(OSCCON & 0xbf);
+    
+    RPOR6bits.RP54R = 0x000E;       //CAN TX
+    RPINR26bits.C1RXR = 0x0037;     //CAN RX
+    
+    RPINR18bits.U1RXR = 0x0031;    //RC1-> UART1:U1RX
+    RPOR5bits.RP48R = 0x0001;       //RC0-> UART1:U1TX
+    
+    __builtin_write_OSCCONL(OSCCON | 0x40);
+    
+    __builtin_enable_interrupts();
 }
 
 

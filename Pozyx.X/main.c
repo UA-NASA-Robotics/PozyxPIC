@@ -22,46 +22,55 @@ int main(void) {
     /* Initialize the I2C system peripheral that will handle coms with pozyx*/
     InitI2C();
     /* Boot the Pozyx and initialize the system*/
-    PozyxBoot();
+    //PozyxBoot();
     /* Get the dead band for the gyro to eliminate drift*/
-    
+
     /*Initialize FastTransfer_CAN processes*/
     initCANFT();
-    
+
     /*Initialize uart1 processes*/
     uart1_init();
-    
+
     /*MCC GENERATED FILE STARTUP*/
-    
+
     //Initialize Can1
     CAN1_Initialize();
-    
+
     //Initialize DMA
     DMA_Initialize();
     
     //Initialize Transmissions from Can1
     CAN1_TransmitEnable();
-            
+    CAN1_ReceiveEnable();
+
     //Calibrate Gyro for header
-    calibrateGyro();
-    
-    initGlobalData(1, getPozyx_X, 300);
-    initGlobalData(2, getPozyx_Y, 300);
-    initGlobalData(3, getPozyx_H, 300);
-    
+    //calibrateGyro();
+
+//    initGlobalData(1, getPozyx_X, 300);
+//    initGlobalData(2, getPozyx_Y, 300);
+//    initGlobalData(3, getPozyx_H, 300);
+    uCAN_MSG msg;
+    msg.frame.id = 06;
+    msg.frame.idType = CAN_FRAME_STD;
+    msg.frame.msgtype = 0;
+    msg.frame.dlc = 1;
+    msg.frame.data0 = 0x55;
     while (1) {
-        /* Get the range data from the Pozyx and calculate the location */
-        updateStatus();
-        /* Calculate the location of the robot with the center as the base point */
-        calculateCenter();
-        /* Getting the heading of the robot based on the pozyx devices */
-        updateHeading();
-        /* use the Gyro to adjust the heading found in 'updateHeading()' */
-        adjustHeading();
-        /* Publish the data on the Global Can Bus */
-        publishData();
-        
-        LED1^=1;
+        //CAN1_transmit(CAN_PRIORITY_HIGH, &msg);
+        //uart1_put(0x69);
+        U1TXREG = 0x69;
+        //        /* Get the range data from the Pozyx and calculate the location */
+        //        updateStatus();
+        //        /* Calculate the location of the robot with the center as the base point */
+        //        calculateCenter();
+        //        /* Getting the heading of the robot based on the pozyx devices */
+        //        updateHeading();
+        //        /* use the Gyro to adjust the heading found in 'updateHeading()' */
+        //        adjustHeading();
+        //        /* Publish the data on the Global Can Bus */
+        //        publishData();
+
+        LED1 ^= 1;
         __delay_ms(500);
 
     }
@@ -92,4 +101,4 @@ __________
  /        \  ___/|  | |   Y  \ \     \____/ __ \|  | \/  |_> >  ___/|   |  \  | \  ___/|  | \/
 /_______  /\___  >__| |___|  /  \______  (____  /__|  |   __/ \___  >___|  /__|  \___  >__|   
         \/     \/          \/          \/     \/      |__|        \/     \/          \/       
-*/
+ */
