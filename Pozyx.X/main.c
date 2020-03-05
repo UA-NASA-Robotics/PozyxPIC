@@ -9,9 +9,9 @@
 #include "uart1_config.h"
 
 /*MCC_GENERATED_FILES - move into separate folder/include environment for cleanliness?*/
-#include "can1.h"
-#include "dma.h"
-#include "ecan1.h"
+#include "mcc_generated_files/can1.h"
+#include "mcc_generated_files/dma.h"
+#include "mcc_generated_files/ecan1.h"
 
 #define DelayVal 50
 
@@ -34,10 +34,10 @@ int main(void) {
     /*MCC GENERATED FILE STARTUP*/
     
     //Initialize Can1
-    CAN1_INITIALIZE();
+    CAN1_Initialize();
     
     //Initialize DMA
-    DMA_INITIALIZE();
+    DMA_Initialize();
     
     //Initialize Transmissions from Can1
     CAN1_TransmitEnable();
