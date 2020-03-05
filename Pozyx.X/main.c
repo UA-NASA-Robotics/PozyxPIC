@@ -5,20 +5,44 @@
 #include "Pozyx_definitions.h"
 #include "Pozyx.h"
 #include "PozyxWrapper.h"
+#include "FastTransfer_CAN.h"
+#include "uart1_config.h"
 
-
+/*MCC_GENERATED_FILES - move into separate folder/include environment for cleanliness?*/
+#include "can1.h"
+#include "dma.h"
+#include "ecan1.h"
 
 #define DelayVal 50
 
 int main(void) {
     //__delay_ms(50);
-    /* initialize the system peripherals this includs clocks and timers */
+    /* initialize the system peripherals this includes clocks and timers */
     Start_Initialization();
     /* Initialize the I2C system peripheral that will handle coms with pozyx*/
     InitI2C();
     /* Boot the Pozyx and initialize the system*/
     PozyxBoot();
     /* Get the dead band for the gyro to eliminate drift*/
+    
+    /*Initialize FastTransfer_CAN processes*/
+    initCANFT();
+    
+    /*Initialize uart1 processes*/
+    uart1_init();
+    
+    /*MCC GENERATED FILE STARTUP*/
+    
+    //Initialize Can1
+    CAN1_INITIALIZE();
+    
+    //Initialize DMA
+    DMA_INITIALIZE();
+    
+    //Initialize Transmissions from Can1
+    CAN1_TransmitEnable();
+            
+    //Calibrate Gyro for header
     calibrateGyro();
     
     initGlobalData(1, getPozyx_X, 300);
