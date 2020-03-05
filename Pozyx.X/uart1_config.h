@@ -9,7 +9,6 @@
 #define	UART1_CONFIG_H
 
 #include <stdint.h>
-#include "defs.h"
 #include <xc.h>
 #include <stdbool.h>
 #define BAUD_DEFAULT 115200

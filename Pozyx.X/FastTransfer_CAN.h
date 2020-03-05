@@ -51,12 +51,11 @@ struct FastTransferHandle_CAN
     unsigned char moduleAddressCAN[2];
     unsigned int MaxIndex[2];
     int receiveArrayCAN[10];
-    bool receiveArrayCAN_Flag[10];
+    bool CAN_FT_recievedFlag[CAN_RECIEVE_SIZE];
     int newDataFlag_Global[2];
     volatile int receiveArrayCAN_Global[GLOBAL_DEVICES*GLOBAL_DATA_INDEX_PER_DEVICE + 1];
     bool GBL_CAN_FT_recievedFlag[GLOBAL_DEVICES*GLOBAL_DATA_INDEX_PER_DEVICE + 1];
-    bool CAN_FT_recievedFlag[CAN_RECIEVE_SIZE];
-    int ReceiveCAN[CAN_RECIEVE_SIZE];
+    
 };
 typedef struct FastTransferHandle_CAN FTC_t;
 

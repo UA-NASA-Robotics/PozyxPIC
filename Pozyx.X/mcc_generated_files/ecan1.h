@@ -19,7 +19,7 @@
     The generated drivers are tested against the following:
         Compiler          :  XC16 v1.41
         MPLAB 	          :  MPLAB X v5.30
-*/
+ */
 
 /*
     (c) 2019 Microchip Technology Inc. and its subsidiaries. You may use this
@@ -41,18 +41,17 @@
 
     MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
     TERMS.
-*/
+ */
 
 #ifndef _ECAN1_H
 #define _ECAN1_H
 
 /**
   Section: Included Files
-*/
+ */
 
 #include "can_types.h"
 
-#warning deprecate ("\nThis will be removed in future MCC releases. \nUse can_types.h file CAN message type identifiers instead. ")
 /* ECAN message type identifiers */
 #define CAN1_MSG_DATA    0x01
 #define CAN1_MSG_RTR     0x02
@@ -62,6 +61,7 @@
 #define CAN1_BUF_EMPTY	0x06
 
 typedef union {
+
     struct {
         uint32_t id;
         uint8_t idType;
@@ -77,154 +77,153 @@ typedef union {
         uint8_t data7;
     } frame;
     unsigned char array[16];
-} uCAN1_MSG __attribute__((deprecate ("\nThis will be removed in future MCC releases. \nUse can_types.h file uCAN_MSG instead. ")));
+} uCAN1_MSG;
 
 /* Operation modes */
-typedef enum
-{
-	CAN1_NORMAL_OPERATION_MODE = 0,
-	CAN1_DISABLE_MODE = 1,
-	CAN1_LOOPBACK_MODE = 2,
-	CAN1_LISTEN_ONLY_MODE = 3,
-	CAN1_CONFIGURATION_MODE = 4,
-	CAN1_LISTEN_ALL_MESSAGES_MODE = 7
-}ECAN1_OP_MODES __attribute__((deprecated ("\nThis will be removed in future MCC releases. \nUse can_types.h file CAN_OP_MODES instead. ")));
+typedef enum {
+    CAN1_NORMAL_OPERATION_MODE = 0,
+    CAN1_DISABLE_MODE = 1,
+    CAN1_LOOPBACK_MODE = 2,
+    CAN1_LISTEN_ONLY_MODE = 3,
+    CAN1_CONFIGURATION_MODE = 4,
+    CAN1_LISTEN_ALL_MESSAGES_MODE = 7
+} ECAN1_OP_MODES;
 
-typedef enum{
+typedef enum {
     ECAN1_PRIORITY_HIGH = 0b11,
     ECAN1_PRIORITY_MEDIUM = 0b10,
     ECAN1_PRIORITY_LOW = 0b01,
     ECAN1_PRIORITY_NONE = 0b00
-} ECAN1_TX_PRIOIRTY __attribute__((deprecated ("\nThis will be removed in future MCC releases. \nUse can_types.h file CAN_TX_PRIOIRTY instead. ")));
+} ECAN1_TX_PRIOIRTY;
 
 #ifdef __cplusplus  // Provide C++ Compatibility
 
-    extern "C" {
+extern "C" {
 
 #endif
 
-/**
-  Section: ECAN1 Module APIs
-*/
+    /**
+      Section: ECAN1 Module APIs
+     */
 
-/**
-  @Summary
-    Initializes the ECAN1_Initialize.
+    /**
+      @Summary
+        Initializes the ECAN1_Initialize.
 
-  @Description
-    This routine initializes the ECAN1_Initialize.
-    This routine must be called before any other ECAN1 routine is called.
-    This routine should only be called once during system initialization.
+      @Description
+        This routine initializes the ECAN1_Initialize.
+        This routine must be called before any other ECAN1 routine is called.
+        This routine should only be called once during system initialization.
 
-  @Preconditions
-    None
+      @Preconditions
+        None
 
-  @Param
-    None
+      @Param
+        None
 
-  @Returns
-    None
+      @Returns
+        None
 
-  @Comment
+      @Comment
     
 
- @Example
-    <code>
-    ECAN1_Initialize();
-    </code>
- */
-void ECAN1_Initialize(void) __attribute__((deprecate ("\nThis will be removed in future MCC releases. \nUse CAN1_Initialize instead. ")));
+     @Example
+        <code>
+        ECAN1_Initialize();
+        </code>
+     */
+    void ECAN1_Initialize(void);
 
-/******************************************************************************
-*                                                                             
-*    Function:		ECAN1_receive
-*    Description:       Receives the message from CAN buffer to user buffer                                                                         
-*    Arguments:		recCanMsg: pointer to the message object
-*    Return Value:      true - Receive successful
-*                       false - Receive failure                                                                              
-******************************************************************************/
-bool ECAN1_receive(uCAN1_MSG *recCanMsg) __attribute__((deprecate ("\nThis will be removed in future MCC releases. \nUse CAN1_receive instead. "))); 
+    /******************************************************************************
+     *                                                                             
+     *    Function:		ECAN1_receive
+     *    Description:       Receives the message from CAN buffer to user buffer                                                                         
+     *    Arguments:		recCanMsg: pointer to the message object
+     *    Return Value:      true - Receive successful
+     *                       false - Receive failure                                                                              
+     ******************************************************************************/
+    bool ECAN1_receive(uCAN1_MSG *recCanMsg);
 
-/******************************************************************************
-*                                                                             
-*    Function:		ECAN1_transmit
-*    Description:       Transmits the message from user buffer to CAN buffer                                                                        
-*    Arguments:		priority: priority of the message to be transmitted
-*                       sendCanMsg: pointer to the message object                                        
-*    Return Value:      true - Transmit successful
-*                       false - Transmit failure                                                                              
-******************************************************************************/
-bool ECAN1_transmit(ECAN1_TX_PRIOIRTY priority, 
-                                    uCAN1_MSG *sendCanMsg) __attribute__((deprecate ("\nThis will be removed in future MCC releases. \nUse CAN1_transmit instead. "))); 
+    /******************************************************************************
+     *                                                                             
+     *    Function:		ECAN1_transmit
+     *    Description:       Transmits the message from user buffer to CAN buffer                                                                        
+     *    Arguments:		priority: priority of the message to be transmitted
+     *                       sendCanMsg: pointer to the message object                                        
+     *    Return Value:      true - Transmit successful
+     *                       false - Transmit failure                                                                              
+     ******************************************************************************/
+    bool ECAN1_transmit(ECAN1_TX_PRIOIRTY priority,
+            uCAN1_MSG *sendCanMsg);
 
-/******************************************************************************                                                                       
-*    Function:          ECAN1_isBusOff
-*    Description:       Checks whether the transmitter in Bus off state                                                                                                   
-*    Return Value:      true - Transmitter in Bus Off state
-*                       false - Transmitter not in Bus Off state                                                                              
-******************************************************************************/
-bool ECAN1_isBusOff() __attribute__((deprecate ("\nThis will be removed in future MCC releases. \nUse CAN1_isBusOff instead. "))); 
+    /******************************************************************************                                                                       
+     *    Function:          ECAN1_isBusOff
+     *    Description:       Checks whether the transmitter in Bus off state                                                                                                   
+     *    Return Value:      true - Transmitter in Bus Off state
+     *                       false - Transmitter not in Bus Off state                                                                              
+     ******************************************************************************/
+    bool ECAN1_isBusOff();
 
-/******************************************************************************                                                                 
-*    Function:		ECAN1_isRXErrorPassive
-*    Description:       Checks whether the receive in error passive state                                    
-*    Return Value:      true - Receiver in Error Passive state
-*                       false - Receiver not in Error Passive state                                                                              
-******************************************************************************/
-bool ECAN1_isRXErrorPassive() __attribute__((deprecate ("\nThis will be removed in future MCC releases. \nUse CAN1_isRXErrorPassive instead. ")));
+    /******************************************************************************                                                                 
+     *    Function:		ECAN1_isRXErrorPassive
+     *    Description:       Checks whether the receive in error passive state                                    
+     *    Return Value:      true - Receiver in Error Passive state
+     *                       false - Receiver not in Error Passive state                                                                              
+     ******************************************************************************/
+    bool ECAN1_isRXErrorPassive();
 
-/******************************************************************************                                                                      
-*    Function:		ECAN1_isTXErrorPassive
-*    Description:       Checks whether the transmitter in error passive state                                                                                                             
-*    Return Value:      true - Transmitter in Error Passive state
-*                       false - Transmitter not in Error Passive state                                                                              
-******************************************************************************/
-bool ECAN1_isTXErrorPassive() __attribute__((deprecate ("\nThis will be removed in future MCC releases. \nUse CAN1_isTXErrorPassive instead. ")));
+    /******************************************************************************                                                                      
+     *    Function:		ECAN1_isTXErrorPassive
+     *    Description:       Checks whether the transmitter in error passive state                                                                                                             
+     *    Return Value:      true - Transmitter in Error Passive state
+     *                       false - Transmitter not in Error Passive state                                                                              
+     ******************************************************************************/
+    bool ECAN1_isTXErrorPassive();
 
-/******************************************************************************                                                                    
-*    Function:		ECAN1_messagesInBuffer
-*    Description:       returns the number of messages that are received                                                                                                               
-*    Return Value:      Number of message received
-******************************************************************************/
-uint8_t ECAN1_messagesInBuffer() __attribute__((deprecate ("\nThis will be removed in future MCC releases. \nUse CAN1_messagesInBuffer instead. ")));
+    /******************************************************************************                                                                    
+     *    Function:		ECAN1_messagesInBuffer
+     *    Description:       returns the number of messages that are received                                                                                                               
+     *    Return Value:      Number of message received
+     ******************************************************************************/
+    uint8_t ECAN1_messagesInBuffer();
 
-/******************************************************************************
-*                                                                             
-*    Function:		ECAN1_sleep
-*    Description:       Puts ECAN1 module in disable mode.
-*    Return Value:      None
-*                                                                       
-******************************************************************************/
-void ECAN1_sleep() __attribute__((deprecate ("\nThis will be removed in future MCC releases. \nUse CAN1_sleep instead. ")));
+    /******************************************************************************
+     *                                                                             
+     *    Function:		ECAN1_sleep
+     *    Description:       Puts ECAN1 module in disable mode.
+     *    Return Value:      None
+     *                                                                       
+     ******************************************************************************/
+    void ECAN1_sleep();
 
-/******************************************************************************                                                                    
-*    Function:		ECAN1_TransmitEnable
-*    Description:       Enables Transmit for ECAN1                                                                                                                
-*    Return Value:      None
-******************************************************************************/
-void ECAN1_TransmitEnable() __attribute__((deprecate ("\nThis will be removed in future MCC releases. \nUse CAN1_TransmitEnable instead. ")));
+    /******************************************************************************                                                                    
+     *    Function:		ECAN1_TransmitEnable
+     *    Description:       Enables Transmit for ECAN1                                                                                                                
+     *    Return Value:      None
+     ******************************************************************************/
+    void ECAN1_TransmitEnable();
 
-/******************************************************************************                                                                    
-*    Function:		ECAN1_ReceiveEnable
-*    Description:       Enables Receive for ECAN1                                                                                                                
-*    Return Value:      None
-******************************************************************************/
-void ECAN1_ReceiveEnable() __attribute__((deprecate ("\nThis will be removed in future MCC releases. \nUse CAN1_ReceiveEnable instead. ")));
+    /******************************************************************************                                                                    
+     *    Function:		ECAN1_ReceiveEnable
+     *    Description:       Enables Receive for ECAN1                                                                                                                
+     *    Return Value:      None
+     ******************************************************************************/
+    void ECAN1_ReceiveEnable();
 
-/* Null weak implementations of callback functions. */
-void ECAN1_CallbackBusOff(void) __attribute__((deprecate("\nThis will be removed in future MCC releases. \nUse CAN1_CallbackBusOff instead. ")));
-void ECAN1_CallbackTxErrorPassive(void) __attribute__((deprecate("\nThis will be removed in future MCC releases. \nUse CAN1_CallbackTxErrorPassive instead. ")));
-void ECAN1_CallbackRxErrorPassive(void) __attribute__((deprecate("\nThis will be removed in future MCC releases. \nUse CAN1_CallbackRxErrorPassive instead. ")));
-void ECAN1_CallbackMessageReceived(void) __attribute__((deprecate("\nThis will be removed in future MCC releases. \nUse CAN1_CallbackMessageReceived instead. ")));
+    /* Null weak implementations of callback functions. */
+    void ECAN1_CallbackBusOff(void);
+    void ECAN1_CallbackTxErrorPassive(void);
+    void ECAN1_CallbackRxErrorPassive(void);
+    void ECAN1_CallbackMessageReceived(void);
 
 #ifdef __cplusplus  // Provide C++ Compatibility
 
-    }
+}
 
 #endif
 
 #endif  //_ECAN1_H
 /**
  End of File
-*/
+ */
 

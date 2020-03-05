@@ -41,25 +41,16 @@ int main(void) {
     //    initGlobalData(3, getPozyx_H, 300);
 
     while (1) {
-        FT_ToSend(&FT_handle, 0, 11);
-        FT_ToSend(&FT_handle, 1, 0xffff);
-        FT_Send(&FT_handle, 6);
-        //ToSendCAN(4, 0x55AA);
-        //sendDataCAN(6);
-        FTC_ToSend(&ftc_handle, 4, 0x55AA);
-        FTC_Send(&ftc_handle, 6);
-        //LATBbits.LATB10 ^= 1;
-        //CommunicationsHandle();
-        //        /* Get the range data from the Pozyx and calculate the location */
-        //        updateStatus();
-        //        /* Calculate the location of the robot with the center as the base point */
-        //        calculateCenter();
-        //        /* Getting the heading of the robot based on the pozyx devices */
-        //        updateHeading();
-        //        /* use the Gyro to adjust the heading found in 'updateHeading()' */
-        //        adjustHeading();
-        //        /* Publish the data on the Global Can Bus */
-        //        publishData();
+        /* Get the range data from the Pozyx and calculate the location */
+        updateStatus();
+        /* Calculate the location of the robot with the center as the base point */
+        calculateCenter();
+        /* Getting the heading of the robot based on the pozyx devices */
+        updateHeading();
+        /* use the Gyro to adjust the heading found in 'updateHeading()' */
+        adjustHeading();
+        /* Publish the data on the Global Can Bus */
+        publishData();
 
         LED1 ^= 1;
         __delay_ms(500);
@@ -75,7 +66,7 @@ int main(void) {
 |_______ \____|__  /\____|__  /____|   /_______  //_______  /                                 
         \/       \/         \/                 \/         \/                                  
   _________               __                                                                  
- /   _____/__.__. _______/  |_  ____   _____   ______                                         
+ /   _____/__ __  _______/  |_  ____   _____   ______                                         
  \_____  <   |  |/  ___/\   __\/ __ \ /     \ /  ___/                                         
  /        \___  |\___ \  |  | \  ___/|  Y Y  \\___ \                                          
 /_______  / ____/____  > |__|  \___  >__|_|  /____  >                                         
@@ -86,7 +77,7 @@ __________
  |    |   \\___  |                                                                            
  |______  // ____|                                                                            
         \/ \/                                                                                 
-  _________       __  .__      _________                                    __                
+  _________       __   __      _________                                    __                
  /   _____/ _____/  |_|  |__   \_   ___ \_____ _____________   ____   _____/  |_  ___________ 
  \_____  \_/ __ \   __\  |  \  /    \  \/\__  \\_  __ \____ \_/ __ \ /    \   __\/ __ \_  __ \
  /        \  ___/|  | |   Y  \ \     \____/ __ \|  | \/  |_> >  ___/|   |  \  | \  ___/|  | \/

@@ -148,10 +148,10 @@ section                    address   length (PC units)   length (bytes) (dec)
 .const                       0xa94               0x4b6           0x711  (1809)
 .text                        0xf4a              0x5828          0x843c  (33852)
 .dinit                      0x6772                0x80            0xc0  (192)
-.text                       0x67f2               0x142           0x1e3  (483)
-.init.delay32               0x6934                0x1c            0x2a  (42)
+.text                       0x67f2               0x128           0x1bc  (444)
+.init.delay32               0x691a                0x1c            0x2a  (42)
 
-                 Total program memory used (bytes):         0x9af8  (39672) 7%
+                 Total program memory used (bytes):         0x9ad1  (39633) 7%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0x1fc]
@@ -179,12 +179,12 @@ section                    address      alignment gaps    total length  (dec)
 .nbss                       0x1092                   0            0x1e  (30)
 .ndata                      0x10b0                   0             0x2  (2)
 .nbss                       0x10b2                   0             0x2  (2)
-.bss                        0x10b4                   0           0x368  (872)
-.bss                        0x141c                   0           0x1bc  (444)
-.data                       0x15d8                   0             0xe  (14)
-_058EB2A05e618069           0x1600                   0           0x200  (512)
+.bss                        0x10b4                   0           0x34a  (842)
+_058412405e618cee           0x1400                   0           0x200  (512)
+.bss                        0x1600                   0           0x1bc  (444)
+.data                       0x17bc                   0             0xe  (14)
 
-                 Total data memory used (bytes):          0x7e6  (2022) 4%
+                 Total data memory used (bytes):          0x7c8  (1992) 4%
 
 
 Dynamic Memory Usage
@@ -192,9 +192,9 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                       0x1800                              0x6800  (26624)
+stack                       0x17ca                              0x6836  (26678)
 
-                 Maximum dynamic memory (bytes):         0x6800  (26624)
+                 Maximum dynamic memory (bytes):         0x6836  (26678)
 
 
 External Symbols in Data Memory (by address):
@@ -258,36 +258,36 @@ External Symbols in Data Memory (by address):
                     0x10b0                  _tx1_stall
                     0x10b4                  _FT_handle
                     0x1188                  _ftc_handle
-                    0x141c                  _u1rx_buffer
-                    0x1470                  _u1tx_buffer
-                    0x14c4                  _DevY
-                    0x14d8                  _RemY
-                    0x14ec                  _deviceLeftRange
-                    0x14f6                  _deviceRightRange
-                    0x1500                  _remoteLeftRange
-                    0x150a                  _remoteRightRange
-                    0x1514                  _DevX
-                    0x1528                  _RemX
-                    0x153c                  _gyro_raw
-                    0x1542                  _headingAvg
-                    0x156a                  _dataPeriodTimer
-                    0x15a2                  _dataRetrievalFunc
-                    0x15b0                  _receiveArray
+                    0x1600                  _u1rx_buffer
+                    0x1654                  _u1tx_buffer
+                    0x16a8                  _DevY
+                    0x16bc                  _RemY
+                    0x16d0                  _deviceLeftRange
+                    0x16da                  _deviceRightRange
+                    0x16e4                  _remoteLeftRange
+                    0x16ee                  _remoteRightRange
+                    0x16f8                  _DevX
+                    0x170c                  _RemX
+                    0x1720                  _gyro_raw
+                    0x1726                  _headingAvg
+                    0x174e                  _dataPeriodTimer
+                    0x1786                  _dataRetrievalFunc
+                    0x1794                  _receiveArray
 
 External Symbols in Data Memory (by name):
 
                     0x1038                  _A
                     0x103c                  _B
-                    0x1514                  _DevX
-                    0x14c4                  _DevY
+                    0x16f8                  _DevX
+                    0x16a8                  _DevY
                     0x10b4                  _FT_handle
                     0x10ae                  _FunctionI2C
                     0x1001                  _Head_1
                     0x1002                  _Head_2
                     0x102e                  _Head_3
                     0x102f                  _Head_4
-                    0x1528                  _RemX
-                    0x14d8                  _RemY
+                    0x170c                  _RemX
+                    0x16bc                  _RemY
                     0x10a4                  __fw_version
                     0x10a2                  __hw_version
                     0x10a0                  __interrupt
@@ -297,13 +297,13 @@ External Symbols in Data Memory (by name):
                     0x101c                  _center_Y
                     0x106a                  _count
                     0x1066                  _currentHeading
-                    0x156a                  _dataPeriodTimer
-                    0x15a2                  _dataRetrievalFunc
+                    0x174e                  _dataPeriodTimer
+                    0x1786                  _dataRetrievalFunc
                     0x1086                  _destination_id_1
                     0x1088                  _destination_id_2
-                    0x14ec                  _deviceLeftRange
+                    0x16d0                  _deviceLeftRange
                     0x1004                  _deviceLeftStatus
-                    0x14f6                  _deviceRightRange
+                    0x16da                  _deviceRightRange
                     0x1006                  _deviceRightStatus
                     0x1082                  _device_id
                     0x1008                  _device_pos_X
@@ -312,9 +312,9 @@ External Symbols in Data Memory (by name):
                     0x1188                  _ftc_handle
                     0x1092                  _globalTime
                     0x1050                  _gyroYDPS
-                    0x153c                  _gyro_raw
+                    0x1720                  _gyro_raw
                     0x1028                  _heading
-                    0x1542                  _headingAvg
+                    0x1726                  _headingAvg
                     0x106c                  _headingSet
                     0x108c                  _highG_y
                     0x1062                  _interval
@@ -331,13 +331,13 @@ External Symbols in Data Memory (by name):
                     0x105e                  _previousMillis
                     0x102c                  _quadrant
                     0x1000                  _ranging_protocol
-                    0x15b0                  _receiveArray
+                    0x1794                  _receiveArray
                     0x108a                  _remote
                     0x1044                  _remoteLeftAngle
-                    0x1500                  _remoteLeftRange
+                    0x16e4                  _remoteLeftRange
                     0x1030                  _remoteLeftStatus
                     0x1048                  _remoteRightAngle
-                    0x150a                  _remoteRightRange
+                    0x16ee                  _remoteRightRange
                     0x1032                  _remoteRightStatus
                     0x1084                  _remote_id
                     0x1010                  _remote_pos_X
@@ -346,8 +346,8 @@ External Symbols in Data Memory (by name):
                     0x1096                  _time
                     0x10ad                  _tmpVal
                     0x10b0                  _tx1_stall
-                    0x141c                  _u1rx_buffer
-                    0x1470                  _u1tx_buffer
+                    0x1600                  _u1rx_buffer
+                    0x1654                  _u1tx_buffer
                     0x10ac                  _val
                     0x1056                  _yAngle
 
@@ -659,9 +659,9 @@ External Symbols in Program Memory (by address):
                   0x00684e                  _ECAN1_isTXErrorPassive
                   0x006856                  _ECAN1_messagesInBuffer
                   0x00685e                  _ECAN1_sleep
-                  0x006866                  _main
-                  0x0068ce                  _crc
-                  0x006934                  ___delay32
+                  0x006866                  _crc
+                  0x0068cc                  _main
+                  0x00691a                  ___delay32
                   0x0557fa                  __FGS.sec
 
 External Symbols in Program Memory (by name):
@@ -761,7 +761,7 @@ External Symbols in Program Memory (by name):
                   0x00047e                  __U1RXInterrupt
                   0x0004a4                  __U1TXInterrupt
                   0x0004e4                  ___addsf3
-                  0x006934                  ___delay32
+                  0x00691a                  ___delay32
                   0x0006b2                  ___divsf3
                   0x000736                  ___divsi3
                   0x0007a2                  ___eqsf2
@@ -810,7 +810,7 @@ External Symbols in Program Memory (by name):
                   0x002d22                  _clearDevices
                   0x003e6a                  _clearNewDataFlag
                   0x002d9a                  _configInterruptPin
-                  0x0068ce                  _crc
+                  0x006866                  _crc
                   0x006580                  _delay
                   0x002b3c                  _doAnchorCalibration
                   0x002ac8                  _doDiscovery
@@ -889,7 +889,7 @@ External Symbols in Program Memory (by name):
                   0x0066e8                  _initGlobalData
                   0x002fae                  _isRegisterSaved
                   0x004e12                  _isWithinFloat
-                  0x006866                  _main
+                  0x0068cc                  _main
                   0x000a78                  _memcpy
                   0x000a86                  _memset
                   0x0064fa                  _millis
@@ -1188,28 +1188,28 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000      0x15fc8
+.debug_info       0x000000      0x15f4c
  *(.debug_info)
  .debug_info      0x000000        0x1df build/default/production/FastTransfer/crc.o
  .debug_info      0x0001df        0x5ac build/default/production/FastTransfer/ft.o
  .debug_info      0x00078b        0x616 build/default/production/FastTransfer/parser.o
  .debug_info      0x000da1        0x56d build/default/production/FastTransfer/ring_buffer.o
- .debug_info      0x00130e       0x4126 build/default/production/mcc_generated_files/can1.o
- .debug_info      0x005434       0x1980 build/default/production/mcc_generated_files/dma.o
- .debug_info      0x006db4       0x1c9d build/default/production/mcc_generated_files/ecan1.o
- .debug_info      0x008a51        0xf2e build/default/production/PozyxPIC_I2C.o
- .debug_info      0x00997f       0x2a59 build/default/production/Pozyx_lib.o
- .debug_info      0x00c3d8       0x18dd build/default/production/Pozyx_Core.o
- .debug_info      0x00dcb5       0x26fa build/default/production/Initialize.o
- .debug_info      0x0103af       0x2065 build/default/production/main.o
- .debug_info      0x012414        0x5ed build/default/production/Timers.o
- .debug_info      0x012a01        0xee2 build/default/production/PozyxWrapper.o
- .debug_info      0x0138e3        0x4e3 build/default/production/DataPublishing.o
- .debug_info      0x013dc6       0x14d0 build/default/production/FastTransfer_CAN.o
- .debug_info      0x015296        0xd32 build/default/production/uart1_config.o
+ .debug_info      0x00130e       0x40f0 build/default/production/mcc_generated_files/can1.o
+ .debug_info      0x0053fe       0x1980 build/default/production/mcc_generated_files/dma.o
+ .debug_info      0x006d7e       0x1c9d build/default/production/mcc_generated_files/ecan1.o
+ .debug_info      0x008a1b        0xf2e build/default/production/PozyxPIC_I2C.o
+ .debug_info      0x009949       0x2a59 build/default/production/Pozyx_lib.o
+ .debug_info      0x00c3a2       0x18dd build/default/production/Pozyx_Core.o
+ .debug_info      0x00dc7f       0x26fa build/default/production/Initialize.o
+ .debug_info      0x010379       0x2055 build/default/production/main.o
+ .debug_info      0x0123ce        0x5ed build/default/production/Timers.o
+ .debug_info      0x0129bb        0xee2 build/default/production/PozyxWrapper.o
+ .debug_info      0x01389d        0x4e3 build/default/production/DataPublishing.o
+ .debug_info      0x013d80       0x149a build/default/production/FastTransfer_CAN.o
+ .debug_info      0x01521a        0xd32 build/default/production/uart1_config.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000       0x18ef
+.debug_abbrev     0x000000       0x190b
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0x7c build/default/production/FastTransfer/crc.o
  .debug_abbrev    0x00007c        0x11a build/default/production/FastTransfer/ft.o
@@ -1222,14 +1222,14 @@ __FUID3
  .debug_abbrev    0x000a97        0x169 build/default/production/Pozyx_lib.o
  .debug_abbrev    0x000c00        0x204 build/default/production/Pozyx_Core.o
  .debug_abbrev    0x000e04        0x110 build/default/production/Initialize.o
- .debug_abbrev    0x000f14        0x1ac build/default/production/main.o
- .debug_abbrev    0x0010c0        0x16b build/default/production/Timers.o
- .debug_abbrev    0x00122b        0x212 build/default/production/PozyxWrapper.o
- .debug_abbrev    0x00143d        0x147 build/default/production/DataPublishing.o
- .debug_abbrev    0x001584        0x210 build/default/production/FastTransfer_CAN.o
- .debug_abbrev    0x001794        0x15b build/default/production/uart1_config.o
+ .debug_abbrev    0x000f14        0x1c8 build/default/production/main.o
+ .debug_abbrev    0x0010dc        0x16b build/default/production/Timers.o
+ .debug_abbrev    0x001247        0x212 build/default/production/PozyxWrapper.o
+ .debug_abbrev    0x001459        0x147 build/default/production/DataPublishing.o
+ .debug_abbrev    0x0015a0        0x210 build/default/production/FastTransfer_CAN.o
+ .debug_abbrev    0x0017b0        0x15b build/default/production/uart1_config.o
 
-.debug_line       0x000000       0x1b6a
+.debug_line       0x000000       0x1b68
  *(.debug_line)
  .debug_line      0x000000         0x9d build/default/production/FastTransfer/crc.o
  .debug_line      0x00009d        0x100 build/default/production/FastTransfer/ft.o
@@ -1242,12 +1242,12 @@ __FUID3
  .debug_line      0x000b0f        0x3d3 build/default/production/Pozyx_lib.o
  .debug_line      0x000ee2        0x265 build/default/production/Pozyx_Core.o
  .debug_line      0x001147        0x11c build/default/production/Initialize.o
- .debug_line      0x001263        0x15f build/default/production/main.o
- .debug_line      0x0013c2        0x11c build/default/production/Timers.o
- .debug_line      0x0014de        0x191 build/default/production/PozyxWrapper.o
- .debug_line      0x00166f        0x121 build/default/production/DataPublishing.o
- .debug_line      0x001790        0x292 build/default/production/FastTransfer_CAN.o
- .debug_line      0x001a22        0x148 build/default/production/uart1_config.o
+ .debug_line      0x001263        0x15d build/default/production/main.o
+ .debug_line      0x0013c0        0x11c build/default/production/Timers.o
+ .debug_line      0x0014dc        0x191 build/default/production/PozyxWrapper.o
+ .debug_line      0x00166d        0x121 build/default/production/DataPublishing.o
+ .debug_line      0x00178e        0x292 build/default/production/FastTransfer_CAN.o
+ .debug_line      0x001a20        0x148 build/default/production/uart1_config.o
 
 .debug_frame      0x000000       0x2306
  *(.debug_frame)
@@ -3702,39 +3702,39 @@ __c30_signature
  .nbss              0x10b2          0x2 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(errno.epeo)
                     0x10b2                  _errno
 
-.bss                0x10b4        0x368
- .bss               0x10b4        0x368 build/default/production/main.o
+.bss                0x10b4        0x34a
+ .bss               0x10b4        0x34a build/default/production/main.o
                     0x10b4                  _FT_handle
                     0x1188                  _ftc_handle
 
-_058EB2A05e618069
-                    0x1600        0x200
- _058EB2A05e618069
-                    0x1600        0x200 build/default/production/mcc_generated_files/can1.o
+_058412405e618cee
+                    0x1400        0x200
+ _058412405e618cee
+                    0x1400        0x200 build/default/production/mcc_generated_files/can1.o
 
-.bss                0x141c        0x1bc
- .bss               0x141c         0xa8 build/default/production/uart1_config.o
-                    0x141c                  _u1rx_buffer
-                    0x1470                  _u1tx_buffer
- .bss               0x14c4         0xa6 build/default/production/PozyxWrapper.o
-                    0x14c4                  _DevY
-                    0x14d8                  _RemY
-                    0x14ec                  _deviceLeftRange
-                    0x14f6                  _deviceRightRange
-                    0x1500                  _remoteLeftRange
-                    0x150a                  _remoteRightRange
-                    0x1514                  _DevX
-                    0x1528                  _RemX
-                    0x153c                  _gyro_raw
-                    0x1542                  _headingAvg
- .bss               0x156a         0x46 build/default/production/DataPublishing.o
-                    0x156a                  _dataPeriodTimer
-                    0x15a2                  _dataRetrievalFunc
- .bss               0x15b0         0x28 build/default/production/Initialize.o
-                    0x15b0                  _receiveArray
+.bss                0x1600        0x1bc
+ .bss               0x1600         0xa8 build/default/production/uart1_config.o
+                    0x1600                  _u1rx_buffer
+                    0x1654                  _u1tx_buffer
+ .bss               0x16a8         0xa6 build/default/production/PozyxWrapper.o
+                    0x16a8                  _DevY
+                    0x16bc                  _RemY
+                    0x16d0                  _deviceLeftRange
+                    0x16da                  _deviceRightRange
+                    0x16e4                  _remoteLeftRange
+                    0x16ee                  _remoteRightRange
+                    0x16f8                  _DevX
+                    0x170c                  _RemX
+                    0x1720                  _gyro_raw
+                    0x1726                  _headingAvg
+ .bss               0x174e         0x46 build/default/production/DataPublishing.o
+                    0x174e                  _dataPeriodTimer
+                    0x1786                  _dataRetrievalFunc
+ .bss               0x1794         0x28 build/default/production/Initialize.o
+                    0x1794                  _receiveArray
 
-.data               0x15d8          0xe
- .data              0x15d8          0xe build/default/production/PozyxPIC_I2C.o
+.data               0x17bc          0xe
+ .data              0x17bc          0xe build/default/production/PozyxPIC_I2C.o
 
 .ivt._C1Interrupt
                   0x00005a          0x2
@@ -4084,7 +4084,7 @@ _058EB2A05e618069
 .dinit            0x006772         0x80
  .dinit           0x006772         0x80 data_init
 
-.text             0x0067f2        0x142
+.text             0x0067f2        0x128
  .text            0x0067f2         0x74 build/default/production/mcc_generated_files/ecan1.o
                   0x0067f2                  _ECAN1_CallbackBusOff
                   0x0067f8                  _ECAN1_CallbackTxErrorPassive
@@ -4100,11 +4100,11 @@ _058EB2A05e618069
                   0x00684e                  _ECAN1_isTXErrorPassive
                   0x006856                  _ECAN1_messagesInBuffer
                   0x00685e                  _ECAN1_sleep
- .text            0x006866         0x68 build/default/production/main.o
-                  0x006866                  _main
- .text            0x0068ce         0x66 build/default/production/FastTransfer/crc.o
-                  0x0068ce                  _crc
+ .text            0x006866         0x66 build/default/production/FastTransfer/crc.o
+                  0x006866                  _crc
+ .text            0x0068cc         0x4e build/default/production/main.o
+                  0x0068cc                  _main
 
-.init.delay32     0x006934         0x1c
- .init.delay32    0x006934         0x1c c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
-                  0x006934                  ___delay32
+.init.delay32     0x00691a         0x1c
+ .init.delay32    0x00691a         0x1c c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+                  0x00691a                  ___delay32

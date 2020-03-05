@@ -26,7 +26,7 @@ void Start_Initialization() {
     pinModeLED7 = OUTPUT;
     pinModeLED8 = OUTPUT;
 
-     TRISA = 0x0797;
+    TRISA = 0x0797;
     TRISB = 0xFFFF;
     TRISC = 0x03BE;
     
