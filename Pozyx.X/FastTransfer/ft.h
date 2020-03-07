@@ -58,6 +58,7 @@ typedef struct FastTransferHandle FT_t;
 //                            FastTransfer Methods                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
+FT_t* getFThandle();
 #ifndef SAFE
 void FT_Init (FT_t * handle,
 							uint8_t address,

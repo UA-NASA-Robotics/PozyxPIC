@@ -55,7 +55,7 @@ extern "C" {
     double getBuffAvg(uint16_t *buff);
 
     void calculateCenter();
-    AngleDist(double a1, double a2);
+    int AngleDist(double a1, double a2);
 
     int getPozyx_X();
     int getPozyx_Y();

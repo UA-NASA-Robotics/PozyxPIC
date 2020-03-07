@@ -8,6 +8,8 @@
 #ifndef PozyxPIC_I2C_H
 #define	PozyxPIC_I2C_H
 
+#include <stdint.h>
+
 #define PENDING 0
 #define SUCCESS 1
 #define FAILED 2
@@ -18,11 +20,11 @@ int get_dataIndex();
 
 
 void InitI2C(void);
-bool SendI2CRepeatStart(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much);
-bool SendI2C(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much);
+bool SendI2CRepeatStart(uint8_t s_address, uint8_t d_address, uint8_t * dat, uint8_t how_much);
+bool SendI2C(uint8_t s_address, uint8_t d_address, uint8_t * dat, uint8_t how_much);
 
-bool ReceiveI2C(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much);
-bool SendReadI2C(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much, unsigned char * rxdat, unsigned char rxhow_much);
+bool ReceiveI2C(uint8_t s_address, uint8_t d_address, uint8_t * dat, uint8_t how_much);
+bool SendReadI2C(uint8_t s_address, uint8_t d_address, uint8_t * dat, uint8_t how_much, uint8_t * rxdat, uint8_t rxhow_much);
 
 
 //////////////////////////
@@ -55,7 +57,7 @@ void FirstReceiveI2C(void);
 
 void ReceiveByteI2C(void);
 
-unsigned char StatusI2C(void);
+uint8_t StatusI2C(void);
 
 void NACKFollowUpI2C(void);
 

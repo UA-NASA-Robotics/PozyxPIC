@@ -19,7 +19,7 @@
     The generated drivers are tested against the following:
         Compiler          :  XC16 v1.41
         MPLAB 	          :  MPLAB X v5.30
-*/
+ */
 
 /*
     (c) 2019 Microchip Technology Inc. and its subsidiaries. You may use this
@@ -41,164 +41,161 @@
 
     MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
     TERMS.
-*/
+ */
 
 /**
   Section: Included Files
-*/
+ */
 
 #include "ecan1.h"
 #include "can1.h"
 #include "dma.h"
 
 /* Null weak implementations of callback functions. */
-void __attribute__((weak, deprecate("\nThis will be removed in future MCC releases. \nUse CAN1_CallbackBusOff instead. "))) ECAN1_CallbackBusOff(void){}
-void __attribute__((weak, deprecate("\nThis will be removed in future MCC releases. \nUse CAN1_CallbackTxErrorPassive instead. "))) ECAN1_CallbackTxErrorPassive(void){}
-void __attribute__((weak, deprecate("\nThis will be removed in future MCC releases. \nUse CAN1_CallbackRxErrorPassive instead. "))) ECAN1_CallbackRxErrorPassive(void){}
-void __attribute__((weak, deprecate("\nThis will be removed in future MCC releases. \nUse CAN1_CallbackMessageReceived instead. "))) ECAN1_CallbackMessageReceived(void){}
+void ECAN1_CallbackBusOff(void) {
+}
+
+void ECAN1_CallbackTxErrorPassive(void) {
+}
+
+void ECAN1_CallbackRxErrorPassive(void) {
+}
+
+void ECAN1_CallbackMessageReceived(void) {
+}
 
 /**
   Section: ECAN1 APIs
-*****************************************************************************************/
+ *****************************************************************************************/
 
-void ECAN1_Initialize(void)
-{
+void ECAN1_Initialize(void) {
     //CAN1_Initialize();
 }
 
 /******************************************************************************
-*                                                                             
-*    Function:		ECAN1_TransmitEnable
-*    Description:       Setup the DMA for Transmit from the CAN module.  The 
-*                       relevant DMA module APIs are grouped in this function 
-*                       and this API needs to be called after DMA_Initialize 
-*                       and CAN_Initialize
-*                                                                                                                                                       
-******************************************************************************/
+ *                                                                             
+ *    Function:		ECAN1_TransmitEnable
+ *    Description:       Setup the DMA for Transmit from the CAN module.  The 
+ *                       relevant DMA module APIs are grouped in this function 
+ *                       and this API needs to be called after DMA_Initialize 
+ *                       and CAN_Initialize
+ *                                                                                                                                                       
+ ******************************************************************************/
 
-void ECAN1_TransmitEnable()
-{
+void ECAN1_TransmitEnable() {
     CAN1_TransmitEnable();
 }
 
 /******************************************************************************
-*                                                                             
-*    Function:		ECAN1_ReceiveEnable
-*    Description:       Setup the DMA for Receive on the CAN module.  The 
-*                       relevant DMA module APIs are grouped in this function 
-*                       and this API needs to be called after DMA_Initialize 
-*                       and CAN_Initialize
-*                                                                                                                                                       
-******************************************************************************/
+ *                                                                             
+ *    Function:		ECAN1_ReceiveEnable
+ *    Description:       Setup the DMA for Receive on the CAN module.  The 
+ *                       relevant DMA module APIs are grouped in this function 
+ *                       and this API needs to be called after DMA_Initialize 
+ *                       and CAN_Initialize
+ *                                                                                                                                                       
+ ******************************************************************************/
 
-void ECAN1_ReceiveEnable()
-{
+void ECAN1_ReceiveEnable() {
     CAN1_ReceiveEnable();
 }
 
 /******************************************************************************
-*                                                                             
-*    Function:		ECAN1_transmit
-*    Description:       Transmits the message from user buffer to CAN buffer
-*                       as per the buffer number allocated.
-*                       Allocation of the buffer number is done by user 
-*                                                                             
-*    Arguments:		priority : priority of the message to be transmitted
-*                       sendCanMsg: pointer to the message object
-*                                             
-*    Return Value:      true - Transmit successful
-*                       false - Transmit failure                                                                              
-******************************************************************************/
+ *                                                                             
+ *    Function:		ECAN1_transmit
+ *    Description:       Transmits the message from user buffer to CAN buffer
+ *                       as per the buffer number allocated.
+ *                       Allocation of the buffer number is done by user 
+ *                                                                             
+ *    Arguments:		priority : priority of the message to be transmitted
+ *                       sendCanMsg: pointer to the message object
+ *                                             
+ *    Return Value:      true - Transmit successful
+ *                       false - Transmit failure                                                                              
+ ******************************************************************************/
 
-bool ECAN1_transmit(ECAN1_TX_PRIOIRTY priority, uCAN1_MSG *sendCanMsg) 
-{
+bool ECAN1_transmit(ECAN1_TX_PRIOIRTY priority, uCAN1_MSG *sendCanMsg) {
     return CAN1_transmit((CAN_TX_PRIOIRTY) priority, (uCAN_MSG *) sendCanMsg);
 }
 
 /******************************************************************************
-*                                                                             
-*    Function:		ECAN1_receive
-*    Description:       Receives the message from CAN buffer to user buffer 
-*                                                                             
-*    Arguments:		recCanMsg: pointer to the message object
-*                                             
-*    Return Value:      true - Receive successful
-*                       false - Receive failure                                                                              
-******************************************************************************/
+ *                                                                             
+ *    Function:		ECAN1_receive
+ *    Description:       Receives the message from CAN buffer to user buffer 
+ *                                                                             
+ *    Arguments:		recCanMsg: pointer to the message object
+ *                                             
+ *    Return Value:      true - Receive successful
+ *                       false - Receive failure                                                                              
+ ******************************************************************************/
 
-bool ECAN1_receive(uCAN1_MSG *recCanMsg) 
-{   
+bool ECAN1_receive(uCAN1_MSG *recCanMsg) {
     return CAN1_receive((uCAN_MSG *) recCanMsg);
 }
 
 /******************************************************************************
-*                                                                             
-*    Function:		ECAN1_isBusOff
-*    Description:       Checks whether the transmitter in Bus off state
-*                                                                             
+ *                                                                             
+ *    Function:		ECAN1_isBusOff
+ *    Description:       Checks whether the transmitter in Bus off state
+ *                                                                             
                                              
-*    Return Value:      true - Transmitter in Bus Off state
-*                       false - Transmitter not in Bus Off state                                                                              
-******************************************************************************/
+ *    Return Value:      true - Transmitter in Bus Off state
+ *                       false - Transmitter not in Bus Off state                                                                              
+ ******************************************************************************/
 
-bool ECAN1_isBusOff() 
-{
-    return CAN1_isBusOff();	
+bool ECAN1_isBusOff() {
+    return CAN1_isBusOff();
 }
 
 /******************************************************************************
-*                                                                             
-*    Function:		ECAN1_isRXErrorPassive
-*    Description:       Checks whether the receive in error passive state
-*                                             
-*    Return Value:      true - Receiver in Error Passive state
-*                       false - Receiver not in Error Passive state                                                                              
-******************************************************************************/
+ *                                                                             
+ *    Function:		ECAN1_isRXErrorPassive
+ *    Description:       Checks whether the receive in error passive state
+ *                                             
+ *    Return Value:      true - Receiver in Error Passive state
+ *                       false - Receiver not in Error Passive state                                                                              
+ ******************************************************************************/
 
-bool ECAN1_isRXErrorPassive()
-{
-    return CAN1_isRXErrorPassive();   
+bool ECAN1_isRXErrorPassive() {
+    return CAN1_isRXErrorPassive();
 }
 
 /******************************************************************************
-*                                                                             
-*    Function:		ECAN1_isTXErrorPassive
-*    Description:       Checks whether the transmitter in error passive state                                                                          
-*                                             
-*    Return Value:      true - Transmitter in Error Passive state
-*                       false - Transmitter not in Error Passive state                                                                              
-******************************************************************************/
+ *                                                                             
+ *    Function:		ECAN1_isTXErrorPassive
+ *    Description:       Checks whether the transmitter in error passive state                                                                          
+ *                                             
+ *    Return Value:      true - Transmitter in Error Passive state
+ *                       false - Transmitter not in Error Passive state                                                                              
+ ******************************************************************************/
 
-bool ECAN1_isTXErrorPassive()
-{
+bool ECAN1_isTXErrorPassive() {
     return CAN1_isTXErrorPassive();
 }
 
 /******************************************************************************
-*                                                                             
-*    Function:		ECAN1_messagesInBuffer
-*    Description:       returns the number of messages that are received                                                                           
-*                                             
-*    Return Value:      Number of message received
-******************************************************************************/
+ *                                                                             
+ *    Function:		ECAN1_messagesInBuffer
+ *    Description:       returns the number of messages that are received                                                                           
+ *                                             
+ *    Return Value:      Number of message received
+ ******************************************************************************/
 
-uint8_t ECAN1_messagesInBuffer() 
-{ 
+uint8_t ECAN1_messagesInBuffer() {
     return CAN1_messagesInBuffer();
 }
 
 /******************************************************************************
-*                                                                             
-*    Function:		ECAN1_sleep
-*    Description:       Puts ECAN1 module in disable mode.
-*                                                                       
-******************************************************************************/
+ *                                                                             
+ *    Function:		ECAN1_sleep
+ *    Description:       Puts ECAN1 module in disable mode.
+ *                                                                       
+ ******************************************************************************/
 
-void ECAN1_sleep(void) 
-{
+void ECAN1_sleep(void) {
     CAN1_sleep();
 }
 
 /**
  End of File
-*/
+ */

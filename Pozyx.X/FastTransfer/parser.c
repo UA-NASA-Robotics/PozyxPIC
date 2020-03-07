@@ -18,7 +18,7 @@
  * Module State
  */
 
-static struct ring_buffer_t*  m_buf;
+static ring_buffer_t*  m_buf;
 static uint16_t* 			  m_arr;
 //static int*      			  m_flags;
 static bool*				  m_flags;

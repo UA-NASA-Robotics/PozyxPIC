@@ -11,22 +11,10 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
+#include "CommsIDs.h"
 #include <stdbool.h>
-    
-#ifndef GBL_DEV_IDX
-#define GBL_DEV_IDX
-//Complete index of all the
-typedef enum {
-	DEVICE_STATUS=0,
-	DEVICE_MACRO,
-	DATA_0,
-	DATA_1,
-	DATA_2,
-	DATA_3,
-	DATA_4
-} GlobalDeviceData_t;
-#endif
-void publishDataIndex(int _index);
+
+    void publishDataIndex(int _index);
     /** \brief (initGlobalData): Initializes the data publishing values to be put on the can bus at a particular interval
      *
      * \param (_interval):  what is the index in the "memory" that is sent out

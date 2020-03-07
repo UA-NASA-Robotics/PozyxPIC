@@ -15,7 +15,7 @@
 #define FCY 30000000UL
 
 #include <libpic30.h>
-
+#include "FastTransfer/ft.h"
 
 
 #define OFF 0
@@ -44,7 +44,6 @@
 //END OF LED DEFINITIONS
 
 
-
 //bool Initialize();
 void Start_Initialization();
 //switches the clock from the FRC to the external HS oscillator
@@ -54,6 +53,6 @@ void timerTwo(void);
 
 void init_SPI();
 
-
+void LEDPattern();
 #endif	/* INITIALIZE_H */
 

@@ -17,6 +17,11 @@ void Start_Initialization() {
     //Initialization Function Calls go in here<GLOBAL_INTERRUPTS(OFF)/> to <GLOBAL_INTERRUPTS(ON)>
     oscillator();
     timerOne();
+    
+    TRISA = 0x0797;
+    TRISB = 0xFFFF;
+    TRISC = 0x03BE;
+    
     pinModeLED1 = OUTPUT;
     pinModeLED2 = OUTPUT;
     pinModeLED3 = OUTPUT;
@@ -26,10 +31,6 @@ void Start_Initialization() {
     pinModeLED7 = OUTPUT;
     pinModeLED8 = OUTPUT;
 
-    TRISA = 0x0797;
-    TRISB = 0xFFFF;
-    TRISC = 0x03BE;
-    
     ANSELC = 0xD;
 
     /* Set the PPS */
@@ -89,4 +90,38 @@ void timerOne(void) {
     IFS0bits.T1IF = 0; // clear interrupt flag
     IEC0bits.T1IE = 1; // enable timer 1 interrupt
     T1CONbits.TON = 1; // turn on timer
+}
+
+void LEDPattern() {
+    LED1 = 1;
+    __delay_ms(100);
+    LED2 = 1;
+    __delay_ms(100);
+    LED3 = 1;
+    __delay_ms(100);
+    LED4 = 1;
+    __delay_ms(100);
+    LED5 = 1;
+    __delay_ms(100);
+    LED6 = 1;
+    __delay_ms(100);
+    LED7 = 1;
+    __delay_ms(100);
+    LED8 = 1;
+    __delay_ms(100);
+    LED1 = 0;
+    __delay_ms(100);
+    LED2 = 0;
+    __delay_ms(100);
+    LED3 = 0;
+    __delay_ms(100);
+    LED4 = 0;
+    __delay_ms(100);
+    LED5 = 0;
+    __delay_ms(100);
+    LED6 = 0;
+    __delay_ms(100);
+    LED7 = 0;
+    __delay_ms(100);
+    LED8 = 0;
 }

@@ -8,11 +8,14 @@
 #include "PozyxWrapper.h"
 #include "Timers.h"
 #include <math.h>
+#include "CommsIDs.h"
+#include "Initialize.h"
+#include "Timers.h"
 
 //#define DEBUG
-//#define FASTTRANSFER
+#define FASTTRANSFER
 #ifdef  FASTTRANSFER
-FastTransfer Send;
+
 #endif
 uint16_t device_id = 0x6741;
 uint16_t remote_id = 0x6715; // the network ID of the remote device
@@ -80,6 +83,8 @@ unsigned long interval;
 double currentHeading;
 int count = 0;
 
+timers_t TransmitTimer;
+
 double headingAvg[10];
 
 void updateHeading() {
@@ -92,7 +97,6 @@ void updateHeading() {
 
 void PozyxBoot() {
 #ifdef FASTTRANSFER
-    Send.begin(Details(receiveArray), 8, false, &Serial);
 #endif
     if (Pozyx_begin() == POZYX_FAILURE) {
 #ifdef DEBUG
@@ -122,16 +126,16 @@ void PozyxBoot() {
     // make sure the pozyx system has no control over the LEDs, we're the boss
     //uint8_t led_config = 0x0;
     int status;
-//    status = setLedConfig(led_config, remote_id);
-//    // do the same with the
-//    status = setLedConfig(led_config, destination_id_1);
-//    // do the same with the
-//    status = setLedConfig(led_config, destination_id_2);
+    //    status = setLedConfig(led_config, remote_id);
+    //    // do the same with the
+    //    status = setLedConfig(led_config, destination_id_1);
+    //    // do the same with the
+    //    status = setLedConfig(led_config, destination_id_2);
     // set the ranging protocol
     //getSystemError(NULL) ;
     status = setRangingProtocol(ranging_protocol, remote_id);
-    
-    getSystemError(NULL) ;
+
+    getSystemError(NULL);
     status = setSensorMode(0, remote_id);
 }
 
@@ -140,9 +144,14 @@ void updateStatus() {
     /* Ranges from the main Pozyx device on the robot to the beacons */
     deviceLeftStatus = doRanging(destination_id_1, &deviceLeftRange);
     deviceRightStatus = doRanging(destination_id_2, &deviceRightRange);
-     /* Ranges from the secondary Pozyx device on the robot to the beacons */
+    __delay_ms(1);
+    /* Ranges from the secondary Pozyx device on the robot to the beacons */
     remoteLeftStatus = doRemoteRanging(remote_id, destination_id_1, &remoteLeftRange);
     remoteRightStatus = doRemoteRanging(remote_id, destination_id_2, &remoteRightRange);
+    // Standard error fix
+    remoteLeftRange.distance += 100;
+    remoteRightRange.distance += 100;
+
     /* Verify that all the data was valid data before it is used to get the new coordinates */
     if ((deviceLeftStatus == POZYX_SUCCESS && deviceRightStatus == POZYX_SUCCESS) && (remoteLeftStatus == POZYX_SUCCESS && remoteRightStatus == POZYX_SUCCESS)) {
         updateCoordinates();
@@ -160,10 +169,12 @@ void updateStatus() {
 #endif
     }
 
+
 }
+
 /* Returns the average of a buffer that is 'AVERAGEAMOUNT' large*/
 double getBuffAvg(uint16_t *buff) {
-    double sum = 0;
+    long double sum = 0;
     int i;
     /* Summing components */
     for (i = 0; i < AVERAGEAMOUNT; i++) {
@@ -172,6 +183,7 @@ double getBuffAvg(uint16_t *buff) {
     /* divide by the size of buffer, returning average */
     return (double) (sum / ((double) AVERAGEAMOUNT));
 }
+
 /* Adds a single value to the head of a ring buffer */
 void BufferAddVal(uint16_t *buff, uint8_t *head, double val) //updates the value of buff
 {
@@ -188,48 +200,61 @@ void calculateCenter() {
     //mid-point between Pozyx sensors on robot
     mid_X = (device_pos_X + remote_pos_X) / 2.0;
     mid_Y = (device_pos_Y + remote_pos_Y) / 2.0;
-
-    //compute unit vector in direction of robot heading
-    double x_component = (remote_pos_X - device_pos_X);
-    double y_component = (remote_pos_Y - device_pos_Y);
-
-    center_X = mid_X - ((MID_DIST * y_component) / TAG_DIST);
-    center_Y = mid_Y + ((MID_DIST * x_component) / TAG_DIST);
+    //    
+    //    //compute unit vector in direction of robot heading
+    //    double x_component = (remote_pos_X - device_pos_X);
+    //    double y_component = (remote_pos_Y - device_pos_Y);
+    //
+    //    double Slope = x_component/y_component;
+    //    
+    //    double b = mid_Y - (Slope)*mid_X;
+    //    double centX;
+    //    double Clc = MID_DIST/(sqrt(1+pow(Slope,2)));
+    //    if(x_component > 0)
+    //        centX = mid_X + Clc;
+    //    else
+    //        centX = mid_X - Clc;
+    //    center_X = mid_X - ((MID_DIST * y_component) / TAG_DIST);
+    //    center_Y = mid_Y + ((MID_DIST * x_component) / TAG_DIST);
+    center_X = mid_X + MID_DIST * cos(currentHeading * M_PI / 180);
+    center_Y = mid_Y + MID_DIST * sin(currentHeading * M_PI / 180);
 
 }
 
-double pow2(double _val, int scale) {
+unsigned long pow2(unsigned long _val, int scale) {
     return _val * _val;
 }
 
 void updateCoordinates() //Needs re-worked. Will try something out once header + buffer working as intended
 {
-    double a = (double) remoteRightRange.distance;
-    double b = (double) deviceRightRange.distance;
-    double c = (double) remoteLeftRange.distance;
-    double d = (double) deviceLeftRange.distance;
-    double u = (double) ANCHORDISPLACEMENT;
-    double w = (double) TAG_DIST;
+    int a = (int) remoteRightRange.distance;
+    int b = (int) deviceRightRange.distance;
+    int c = (int) remoteLeftRange.distance;
+    int d = (int) deviceLeftRange.distance;
+    int u = (int) ANCHORDISPLACEMENT;
+    //    double w = (double) TAG_DIST;
 
     //    Serial.print("right Remote: ");Serial.println(remoteRightRange.distance);
     //    Serial.print("left Remote: ");Serial.println(remoteLeftRange.distance);
     //    Serial.print("right devic: ");Serial.println(deviceRightRange.distance);
     //    Serial.print("left device: ");Serial.println(deviceLeftRange.distance);
-    double num = pow2(b, 2) - pow2(u, 2) - pow2(d, 2);
+    long num = pow2(b, 2) - pow2(u, 2) - pow2(d, 2);
 
     //calculate Y1 position (Y coordinate of Pozyx shield on Arduino device on robot)
     //device_pos_Y = sqrt(-1*powerOfTwo(((b*b)-(u*u)-(d*d))/(-2*u))+(unsigned long)(d*d));
-    device_pos_Y = sqrt(-pow2((num) / (-2 * u), 2) + pow2(d, 2));
+    device_pos_Y = (sqrt((double) (-pow2((num) / (-2 * u), 2) + pow2(d, 2))));
     //calculate Y2 position (Y coordinate of remote Pozyx beacon on robot)
     //remote_pos_Y = (sqrt(-1*powerOfTwo(((a*a)-(u*u)-(c*c))/(-2*u))+(unsigned long)(c*c)));
     num = pow2(a, 2) - pow2(u, 2) - pow2(c, 2);
-    remote_pos_Y = (sqrt(-pow2((num) / (-2 * u), 2) + pow2(c, 2)));
+    remote_pos_Y = abs((sqrt((double) (-pow2((num) / (-2 * u), 2) + pow2(c, 2)))));
     //calculate X1 position (shield on arduino)
     //device_pos_X = ((d*d) - (b*b) + (u*u))/(2*u);
-    device_pos_X = (pow2(d, 2) - pow2(b, 2) + pow2(u, 2)) / (2 * u);
+    num = pow2(d, 2) - pow2(b, 2) + pow2(u, 2);
+    device_pos_X = abs((num) / (2 * u));
     //calculate X2 position (remote beacon)
     //remote_pos_X = ((c*c)-(a*a)+(u*u))/(2*u);
-    remote_pos_X = (pow2(c, 2) - pow2(a, 2) + pow2(u, 2)) / (2 * u);
+    num = pow2(c, 2) - pow2(a, 2) + pow2(u, 2);
+    remote_pos_X = abs((num) / (2 * u));
 
     BufferAddVal(DevY, &Head_1, device_pos_Y);
     BufferAddVal(RemY, &Head_2, remote_pos_Y);
@@ -247,7 +272,7 @@ double calculateX1Position() {
     double b = deviceRightRange.distance;
     double d = deviceLeftRange.distance;
     double u = ANCHORDISPLACEMENT;
-    double w = TAG_DIST;
+    //double w = TAG_DIST;
 
     unsigned long squareThis = ((b * b)-(u * u)-(d * d)) / (-2 * u);
     unsigned long squared = powerOfTwo(squareThis);
@@ -262,7 +287,7 @@ double calculateX2Position() {
     double a = remoteRightRange.distance;
     double c = remoteLeftRange.distance;
     double u = ANCHORDISPLACEMENT;
-    double w = TAG_DIST;
+    //double w = TAG_DIST;
 
     unsigned long squareThis = ((a * a)-(u * u)-(c * c)) / (-2 * u);
     unsigned long squared = powerOfTwo(squareThis);
@@ -353,11 +378,11 @@ void adjustHeading() {
             lastMillis = millis();
         }
 
-        //       if(yAngle > 360) yAngle -= 360;
-        //       else if(yAngle < 0) yAngle += 360;
+        if (yAngle > 360) yAngle -= 360;
+        else if (yAngle < 0) yAngle += 360;
         // find the number of degrees between the two angles
 
-        if ((alpha > 0.45) && (alpha < 0.65)/*((AngleDist(yAngle,heading) ) > 10) */ && headingSet == false && millis() > 2000) {
+        if ((alpha > 0.55) && (alpha < 0.65)/*((AngleDist(yAngle,heading) ) > 10) */ && headingSet == false && millis() > 6000) {
             yAngle = heading;
             headingSet = true;
         }
@@ -384,16 +409,15 @@ void adjustHeading() {
 
 }
 
-int getPozyx_X()
-{
+int getPozyx_X() {
     return center_X;
 }
-int getPozyx_Y()
-{
+
+int getPozyx_Y() {
     return center_Y;
 }
-int getPozyx_H()
-{
+
+int getPozyx_H() {
     return currentHeading;
 }
 
@@ -433,13 +457,27 @@ void printCH() {
 
     //Sending the message periodically
     if (abs(lastTime - millis()) > 200) {
-        // Loading the info for fasttransfer
-        Send.ToSend(1, center_X);
-        Send.ToSend(2, center_Y);
-        Send.ToSend(4, heading);
-        Send.ToSend(3, currentHeading);
+        /* Loading the info for FastTransfer UART */
+        FT_ToSend(getFThandle(), 1, center_X);
+        FT_ToSend(getFThandle(), 2, center_Y);
+        FT_ToSend(getFThandle(), 3, currentHeading);
+        FT_ToSend(getFThandle(), 4, heading);
+        FT_ToSend(getFThandle(), 5, device_pos_X);
+        FT_ToSend(getFThandle(), 6, device_pos_Y);
+        FT_ToSend(getFThandle(), 7, remote_pos_X);
+        FT_ToSend(getFThandle(), 8, remote_pos_Y);
         // Sending....
-        Send.sendData(5);
+        FT_Send(getFThandle(), 5);
+
+        /**** Commented out because the "\PublishData" Functionality should be taking care of it ****/
+        //        /* Transmit info on CAN bus */
+        //        FTC_ToSend(getCanFThandle(), DATA_0 + GLOBAL_DATA_INDEX_PER_DEVICE*POZYX, center_X);
+        //        FTC_ToSend(getCanFThandle(), DATA_1 + GLOBAL_DATA_INDEX_PER_DEVICE*POZYX, center_Y);
+        //        FTC_ToSend(getCanFThandle(), DATA_2 + GLOBAL_DATA_INDEX_PER_DEVICE*POZYX, currentHeading);
+        //        FTC_ToSend(getCanFThandle(), DATA_3 + GLOBAL_DATA_INDEX_PER_DEVICE*POZYX, heading);
+        //        // Sending....
+        //        FTC_Send(getCanFThandle(), GLOBAL_ADDRESS);
+
         lastTime = millis();
     }
 #endif

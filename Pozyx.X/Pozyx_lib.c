@@ -1234,7 +1234,7 @@ int saveAnchorIds(uint16_t remote_id) {
 
 int saveUWBSettings(uint16_t remote_id) {
     uint8_t registers[4] = {POZYX_UWB_CHANNEL, POZYX_UWB_RATES, POZYX_UWB_PLEN, POZYX_UWB_GAIN};
-    saveRegisters(registers, 4, remote_id);
+    return saveRegisters(registers, 4, remote_id);
 }
 
 int clearConfiguration(uint16_t remote_id) {
@@ -1274,7 +1274,8 @@ int getNumRegistersSaved(uint16_t remote_id) {
     uint8_t details[20];
     memset(details, 0, 20);
 
-    int status = useFunction(POZYX_FLASH_DETAILS, NULL, 0, details, 20, remote_id);
+    //int status = useFunction(POZYX_FLASH_DETAILS, NULL, 0, details, 20, remote_id);
+    useFunction(POZYX_FLASH_DETAILS, NULL, 0, details, 20, remote_id);
 
     // the number of registers saved is equal to the number of bits set in the details array
     int i, j;
@@ -1291,7 +1292,8 @@ int getNumRegistersSaved(uint16_t remote_id) {
 bool isRegisterSaved(uint8_t regAddress, uint16_t remote_id) {
     uint8_t details[20] = {0};
 
-    int status = useFunction(POZYX_FLASH_DETAILS, NULL, 0, details, 20, remote_id);
+    //int status = useFunction(POZYX_FLASH_DETAILS, NULL, 0, details, 20, remote_id);
+    useFunction(POZYX_FLASH_DETAILS, NULL, 0, details, 20, remote_id);
 
     // the register address is represented by a specific bit in the bit string stored in details.
     int byte_num = regAddress / 8;

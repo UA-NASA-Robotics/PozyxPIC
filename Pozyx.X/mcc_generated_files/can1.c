@@ -52,7 +52,7 @@
 #include "dma.h"
 
 // pointer to a FastTransfer CAN structure serves as an interface to the library
-struct FastTransferHandle_CAN* pftc;
+FTC_t* pftc;
 
 #define CAN1_TX_DMA_CHANNEL DMA_CHANNEL_1
 #define CAN1_RX_DMA_CHANNEL DMA_CHANNEL_0
@@ -93,22 +93,22 @@ static void CAN1_DMACopy(uint8_t buffer_number, uCAN_MSG *message);
 static void CAN1_MessageToBuffer(uint16_t* buffer, uCAN_MSG* message);
 
 /* Null weak implementations of callback functions. */
-void __attribute__((weak, deprecate("This callback ECAN1_CallbackBusOff() call will removed later"))) CAN1_CallbackBusOff(void)
+void CAN1_CallbackBusOff(void)
 { 
     ECAN1_CallbackBusOff();    
 }
 
-void __attribute__((weak, deprecate("This callback ECAN1_CallbackTxErrorPassive() call will removed later"))) CAN1_CallbackTxErrorPassive(void)
+void CAN1_CallbackTxErrorPassive(void)
 {
     ECAN1_CallbackTxErrorPassive();
 }
 
-void __attribute__((weak, deprecate("This callback ECAN1_CallbackRxErrorPassive() call will removed later"))) CAN1_CallbackRxErrorPassive(void)
+void CAN1_CallbackRxErrorPassive(void)
 {
     ECAN1_CallbackRxErrorPassive();
 }
 
-void __attribute__((weak, deprecate("This callback ECAN1_CallbackMessageReceived() call will removed later"))) CAN1_CallbackMessageReceived(void)
+void CAN1_CallbackMessageReceived(void)
 {
     uCAN_MSG rmsg;
     CAN1_receive(&rmsg);
@@ -170,7 +170,7 @@ void __attribute__((__interrupt__, no_auto_psv)) _C1RxRdyInterrupt(void) {
   Section: CAN1 APIs
 *****************************************************************************************/
 //void CAN1_Initialize(void)
-void CAN1_Initialize(struct FastTransferHandle_CAN* handle)
+void CAN1_Initialize(FTC_t* handle)
 {
     // Disable interrupts before the Initialization
     IEC2bits.C1IE = 0;
@@ -591,15 +591,15 @@ static void CAN1_DMACopy(uint8_t buffer_number, uCAN_MSG *message)
     else
     {
         message->frame.msgtype = CAN_MSG_DATA;
-        message->frame.data0 =(unsigned char)can1msgBuf[buffer_number][3];
-        message->frame.data1 =(unsigned char)((can1msgBuf[buffer_number][3] & 0xFF00U) >> 8U);
-        message->frame.data2 =(unsigned char)can1msgBuf[buffer_number][4];
-        message->frame.data3 =(unsigned char)((can1msgBuf[buffer_number][4] & 0xFF00U) >> 8U);
-        message->frame.data4 =(unsigned char)can1msgBuf[buffer_number][5];
-        message->frame.data5 =(unsigned char)((can1msgBuf[buffer_number][5] & 0xFF00U) >> 8U);
-        message->frame.data6 =(unsigned char)can1msgBuf[buffer_number][6];
-        message->frame.data7 =(unsigned char)((can1msgBuf[buffer_number][6] & 0xFF00U) >> 8U);
-        message->frame.dlc =(unsigned char)(can1msgBuf[buffer_number][2] & 0x000FU);
+        message->frame.data0 =(uint8_t)can1msgBuf[buffer_number][3];
+        message->frame.data1 =(uint8_t)((can1msgBuf[buffer_number][3] & 0xFF00U) >> 8U);
+        message->frame.data2 =(uint8_t)can1msgBuf[buffer_number][4];
+        message->frame.data3 =(uint8_t)((can1msgBuf[buffer_number][4] & 0xFF00U) >> 8U);
+        message->frame.data4 =(uint8_t)can1msgBuf[buffer_number][5];
+        message->frame.data5 =(uint8_t)((can1msgBuf[buffer_number][5] & 0xFF00U) >> 8U);
+        message->frame.data6 =(uint8_t)can1msgBuf[buffer_number][6];
+        message->frame.data7 =(uint8_t)((can1msgBuf[buffer_number][6] & 0xFF00U) >> 8U);
+        message->frame.dlc =(uint8_t)(can1msgBuf[buffer_number][2] & 0x000FU);
     }
 }
 

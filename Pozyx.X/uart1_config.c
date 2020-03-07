@@ -2,8 +2,8 @@
 #include "FastTransfer/ring_buffer.h"
 
 
-struct ring_buffer_t u1rx_buffer;
-struct ring_buffer_t u1tx_buffer;
+ring_buffer_t u1rx_buffer;
+ring_buffer_t u1tx_buffer;
 bool tx1_stall = true;
 //rbuffer_t u1rx_buffer;
 //rbuffer_t u1tx_buffer;

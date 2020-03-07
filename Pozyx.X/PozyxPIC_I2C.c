@@ -1,6 +1,6 @@
 #include <xc.h>
 #include <stdbool.h>
-
+#include "Timers.h"
 //#include "Initialize.h"
 
 
@@ -18,19 +18,19 @@ typedef enum {
 // general struct for storing settings
 
 struct operator_values {
-    unsigned char slave_address;
-    unsigned char data_address;
-    unsigned char * Rxdata;
-    unsigned char * Txdata;
-    unsigned char Rxcount;
-    unsigned char Txcount;
-    unsigned char Rxdata_index;
-    unsigned char Txdata_index;
-    unsigned char direction;
-    unsigned char status;
+    uint8_t slave_address;
+    uint8_t data_address;
+    uint8_t * Rxdata;
+    uint8_t * Txdata;
+    uint8_t Rxcount;
+    uint8_t Txcount;
+    uint8_t Rxdata_index;
+    uint8_t Txdata_index;
+    uint8_t direction;
+    uint8_t status;
     TransMissionMode_t transMode;
 };
-
+timers_t timeOUT;
 // initialize the setting struct
 static struct operator_values I2C_1_values = {0, 0, 0, 0, 0, 0, 1, Normal};
 
@@ -38,7 +38,7 @@ static struct operator_values I2C_1_values = {0, 0, 0, 0, 0, 0, 1, Normal};
 void (*FunctionI2C)(void);
 
 void InitI2C(void) {
-
+    setTimerInterval(&timeOUT, 1000);
     // Continues module operation in Idle mode
     I2C2CONbits.I2CSIDL = 0;
     I2C2BRG = 500.8; //591*4; // set baud rate (edited back FROM 591*4)
@@ -56,7 +56,7 @@ void InitI2C(void) {
 
 // initiates a send of an array containing a set number of data
 
-bool SendI2CRepeatStart(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much) {
+bool SendI2CRepeatStart(uint8_t s_address, uint8_t d_address, uint8_t * dat, uint8_t how_much) {
     //LED3 ^= 1;
     // see if a transmit or receive is in prograss
     if ((I2C_1_values.status == SUCCESS) || (I2C_1_values.status == FAILED)) {
@@ -71,7 +71,15 @@ bool SendI2CRepeatStart(unsigned char s_address, unsigned char d_address, unsign
         I2C_1_values.transMode = WriteWrite;
         FunctionI2C = &SendSlaveAddressI2C; // load the send slave address function
         I2C2CONbits.SEN = 1; // send start condition
-        while (!(I2C_1_values.status == SUCCESS || I2C_1_values.status == FAILED));
+        resetTimer(&timeOUT);
+        while (!(I2C_1_values.status == SUCCESS || I2C_1_values.status == FAILED)) {
+            if (timerDone(&timeOUT)) {
+                I2C_1_values.status = FAILED;
+                I2C2CONbits.I2CEN = 0;
+                I2C2CONbits.I2CEN = 0;
+                break;
+            }
+        }
         if (I2C_1_values.status == SUCCESS)
             return true; // return successful
         else
@@ -81,7 +89,7 @@ bool SendI2CRepeatStart(unsigned char s_address, unsigned char d_address, unsign
     }
 }
 
-bool SendReadI2C(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much, unsigned char * rxdat, unsigned char rxhow_much) {
+bool SendReadI2C(uint8_t s_address, uint8_t d_address, uint8_t * dat, uint8_t how_much, uint8_t * rxdat, uint8_t rxhow_much) {
     //LED3 ^= 1;
     // see if a transmit or receive is in prograss
     if ((I2C_1_values.status == SUCCESS) || (I2C_1_values.status == FAILED)) {
@@ -103,7 +111,15 @@ bool SendReadI2C(unsigned char s_address, unsigned char d_address, unsigned char
         }
         FunctionI2C = &SendSlaveAddressI2C; // load the send slave address function
         I2C2CONbits.SEN = 1; // send start condition
-        while (!(I2C_1_values.status == SUCCESS || I2C_1_values.status == FAILED));
+        resetTimer(&timeOUT);
+        while (!(I2C_1_values.status == SUCCESS || I2C_1_values.status == FAILED)) {
+            if (timerDone(&timeOUT)) {
+                I2C_1_values.status = FAILED;
+                I2C2CONbits.I2CEN = 0;
+                I2C2CONbits.I2CEN = 0;
+                break;
+            }
+        }
         if (I2C_1_values.status == SUCCESS)
             return true; // return successful
         else
@@ -113,7 +129,7 @@ bool SendReadI2C(unsigned char s_address, unsigned char d_address, unsigned char
     }
 }
 
-bool SendI2C(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much) {
+bool SendI2C(uint8_t s_address, uint8_t d_address, uint8_t * dat, uint8_t how_much) {
     //LED3 ^= 1;
     // see if a transmit or receive is in prograss
     if ((I2C_1_values.status == SUCCESS) || (I2C_1_values.status == FAILED)) {
@@ -128,7 +144,15 @@ bool SendI2C(unsigned char s_address, unsigned char d_address, unsigned char * d
         I2C_1_values.transMode = Normal;
         FunctionI2C = &SendSlaveAddressI2C; // load the send slave address function
         I2C2CONbits.SEN = 1; // send start condition
-        while (!(I2C_1_values.status == SUCCESS || I2C_1_values.status == FAILED));
+        resetTimer(&timeOUT);
+        while (!(I2C_1_values.status == SUCCESS || I2C_1_values.status == FAILED)) {
+            if (timerDone(&timeOUT)) {
+                I2C_1_values.status = FAILED;
+                I2C2CONbits.I2CEN = 0;
+                I2C2CONbits.I2CEN = 0;
+                break;
+            }
+        }
         if (I2C_1_values.status == SUCCESS)
             return true; // return successful
         else
@@ -139,7 +163,7 @@ bool SendI2C(unsigned char s_address, unsigned char d_address, unsigned char * d
 }
 // initiate a receive moving data to an array of a set number of data
 
-bool ReceiveI2C(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much) {
+bool ReceiveI2C(uint8_t s_address, uint8_t d_address, uint8_t * dat, uint8_t how_much) {
 
     //see if a transmit or receive is in prograss
     if ((I2C_1_values.status == SUCCESS) || (I2C_1_values.status == FAILED)) {
@@ -156,7 +180,15 @@ bool ReceiveI2C(unsigned char s_address, unsigned char d_address, unsigned char 
         I2C_1_values.transMode = Normal;
         FunctionI2C = &SendSlaveAddressI2C; // load the send slave address function
         I2C2CONbits.SEN = 1; // send start condition
-        while (!(I2C_1_values.status == SUCCESS || I2C_1_values.status == FAILED));
+        resetTimer(&timeOUT);
+        while (!(I2C_1_values.status == SUCCESS || I2C_1_values.status == FAILED)) {
+            if (timerDone(&timeOUT)) {
+                I2C_1_values.status = FAILED;
+                I2C2CONbits.I2CEN = 0;
+                I2C2CONbits.I2CEN = 0;
+                break;
+            }
+        }
         if (I2C_1_values.status == SUCCESS)
             return true; // return successful
         else
@@ -223,8 +255,7 @@ void SendDataI2C(void) {
         if (I2C_1_values.Txdata_index < I2C_1_values.Txcount) {
             I2C2TRN = I2C_1_values.Txdata[I2C_1_values.Txdata_index]; // load data into buffer
             I2C_1_values.Txdata_index++; // increment index
-        }
-        else //all data has been sent
+        } else //all data has been sent
         {
             if (I2C_1_values.transMode == WriteRead && I2C_1_values.direction == TRANSMIT) {
                 I2C2CONbits.SEN = 1; // send start condition
@@ -322,7 +353,7 @@ void SuccessFunctionI2C(void) {
 
 }
 
-unsigned char StatusI2C(void) {
+uint8_t StatusI2C(void) {
     return I2C_1_values.status;
 }
 
@@ -349,13 +380,13 @@ bool writeBits(char devAddr, char regAddr, char bitStart, char length, char data
     // 10100011 original & ~mask
     // 10101011 masked | value
     int b;
-    if (ReceiveI2C(devAddr, regAddr, (unsigned char *) &b, 1) != 0) {
+    if (ReceiveI2C(devAddr, regAddr, (uint8_t *) & b, 1) != 0) {
         char mask = ((1 << length) - 1) << (bitStart - length + 1);
         data <<= (bitStart - length + 1); // shift data into correct position
         data &= mask; // zero all non-important bits in data
         b &= ~(mask); // zero all important bits in existing byte
         b |= data; // combine data with existing byte
-        return SendI2C(devAddr, regAddr, (unsigned char *) &b, 1);
+        return SendI2C(devAddr, regAddr, (uint8_t *) & b, 1);
     } else {
         return false;
     }
@@ -364,8 +395,8 @@ bool writeBits(char devAddr, char regAddr, char bitStart, char length, char data
 bool writeBit(char devAddr, char regAddr, char bitNum, char data) {
     char b;
 
-    //    ReceiveI2C(devAddr, regAddr,(unsigned char *) &b, 1);
+    //    ReceiveI2C(devAddr, regAddr,(uint8_t *) &b, 1);
     //    while(StatusI2C() == PENDING);
     b = (data != 0) ? (b | (1 << bitNum)) : (b & ~(1 << bitNum));
-    return SendI2C(devAddr, regAddr, (unsigned char *) &b, 1);
+    return SendI2C(devAddr, regAddr, (uint8_t *) & b, 1);
 }

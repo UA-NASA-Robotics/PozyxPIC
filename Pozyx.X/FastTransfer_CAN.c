@@ -9,7 +9,15 @@
 #ifdef DEBUG
 #include <stdio.h>
 #endif
-
+ FTC_t ftc_handle;
+ void canFTbegin()
+ {
+      FTC_Init(&ftc_handle, ROUTER_CARD, 1, CAN1_Initialize, CAN1_transmit, CAN1_receive);
+ }
+ FTC_t* getCanFThandle()
+ {
+     return &ftc_handle;
+ }
 void FTC_Init(FTC_t* handle, uint8_t address, int8_t id, void(*mcc_init)(FTC_t*), bool(*f_tx)(CAN_TX_PRIOIRTY, uCAN_MSG*), bool(*f_rx)(uCAN_MSG*)) {
     handle->address = address;
     if (id == 1 || id == 2)
@@ -164,7 +172,7 @@ void initCANFT(FTC_t* handle) {
     beginCANFast(handle, handle->receiveArrayCAN, handle->CAN_FT_recievedFlag, sizeof (handle->receiveArrayCAN), handle->address, FT_LOCAL);
     beginCANFast(handle, handle->receiveArrayCAN_Global, handle->GBL_CAN_FT_recievedFlag, sizeof (handle->receiveArrayCAN_Global), GLOBAL_ADDRESS, FT_GLOBAL);
 }
-void beginCANFast(FTC_t* handle, volatile int * ptr, volatile bool *flagPtr, unsigned int maxSize, unsigned char givenAddress, FT_Type_t _t) {
+void beginCANFast(FTC_t* handle, int * ptr, bool *flagPtr, unsigned int maxSize, uint8_t givenAddress, FT_Type_t _t) {
 
     handle->receiveArrayAddressCAN[_t] = ptr;
     handle->receiveArrayAddressCAN_Flag[_t] = flagPtr;
@@ -228,7 +236,7 @@ void clearCANFastDataValueRange(FTC_t* handle, int startIndex, int end) {
 //void ReceiveCANFast(FTC_t* handle, uCAN_MSG* p, FT_Type_t _t) // interrupt callback
 void FTC_Receive(FTC_t* handle, uCAN_MSG* p, FT_Type_t _t)
 {
-    struct ring_buffer_t* rx_Buff;
+    ring_buffer_t* rx_Buff;
     if (_t == FT_LOCAL)
         rx_Buff = &handle->rx_buffer_CAN;
     else
@@ -260,7 +268,7 @@ void FTC_Receive(FTC_t* handle, uCAN_MSG* p, FT_Type_t _t)
 
 int ReceiveDataCAN(FTC_t* handle, FT_Type_t _t) {
 //int FTC_Read(FTC_t* handle, FT_Type_t _t) {
-    struct ring_buffer_t *rx_Buff;
+    ring_buffer_t *rx_Buff;
     if (_t == FT_LOCAL) rx_Buff = &handle->rx_buffer_CAN;
     else rx_Buff = &handle->rx_buffer_CAN_Global;
 

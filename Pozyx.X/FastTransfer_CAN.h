@@ -32,32 +32,8 @@ typedef enum {
     FT_GLOBAL
 } FT_Type_t;
     
-// fast transfer handle and all necessary local variables
-struct FastTransferHandle_CAN
-{
-    // address of device
-    uint8_t address;
-    // can module number (1 or 2)
-    int8_t can_id;
-    bool(*transmit)(CAN_TX_PRIOIRTY,uCAN_MSG*);
-    bool(*receive)(uCAN_MSG*);
-    struct ring_buffer_t transmit_buffer_CAN, send_buffer_CAN_FT, rx_buffer_CAN;
-    struct ring_buffer_t rx_buffer_CAN_Global;
-    int receiveMode;
-    bool dataReceived[2];
-    int newDataFlag;
-    volatile int * receiveArrayAddressCAN[2];
-    volatile bool * receiveArrayAddressCAN_Flag[2];
-    unsigned char moduleAddressCAN[2];
-    unsigned int MaxIndex[2];
-    int receiveArrayCAN[10];
-    bool CAN_FT_recievedFlag[CAN_RECIEVE_SIZE];
-    int newDataFlag_Global[2];
-    volatile int receiveArrayCAN_Global[GLOBAL_DEVICES*GLOBAL_DATA_INDEX_PER_DEVICE + 1];
-    bool GBL_CAN_FT_recievedFlag[GLOBAL_DEVICES*GLOBAL_DATA_INDEX_PER_DEVICE + 1];
-    
-};
-typedef struct FastTransferHandle_CAN FTC_t;
+
+//typedef struct FTC_t FTC_t;
 
 /* 
     To use Fast Transfer CAN, you must pass in your hardware-level init, tx, and rx functions into here. 
@@ -67,8 +43,9 @@ typedef struct FastTransferHandle_CAN FTC_t;
     3) don't forget to remove the call to the initialization function for CAN in SYSTEM_Initialize as Fast Transfer will do this internally
     This process is to enable Fast Transfer functions to be used as interrupt callbacks for any CAN module
 */
-
-void FTC_Init(FTC_t* handle, uint8_t address, int8_t can_module_number, void(*mcc_init)(struct FastTransferHandle_CAN*), bool(*mcc_tx)(CAN_TX_PRIOIRTY, uCAN_MSG*), bool(*mcc_rx)(uCAN_MSG*));
+ void canFTbegin();
+  FTC_t* getCanFThandle();
+void FTC_Init(FTC_t* handle, uint8_t address, int8_t can_module_number, void(*mcc_init)(struct FTC_t*), bool(*mcc_tx)(CAN_TX_PRIOIRTY, uCAN_MSG*), bool(*mcc_rx)(uCAN_MSG*));
 
 void FTC_ToSend(FTC_t* handle, unsigned int index, unsigned int data);
 void FTC_Send(FTC_t* handle, unsigned int address);
@@ -92,7 +69,7 @@ bool getGBL_CANFTFlag(FTC_t* handle, int c);
 
 int GlobalAddressInterpret(FTC_t* handle, int index);
 
-void beginCANFast(FTC_t* handle, volatile int * ptr, volatile bool *flagPtr, unsigned int maxSize, unsigned char givenAddress, FT_Type_t _t);
+void beginCANFast(FTC_t* handle,  int * ptr, bool *flagPtr, unsigned int maxSize, uint8_t givenAddress, FT_Type_t _t);
 void setNewDataFlag(FTC_t* handle, FT_Type_t _t, int index);
 
 //RX functions
@@ -100,8 +77,8 @@ void SetReceiveMode(FTC_t* handle, int input);
 
 //TX functions
 void ToSendCAN( unsigned int where, unsigned int what);
-void ToSendCAN_Control(unsigned char where, unsigned int what);
-void ToSendCAN_Beacon(unsigned char where, unsigned int what);
+void ToSendCAN_Control(uint8_t where, unsigned int what);
+void ToSendCAN_Beacon(uint8_t where, unsigned int what);
 void sendDataCAN( unsigned int whereToSend);
 void sendDataCAN_Control( unsigned int whereToSend);
 void sendDataCAN_Beacon( unsigned int whereToSend);

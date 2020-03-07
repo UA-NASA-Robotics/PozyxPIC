@@ -8,6 +8,12 @@
 /*
  * Functions for interacting with FastTransfer instances.
  */
+    FT_t FT_handle;
+
+FT_t* getFThandle()
+{
+    return &FT_handle;
+}
 #ifndef SAFE
 void FT_Init (FT_t * handle,
 							uint8_t address,
@@ -84,14 +90,14 @@ int FT_Modified (FT_t * handle, uint8_t index)
 	return temp;
 }
 #endif
-unsigned char val;
-unsigned char tmpVal;
+uint8_t val;
+uint8_t tmpVal;
 unsigned int FT_Receive (FT_t * handle)
 {
 	// transfer bytes from serial buffer into local buffer
 	while (!handle->empty() && !rbuffer_full(&handle->receive_buf)) {
 		val = handle->get();
-		handle->receive_buf.data[(unsigned int)(handle->receive_buf.tail)] = (unsigned char)val;
+		handle->receive_buf.data[(unsigned int)(handle->receive_buf.tail)] = (uint8_t)val;
 		handle->receive_buf.tail = handle->receive_buf.tail + 1;
 		if (handle->receive_buf.tail == MAX_PCKT_SZ)
 			handle->receive_buf.tail = 0;

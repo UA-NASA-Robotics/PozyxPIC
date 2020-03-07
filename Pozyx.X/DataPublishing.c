@@ -1,6 +1,6 @@
 #include <stddef.h>
 #include "DataPublishing.h"
-//#include "CAN_Handler/CANFastTransfer.h"
+#include "FastTransfer_CAN.h"
 #include "Initialize.h"
 #include "Timers.h"
 
@@ -28,25 +28,20 @@ bool publishData() {
                 // Making sure we actually have data to send
                 validData = true;
                 //Send the data on the can bus
-#ifdef _CAN_FAST_TRANSFER_H
-                ToSendCAN(i + DATA_ELEMENTS_COUNT*MOTOR_CONTROLLER, (dataRetrievalFunc[i])());
-#endif
+                FTC_ToSend(getCanFThandle(), i + DATA_ELEMENTS_COUNT*POZYX, (dataRetrievalFunc[i])());
             }
         }
     }
     if (validData) {
-#ifdef _CAN_FAST_TRANSFER_H
-        sendDataCAN(GLOBAL_ADDRESS);
-#endif
+        FTC_Send(getCanFThandle(), GLOBAL_ADDRESS);
         LED2 ^= 1;
     }
     return validData;
 }
+
 /* forces the publishing of an index of data regardless of the linked timer */
 void publishDataIndex(int _index) {
-#ifdef _CAN_FAST_TRANSFER_H
     //Send the data on the can bus
-    ToSendCAN(_index + DATA_ELEMENTS_COUNT*MOTOR_CONTROLLER, (dataRetrievalFunc[_index])());
-    sendDataCAN(GLOBAL_ADDRESS);
-#endif
+    FTC_ToSend(getCanFThandle(), _index + DATA_ELEMENTS_COUNT*MOTOR_CONTROLLER, (dataRetrievalFunc[_index])());
+    FTC_Send(getCanFThandle(), GLOBAL_ADDRESS);
 }
