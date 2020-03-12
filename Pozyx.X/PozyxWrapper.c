@@ -89,7 +89,7 @@ double headingAvg[10];
 
 void updateHeading() {
     // CALCULATIONS FOR HEADING: CHECK WITH PEERS TO MAKE SURE THIS IS THE CORRECT METHOD
-    heading = (atan2((device_pos_X) - (remote_pos_X), (device_pos_Y) - (remote_pos_Y)) * RadToPi); //RadToPi defined in PozyxWrapper.
+    heading = (atan2((device_pos_X) - (remote_pos_X), (device_pos_Y) - (remote_pos_Y)) * RadToDeg); //RadToPi defined in PozyxWrapper.
     if (heading > 0)heading = 360 - heading;
     else heading = fabs(heading);
 
@@ -143,10 +143,12 @@ void updateStatus() {
     /* Get the ranging data from the Pozyx devices */
     /* Ranges from the main Pozyx device on the robot to the beacons */
     deviceLeftStatus = doRanging(destination_id_1, &deviceLeftRange);
+    __delay_ms(1);
     deviceRightStatus = doRanging(destination_id_2, &deviceRightRange);
     __delay_ms(1);
     /* Ranges from the secondary Pozyx device on the robot to the beacons */
     remoteLeftStatus = doRemoteRanging(remote_id, destination_id_1, &remoteLeftRange);
+    __delay_ms(1);
     remoteRightStatus = doRemoteRanging(remote_id, destination_id_2, &remoteRightRange);
     // Standard error fix
     remoteLeftRange.distance += 100;
@@ -187,11 +189,15 @@ double getBuffAvg(uint16_t *buff) {
 /* Adds a single value to the head of a ring buffer */
 void BufferAddVal(uint16_t *buff, uint8_t *head, double val) //updates the value of buff
 {
-    /* Add value to head */
-    buff[(*head)++] = (int32_t) val;
-    /* Increment head */
-    if (*head >= AVERAGEAMOUNT) {
-        *head = 0;
+    /* If the value that is about to be passed onto the buffer is bad, ignore it.*/
+    if(fabs(val) < 5000)
+    {
+        /* Add value to head */
+        buff[(*head)++] = (int32_t) val;
+        /* Increment head */
+        if (*head >= AVERAGEAMOUNT) {
+            *head = 0;
+        }
     }
 }
 
@@ -216,50 +222,66 @@ void calculateCenter() {
     //        centX = mid_X - Clc;
     //    center_X = mid_X - ((MID_DIST * y_component) / TAG_DIST);
     //    center_Y = mid_Y + ((MID_DIST * x_component) / TAG_DIST);
-    center_X = mid_X + MID_DIST * cos(currentHeading * M_PI / 180);
-    center_Y = mid_Y + MID_DIST * sin(currentHeading * M_PI / 180);
+    center_X = mid_X + MID_DIST * cos(currentHeading * DegToRad);
+    center_Y = mid_Y + MID_DIST * sin(currentHeading * DegToRad);
 
 }
 
-unsigned long pow2(unsigned long _val, int scale) {
+long long pow2(long long _val, int scale) {
     return _val * _val;
 }
 
 void updateCoordinates() //Needs re-worked. Will try something out once header + buffer working as intended
 {
+    
     int a = (int) remoteRightRange.distance;
     int b = (int) deviceRightRange.distance;
     int c = (int) remoteLeftRange.distance;
     int d = (int) deviceLeftRange.distance;
     int u = (int) ANCHORDISPLACEMENT;
+    
+    int dev_y,dev_x,rem_y,rem_x;
     //    double w = (double) TAG_DIST;
-
+    
     //    Serial.print("right Remote: ");Serial.println(remoteRightRange.distance);
     //    Serial.print("left Remote: ");Serial.println(remoteLeftRange.distance);
-    //    Serial.print("right devic: ");Serial.println(deviceRightRange.distance);
+    //    Serial.print("right device: ");Serial.println(deviceRightRange.distance);
     //    Serial.print("left device: ");Serial.println(deviceLeftRange.distance);
-    long num = pow2(b, 2) - pow2(u, 2) - pow2(d, 2);
-
+    
+    long long num = pow2(b, 2);
+    num = num - pow2(u, 2);
+    num = num - pow2(d, 2);
+    
     //calculate Y1 position (Y coordinate of Pozyx shield on Arduino device on robot)
     //device_pos_Y = sqrt(-1*powerOfTwo(((b*b)-(u*u)-(d*d))/(-2*u))+(unsigned long)(d*d));
-    device_pos_Y = (sqrt((double) (-pow2((num) / (-2 * u), 2) + pow2(d, 2))));
+    dev_y = (int)((sqrtl(( -1 * pow2( ((num) / (2 * u)), 2) + pow2(d, 2)))));
+    
+    
     //calculate Y2 position (Y coordinate of remote Pozyx beacon on robot)
     //remote_pos_Y = (sqrt(-1*powerOfTwo(((a*a)-(u*u)-(c*c))/(-2*u))+(unsigned long)(c*c)));
-    num = pow2(a, 2) - pow2(u, 2) - pow2(c, 2);
-    remote_pos_Y = abs((sqrt((double) (-pow2((num) / (-2 * u), 2) + pow2(c, 2)))));
+    num = pow2(a, 2);
+    num = num - pow2(u, 2) - pow2(c, 2);
+    
+    long long g = -pow2((num) / (2 * u), 2) + pow2(c, 2);
+    
+    //long int tempG = g / 16.0;
+    //rem_y = tempG * 4;
+
+    rem_y = (int)(sqrt(g));        //FIXME
+    
     //calculate X1 position (shield on arduino)
     //device_pos_X = ((d*d) - (b*b) + (u*u))/(2*u);
     num = pow2(d, 2) - pow2(b, 2) + pow2(u, 2);
-    device_pos_X = abs((num) / (2 * u));
+    dev_x = (((num) / (2 * u)));
     //calculate X2 position (remote beacon)
     //remote_pos_X = ((c*c)-(a*a)+(u*u))/(2*u);
     num = pow2(c, 2) - pow2(a, 2) + pow2(u, 2);
-    remote_pos_X = abs((num) / (2 * u));
+    rem_x = ((num) / (2 * u));
 
-    BufferAddVal(DevY, &Head_1, device_pos_Y);
-    BufferAddVal(RemY, &Head_2, remote_pos_Y);
-    BufferAddVal(DevX, &Head_3, device_pos_X);
-    BufferAddVal(RemX, &Head_4, remote_pos_X);
+    BufferAddVal(DevY, &Head_1, dev_y);
+    BufferAddVal(RemY, &Head_2, rem_y);
+    BufferAddVal(DevX, &Head_3, dev_x);
+    BufferAddVal(RemX, &Head_4, rem_x);
 
     device_pos_Y = getBuffAvg(DevY);
     remote_pos_Y = getBuffAvg(RemY);
@@ -382,14 +404,14 @@ void adjustHeading() {
         else if (yAngle < 0) yAngle += 360;
         // find the number of degrees between the two angles
 
-        if ((alpha > 0.55) && (alpha < 0.65)/*((AngleDist(yAngle,heading) ) > 10) */ && headingSet == false && millis() > 6000) {
+        if ((alpha > 0.40) /*&& (alpha < 0.65)((AngleDist(yAngle,heading) ) > 10)*/  && headingSet == false && millis() > 6000) {
             yAngle = heading;
             headingSet = true;
         }
-        if (alpha > .6) {
-            if (!((heading > 270 && yAngle < 90) || (heading < 90 && yAngle > 270)))
-                currentHeading = (1 - alpha)*(yAngle) + (alpha)*(heading);
-        } else
+//        if (alpha > .4) {
+//            //if (!((heading > 270 && yAngle < 90) || (heading < 90 && yAngle > 270)))
+//                currentHeading = (1- alpha)*(yAngle) + (alpha)*(heading);
+//        } else
             currentHeading = yAngle;
 
 
@@ -466,6 +488,10 @@ void printCH() {
         FT_ToSend(getFThandle(), 6, device_pos_Y);
         FT_ToSend(getFThandle(), 7, remote_pos_X);
         FT_ToSend(getFThandle(), 8, remote_pos_Y);
+        FT_ToSend(getFThandle(), 9, deviceLeftRange.distance);
+        FT_ToSend(getFThandle(), 10, deviceRightRange.distance);
+        FT_ToSend(getFThandle(), 11, remoteLeftRange.distance);
+        FT_ToSend(getFThandle(), 12, remoteRightRange.distance);
         // Sending....
         FT_Send(getFThandle(), 5);
 

@@ -22,9 +22,10 @@ extern "C" {
 #define DUAL_POZYX                  //define if using remote + shield; else comment out!
 #define isRemote true
 #define M_PI 3.14159265358979323846264338327950288419716939937
-#define RadToPi (180/M_PI)          //57.2957795131
+#define RadToDeg (180.0/M_PI)          //57.2957795131
+#define DegToRad (M_PI/180.0)          //57.2957795131
 #define ANCHORDISPLACEMENT  1600.0  //predefined distance between anchors on collection bin, in mm (was 1700)
-#define MID_DIST 300.0              //set distance to center of robot
+#define MID_DIST 400.0              //set distance to center of robot
 #define TAG_DIST 460.0              //was 460
 #define magnitude TAG_DIST
 #define Samples 50

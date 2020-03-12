@@ -101,12 +101,22 @@ c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(feqltle
                               build/default/production/PozyxWrapper.o (___ltsf2)
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fgtge.epeo)
                               build/default/production/PozyxWrapper.o (___gtsf2)
+c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fixdfsi.epeo)
+                              build/default/production/PozyxWrapper.o (_(float, int, long long, double, float, short, int))
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fixsfsi.epeo)
                               build/default/production/Pozyx_lib.o (_(float, int, long long, short, float, short, int))
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fixunssfsi.epeo)
                               build/default/production/PozyxWrapper.o (___fixunssfsi)
+c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatdidf.epeo)
+                              build/default/production/PozyxWrapper.o (___floatdidf)
+c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatdisf.epeo)
+                              build/default/production/PozyxWrapper.o (___floatdisf)
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatsisf.epeo)
                               build/default/production/Pozyx_lib.o (___floatsisf)
+c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatundidf.epeo)
+                              c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatdidf.epeo) (___floatundidf)
+c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatundisf.epeo)
+                              c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatdisf.epeo) (___floatundisf)
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatunsisf.epeo)
                               build/default/production/Pozyx_lib.o (___floatunsisf)
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fpack.epeo)
@@ -123,26 +133,30 @@ c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sincosf
                               c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(cosf.epeo) (__sincosf)
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sinf.epeo)
                               build/default/production/PozyxWrapper.o (_sinf)
+c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sqrt.epeo)
+                              build/default/production/PozyxWrapper.o (_sqrtl)
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sqrtf.epeo)
                               build/default/production/PozyxWrapper.o (_sqrtf)
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(truncdfsf.epeo)
                               build/default/production/PozyxWrapper.o (___truncdfsf2)
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(udivsi3.epeo)
                               c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(divsi3.epeo) (___udivsi3)
+c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+                              build/default/production/PozyxWrapper.o (___divdi3)
+c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(muldi3.epeo)
+                              build/default/production/PozyxWrapper.o (___muldi3)
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(dpropagateNaN.epeo)
                               c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(dunpack2.epeo) (__dPropagateNaN)
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(dunpack.epeo)
                               c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(dunpack2.epeo) (__dunpack)
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fcompare.epeo)
                               c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(feqltle.epeo) (__fcompare)
-c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatdisf.epeo)
-                              c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatsisf.epeo) (___floatdisf)
-c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatundisf.epeo)
-                              c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatunsisf.epeo) (___floatundisf)
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fmodf.epeo)
                               c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sincosf.epeo) (_fmodf)
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fmodrem.epeo)
                               c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fmodf.epeo) (__fmodrem)
+c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(umuldi3.epeo)
+                              c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(muldi3.epeo) (___umuldi3)
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libc-elf.a(memcpy.epeo)
                               build/default/production/Pozyx_lib.o (_memcpy)
 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libc-elf.a(memset.epeo)
@@ -170,14 +184,14 @@ Program Memory  [Origin = 0x200, Length = 0x555ec]
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200               0xd3c          0x13da  (5082)
-.const                       0xf3c               0x4b6           0x711  (1809)
-.text                       0x13f2              0x5a6c          0x87a2  (34722)
-.dinit                      0x6e5e                0x8c            0xd2  (210)
-.text                       0x6eea               0x152           0x1fb  (507)
-.init.delay32               0x703c                0x1c            0x2a  (42)
+.text                        0x200              0x1148          0x19ec  (6636)
+.const                      0x1348               0x4b6           0x711  (1809)
+.text                       0x17fe              0x5ab8          0x8814  (34836)
+.dinit                      0x72b6                0x8c            0xd2  (210)
+.text                       0x7342               0x152           0x1fb  (507)
+.init.delay32               0x7494                0x1c            0x2a  (42)
 
-                 Total program memory used (bytes):         0xa584  (42372) 8%
+                 Total program memory used (bytes):         0xac08  (44040) 8%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0x1fc]
@@ -208,7 +222,7 @@ section                    address      alignment gaps    total length  (dec)
 .bss                        0x10c6                   0           0x276  (630)
 .bss                        0x133c                   0            0xa8  (168)
 .data                       0x13e4                   0             0xe  (14)
-_058D84E05e62e471           0x1400                   0           0x200  (512)
+_059974E05e682dab           0x1400                   0           0x200  (512)
 .bss                        0x1600                   0            0xd4  (212)
 .bss                        0x16d4                   0           0x114  (276)
 
@@ -389,8 +403,8 @@ External Symbols in Program Memory (by address):
 
                   0x000200                  __resetPRI
                   0x00023c                  __psv_init
-                  0x000248                  __data_init
                   0x000248                  __data_init_extended
+                  0x000248                  __data_init
                   0x00034a                  __C1Interrupt
                   0x0003a2                  __C1TxReqInterrupt
                   0x0003aa                  __C1RxRdyInterrupt
@@ -418,406 +432,418 @@ External Symbols in Program Memory (by address):
                   0x00097a                  __dunpack2exit
                   0x000984                  ___extendsfdf2
                   0x0009c2                  __fchop
-                  0x000a10                  ___lesf2
                   0x000a10                  ___eqsf2
+                  0x000a10                  ___lesf2
                   0x000a10                  ___ltsf2
-                  0x000a14                  ___gtsf2
                   0x000a14                  ___gesf2
-                  0x000a18                  ___fixsfsi
-                  0x000a5a                  ___fixunssfsi
-                  0x000a90                  ___floatsisf
-                  0x000a96                  ___floatunsisf
-                  0x000a9a                  __fpack
-                  0x000ae6                  __funpack
-                  0x000b10                  __funpack2
-                  0x000b20                  __fPropagateNaN
-                  0x000b32                  __fbopExit
-                  0x000b3a                  __fbopReturnNaN
-                  0x000b40                  ___mulsf3
-                  0x000ba8                  __sincosf
-                  0x000c7a                  _sinf
-                  0x000c7e                  _sqrtf
-                  0x000ce8                  ___truncdfsf2
-                  0x000d3e                  ___udivsi3
-                  0x000d5e                  __dPropagateNaN
-                  0x000d7c                  __dunpack
-                  0x000dca                  __fcompare
-                  0x000e00                  ___floatdisf
-                  0x000e20                  ___floatundisf
-                  0x000e7e                  _fmodf
-                  0x000e82                  __fmodrem
-                  0x000f20                  _memcpy
-                  0x000f2e                  _memset
-                  0x0013f2                  _getRead
-                  0x00141a                  _setWrite
-                  0x001442                  _useFunction
-                  0x001476                  _getWhoAmI
-                  0x00148a                  _getFirmwareVersion
-                  0x00149e                  _getHardwareVersion
-                  0x0014b2                  _getSelftest
-                  0x0014c6                  _getErrorCode
-                  0x0014da                  _getInterruptStatus
-                  0x0014ee                  _getCalibrationStatus
-                  0x001502                  _getInterruptMask
-                  0x001516                  _setInterruptMask
-                  0x00152a                  _getUpdateInterval
-                  0x001540                  _setUpdateInterval
-                  0x001556                  _setRangingProtocol
-                  0x00156a                  _getRangingProtocol
-                  0x00157e                  _getConfigModeGPIO
-                  0x0015aa                  _getConfigPullGPIO
-                  0x0015dc                  _setConfigGPIO
-                  0x00160e                  _setLedConfig
-                  0x001622                  _getPositionFilterStrength
-                  0x001648                  _getPositionFilterType
-                  0x00166a                  _setPositionFilter
-                  0x00168c                  _getPositionAlgorithm
-                  0x0016ae                  _getPositionDimension
-                  0x0016d8                  _setPositionAlgorithm
-                  0x0016fe                  _getAnchorSelectionMode
-                  0x001724                  _getNumberOfAnchors
-                  0x001746                  _setSelectionOfAnchors
-                  0x00176c                  _getNetworkId
-                  0x001780                  _setNetworkId
-                  0x001796                  _getUWBSettings
-                  0x0017e6                  _setUWBSettings
-                  0x001860                  _setUWBSettingsExceptGain
-                  0x001894                  _setUWBChannel
-                  0x0018aa                  _getUWBChannel
-                  0x0018c6                  _setTxPower
-                  0x0018f2                  _getTxPower
-                  0x001922                  _getOperationMode
-                  0x001936                  _setOperationMode
-                  0x00194a                  _getSensorMode
-                  0x00195e                  _setSensorMode
-                  0x001972                  _getCoordinates
-                  0x001988                  _setCoordinates
-                  0x0019a8                  _getPositionError
-                  0x0019be                  _getRawSensorData
-                  0x0019d4                  _getAllSensorData
-                  0x001f54                  _getPressure_Pa
-                  0x001f7e                  _getAcceleration_mg
-                  0x002046                  _getMaxLinearAcceleration
-                  0x00205c                  _getMagnetic_uT
-                  0x002136                  _getAngularVelocity_dps
-                  0x002210                  _getEulerAngles_deg
-                  0x0022ea                  _getQuaternion
-                  0x002400                  _getLinearAcceleration_mg
-                  0x0024c8                  _getGravityVector_mg
-                  0x002590                  _getTemperature_c
-                  0x0025ba                  _getDeviceListSize
-                  0x0025ce                  _getLastNetworkId
-                  0x0025e4                  _getLastDataLength
-                  0x0025f8                  _getGPIO
-                  0x002616                  _setGPIO
-                  0x002636                  _resetSystem
-                  0x002658                  _getSystemError
-                  0x0028f8                  _setLed
-                  0x00292c                  _doRanging
-                  0x002990                  _doRemoteRanging
-                  0x002a12                  _doPositioning
-                  0x002a84                  _remoteRegFunctionWithoutCheck
-                  0x002b64                  _doRemotePositioning
-                  0x002cca                  _setPositioningAnchorIds
-                  0x002cec                  _getPositioningAnchorIds
-                  0x002d2e                  _getDeviceIds
-                  0x002d7c                  _getAnchorIds
-                  0x002e76                  _getTagIds
-                  0x002f70                  _doDiscovery
-                  0x002fe4                  _doAnchorCalibration
-                  0x0031ca                  _clearDevices
-                  0x0031e0                  _addDevice
-                  0x003206                  _getDeviceCoordinates
-                  0x003224                  _getDeviceRangeInfo
-                  0x003242                  _configInterruptPin
-                  0x00327a                  _saveConfiguration
-                  0x003336                  _saveRegisters
-                  0x00334c                  _saveNetwork
-                  0x00335e                  _saveAnchorIds
-                  0x003370                  _saveUWBSettings
-                  0x003388                  _clearConfiguration
-                  0x0033fa                  _getNumRegistersSaved
-                  0x003454                  _isRegisterSaved
-                  0x0034a0                  _updateHeading
-                  0x003506                  _PozyxBoot
-                  0x00352c                  _updateStatus
-                  0x00358e                  _getBuffAvg
-                  0x0035e4                  _BufferAddVal
-                  0x00361e                  _calculateCenter
-                  0x0036a4                  _pow2
-                  0x0036c4                  _updateCoordinates
-                  0x003866                  _calculateX1Position
-                  0x0038fc                  _calculateX2Position
-                  0x003992                  _calculateY1Position
-                  0x0039f4                  _calculateY2Position
-                  0x003a56                  _powerOfTwo
-                  0x003a74                  _calibrateGyro
-                  0x003b24                  _adjustHeading
-                  0x003da0                  _getPozyx_X
-                  0x003dae                  _getPozyx_Y
-                  0x003dbc                  _getPozyx_H
-                  0x003dca                  _AngleDist
-                  0x003e14                  _printCH
-                  0x003ec0                  _isWithinFloat
-                  0x003f08                  _variance
-                  0x003fc2                  _printBasicXY
-                  0x003fc8                  _IRQ
-                  0x003fec                  _waitForFlag
-                  0x00405e                  _waitForFlag_safe
-                  0x004080                  _Pozyx_begin
-                  0x004168                  _regRead
-                  0x00423c                  _regWrite
-                  0x004302                  _regFunction
-                  0x0043be                  _remoteRegWrite
-                  0x0044de                  _remoteRegRead
-                  0x004626                  _remoteRegFunction
-                  0x00479e                  _writeTXBufferData
-                  0x004878                  _readRXBufferData
-                  0x00491a                  _sendTXBufferData
-                  0x00494a                  _sendData
-                  0x0049e4                  _i2cWriteWrite
-                  0x004a0e                  _i2cWriteRead
-                  0x004a50                  _attachInterrupt
-                  0x004a74                  _canFTbegin
-                  0x004a88                  _getCanFThandle
-                  0x004a90                  _FTC_Init
-                  0x004ae8                  _IsFIFOIE
-                  0x004b22                  _FIFOI_Enable
-                  0x004b40                  _FIFOI_Disable
-                  0x004b5e                  _setCANFTdata
-                  0x004ba8                  _getCANFTdatas
-                  0x004bd4                  _getCANFT_Flag
-                  0x004bf8                  _getCANFTdata
-                  0x004c0a                  _getGBL_CANFTdata
-                  0x004c1c                  _getGBL_CANFTFlag
-                  0x004c2e                  _getCANFT_RFlag
-                  0x004c40                  _CAN_FrameToArray
-                  0x004c94                  _SetCANFrameData
-                  0x004cec                  _SetCANFrameDataByte
-                  0x004d82                  _getReceiveArrayCAN
-                  0x004d8e                  _initCANFT
-                  0x004dc6                  _beginCANFast
-                  0x004e2e                  _setNewDataFlag
-                  0x004e4e                  _clearNewDataFlag
-                  0x004e6e                  _getNewDataFlagStatus
-                  0x004e9e                  _getCANFastData
-                  0x004ede                  _clearCANFastDataValue
-                  0x004ef6                  _clearCANFastDataValueRange
-                  0x004f3c                  _FTC_Receive
-                  0x00506e                  _ReceiveDataCAN
-                  0x0050f8                  _TransmitCANFast
-                  0x005374                  _SetReceiveMode
-                  0x005390                  _clearCANFTdataIndex
-                  0x0053a8                  _GlobalAddressInterpret
-                  0x0053c0                  _FTC_ToSend
-                  0x0053ec                  _FTC_Send
-                  0x00542a                  _BufferToMSG
-                  0x00556a                  _CAN1_CallbackBusOff
-                  0x005572                  _CAN1_CallbackTxErrorPassive
-                  0x00557a                  _CAN1_CallbackRxErrorPassive
-                  0x005582                  _CAN1_CallbackMessageReceived
-                  0x0055e6                  _CAN1_Initialize
-                  0x005728                  _CAN1_TransmitEnable
-                  0x005742                  _CAN1_ReceiveEnable
-                  0x00575c                  _CAN1_transmit
-                  0x0057c8                  _CAN1_receive
-                  0x005830                  _CAN1_isBusOff
-                  0x005848                  _CAN1_isRXErrorPassive
-                  0x005860                  _CAN1_isTXErrorPassive
-                  0x005878                  _CAN1_messagesInBuffer
-                  0x0058b2                  _CAN1_sleep
-                  0x005bb2                  _InitI2C
-                  0x005bdc                  _SendI2CRepeatStart
-                  0x005c6c                  _SendReadI2C
-                  0x005d20                  _SendI2C
-                  0x005db0                  _ReceiveI2C
-                  0x005e40                  _SendSlaveAddressI2C
-                  0x005e78                  _SendDataAddressI2C
-                  0x005ec2                  _SendDataI2C
-                  0x005f24                  _SendRestartI2C
-                  0x005f30                  _SendStartI2C
-                  0x005f4e                  _SendReadRequestI2C
-                  0x005f62                  _FirstReceiveI2C
-                  0x005f80                  _ReceiveByteI2C
-                  0x005fbe                  _EnableReceiveI2C
-                  0x005fca                  _NACKFollowUpI2C
-                  0x005fd6                  _StopFunctionI2C
-                  0x005fde                  _FailFunctionI2C
-                  0x005fea                  _SuccessFunctionI2C
-                  0x005ff6                  _StatusI2C
-                  0x006000                  _writeBits
-                  0x006074                  _writeBit
-                  0x0060b4                  _Parser_init
-                  0x0060e2                  _Parser_first_byte
-                  0x006126                  _Parser_second_byte
-                  0x00616c                  _Parser_sender
-                  0x0061a8                  _Parser_receiver
-                  0x0061f0                  _Parser_message_length
-                  0x006250                  _Parser_message_content
-                  0x00628a                  _Parser_crc
-                  0x0062fe                  _Parser_status
-                  0x006306                  _Parser_trash_bytes
-                  0x006324                  _Parser_message
-                  0x006374                  _Parser_write_message_data
-                  0x006418                  _parse
-                  0x006476                  _rbuffer_init
-                  0x0064a8                  _rbuffer_size
-                  0x0064ba                  _rbuffer_empty
-                  0x0064dc                  _rbuffer_full
-                  0x006508                  _rbuffer_increment
-                  0x006566                  _rbuffer_pop
-                  0x0065d8                  _rbuffer_peek
-                  0x006608                  _rbuffer_get
-                  0x006654                  _rbuffer_push
-                  0x0066c8                  _rbuffer_push2
-                  0x0066e0                  _rbuffer_push3
-                  0x006700                  _rbuffer_clear
-                  0x006746                  _rbuffer_flush
-                  0x00678e                  _rbuffer_reset
-                  0x0067c0                  _rbuffer_getarray
-                  0x0067ca                  _getFThandle
-                  0x0067d2                  _FT_Init
-                  0x00682a                  _FT_Read
-                  0x006850                  _FT_Modified
-                  0x006876                  _FT_Receive
-                  0x006952                  _FT_ToSend
-                  0x006984                  _FT_Send
-                  0x006a06                  _FT_ClearFlag
-                  0x006a1e                  _Start_Initialization
-                  0x006aa6                  _oscillator
-                  0x006af6                  _timerOne
-                  0x006b1a                  _LEDPattern
-                  0x006b9a                  _initGlobalData
-                  0x006bc2                  _publishData
-                  0x006c42                  _publishDataIndex
-                  0x006c70                  _millis
-                  0x006c7a                  _timerDone
-                  0x006cb0                  _setTimerInterval
-                  0x006cd4                  _resetTimer
-                  0x006ce4                  _globalTimerTracker
-                  0x006cf6                  _delay
-                  0x006d1a                  _DMA_Initialize
-                  0x006d92                  _DMA_Channel2_Tasks
-                  0x006dac                  _DMA_Channel3_Tasks
-                  0x006dbe                  _uart1_init
-                  0x006df6                  _uart1_put
-                  0x006e14                  _uart1_put_c
-                  0x006e36                  _uart1_peek
-                  0x006e40                  _uart1_get
-                  0x006e4a                  _uart1_rx_empty
-                  0x006e54                  _uart1_rx_getarray
-                  0x006eea                  _main
-                  0x006f62                  _ECAN1_CallbackBusOff
-                  0x006f68                  _ECAN1_CallbackTxErrorPassive
-                  0x006f6e                  _ECAN1_CallbackRxErrorPassive
-                  0x006f74                  _ECAN1_CallbackMessageReceived
-                  0x006f7a                  _ECAN1_Initialize
-                  0x006f80                  _ECAN1_TransmitEnable
-                  0x006f88                  _ECAN1_ReceiveEnable
-                  0x006f90                  _ECAN1_transmit
-                  0x006fa2                  _ECAN1_receive
-                  0x006fae                  _ECAN1_isBusOff
-                  0x006fb6                  _ECAN1_isRXErrorPassive
-                  0x006fbe                  _ECAN1_isTXErrorPassive
-                  0x006fc6                  _ECAN1_messagesInBuffer
-                  0x006fce                  _ECAN1_sleep
-                  0x006fd6                  _crc
-                  0x00703c                  ___delay32
+                  0x000a14                  ___gtsf2
+                  0x000a18                  ___fixdfsi
+                  0x000a70                  ___fixsfsi
+                  0x000ab2                  ___fixunssfsi
+                  0x000ae8                  ___floatdidf
+                  0x000b08                  ___floatdisf
+                  0x000b28                  ___floatsisf
+                  0x000b2e                  ___floatundidf
+                  0x000b84                  ___floatundisf
+                  0x000be2                  ___floatunsisf
+                  0x000be6                  __fpack
+                  0x000c32                  __funpack
+                  0x000c5c                  __funpack2
+                  0x000c6c                  __fPropagateNaN
+                  0x000c7e                  __fbopExit
+                  0x000c86                  __fbopReturnNaN
+                  0x000c8c                  ___mulsf3
+                  0x000cf4                  __sincosf
+                  0x000dc6                  _sinf
+                  0x000dca                  _sqrtl
+                  0x000dca                  _sqrt
+                  0x000e6a                  _sqrtf
+                  0x000ed4                  ___truncdfsf2
+                  0x000f2a                  ___udivsi3
+                  0x000f9a                  ___udivmoddi3
+                  0x001080                  ___udivdi3
+                  0x00108e                  ___umoddi3
+                  0x001096                  ___divdi3
+                  0x0010f6                  ___moddi3
+                  0x001152                  ___muldi3
+                  0x0011a4                  __dPropagateNaN
+                  0x0011c2                  __dunpack
+                  0x001210                  __fcompare
+                  0x001246                  _fmodf
+                  0x00124a                  __fmodrem
+                  0x0012e8                  ___umuldi3
+                  0x00132c                  _memcpy
+                  0x00133a                  _memset
+                  0x0017fe                  _getRead
+                  0x001826                  _setWrite
+                  0x00184e                  _useFunction
+                  0x001882                  _getWhoAmI
+                  0x001896                  _getFirmwareVersion
+                  0x0018aa                  _getHardwareVersion
+                  0x0018be                  _getSelftest
+                  0x0018d2                  _getErrorCode
+                  0x0018e6                  _getInterruptStatus
+                  0x0018fa                  _getCalibrationStatus
+                  0x00190e                  _getInterruptMask
+                  0x001922                  _setInterruptMask
+                  0x001936                  _getUpdateInterval
+                  0x00194c                  _setUpdateInterval
+                  0x001962                  _setRangingProtocol
+                  0x001976                  _getRangingProtocol
+                  0x00198a                  _getConfigModeGPIO
+                  0x0019b6                  _getConfigPullGPIO
+                  0x0019e8                  _setConfigGPIO
+                  0x001a1a                  _setLedConfig
+                  0x001a2e                  _getPositionFilterStrength
+                  0x001a54                  _getPositionFilterType
+                  0x001a76                  _setPositionFilter
+                  0x001a98                  _getPositionAlgorithm
+                  0x001aba                  _getPositionDimension
+                  0x001ae4                  _setPositionAlgorithm
+                  0x001b0a                  _getAnchorSelectionMode
+                  0x001b30                  _getNumberOfAnchors
+                  0x001b52                  _setSelectionOfAnchors
+                  0x001b78                  _getNetworkId
+                  0x001b8c                  _setNetworkId
+                  0x001ba2                  _getUWBSettings
+                  0x001bf2                  _setUWBSettings
+                  0x001c6c                  _setUWBSettingsExceptGain
+                  0x001ca0                  _setUWBChannel
+                  0x001cb6                  _getUWBChannel
+                  0x001cd2                  _setTxPower
+                  0x001cfe                  _getTxPower
+                  0x001d2e                  _getOperationMode
+                  0x001d42                  _setOperationMode
+                  0x001d56                  _getSensorMode
+                  0x001d6a                  _setSensorMode
+                  0x001d7e                  _getCoordinates
+                  0x001d94                  _setCoordinates
+                  0x001db4                  _getPositionError
+                  0x001dca                  _getRawSensorData
+                  0x001de0                  _getAllSensorData
+                  0x002360                  _getPressure_Pa
+                  0x00238a                  _getAcceleration_mg
+                  0x002452                  _getMaxLinearAcceleration
+                  0x002468                  _getMagnetic_uT
+                  0x002542                  _getAngularVelocity_dps
+                  0x00261c                  _getEulerAngles_deg
+                  0x0026f6                  _getQuaternion
+                  0x00280c                  _getLinearAcceleration_mg
+                  0x0028d4                  _getGravityVector_mg
+                  0x00299c                  _getTemperature_c
+                  0x0029c6                  _getDeviceListSize
+                  0x0029da                  _getLastNetworkId
+                  0x0029f0                  _getLastDataLength
+                  0x002a04                  _getGPIO
+                  0x002a22                  _setGPIO
+                  0x002a42                  _resetSystem
+                  0x002a64                  _getSystemError
+                  0x002d04                  _setLed
+                  0x002d38                  _doRanging
+                  0x002d9c                  _doRemoteRanging
+                  0x002e1e                  _doPositioning
+                  0x002e90                  _remoteRegFunctionWithoutCheck
+                  0x002f70                  _doRemotePositioning
+                  0x0030d6                  _setPositioningAnchorIds
+                  0x0030f8                  _getPositioningAnchorIds
+                  0x00313a                  _getDeviceIds
+                  0x003188                  _getAnchorIds
+                  0x003282                  _getTagIds
+                  0x00337c                  _doDiscovery
+                  0x0033f0                  _doAnchorCalibration
+                  0x0035d6                  _clearDevices
+                  0x0035ec                  _addDevice
+                  0x003612                  _getDeviceCoordinates
+                  0x003630                  _getDeviceRangeInfo
+                  0x00364e                  _configInterruptPin
+                  0x003686                  _saveConfiguration
+                  0x003742                  _saveRegisters
+                  0x003758                  _saveNetwork
+                  0x00376a                  _saveAnchorIds
+                  0x00377c                  _saveUWBSettings
+                  0x003794                  _clearConfiguration
+                  0x003806                  _getNumRegistersSaved
+                  0x003860                  _isRegisterSaved
+                  0x0038ac                  _updateHeading
+                  0x003912                  _PozyxBoot
+                  0x003938                  _updateStatus
+                  0x0039a6                  _getBuffAvg
+                  0x0039fc                  _BufferAddVal
+                  0x003a4e                  _calculateCenter
+                  0x003ac8                  _pow2
+                  0x003ae6                  _updateCoordinates
+                  0x003d48                  _calculateX1Position
+                  0x003dde                  _calculateX2Position
+                  0x003e74                  _calculateY1Position
+                  0x003ed6                  _calculateY2Position
+                  0x003f38                  _powerOfTwo
+                  0x003f56                  _calibrateGyro
+                  0x004006                  _adjustHeading
+                  0x0041c0                  _getPozyx_X
+                  0x0041ce                  _getPozyx_Y
+                  0x0041dc                  _getPozyx_H
+                  0x0041ea                  _AngleDist
+                  0x004234                  _printCH
+                  0x004318                  _isWithinFloat
+                  0x004360                  _variance
+                  0x00441a                  _printBasicXY
+                  0x004420                  _IRQ
+                  0x004444                  _waitForFlag
+                  0x0044b6                  _waitForFlag_safe
+                  0x0044d8                  _Pozyx_begin
+                  0x0045c0                  _regRead
+                  0x004694                  _regWrite
+                  0x00475a                  _regFunction
+                  0x004816                  _remoteRegWrite
+                  0x004936                  _remoteRegRead
+                  0x004a7e                  _remoteRegFunction
+                  0x004bf6                  _writeTXBufferData
+                  0x004cd0                  _readRXBufferData
+                  0x004d72                  _sendTXBufferData
+                  0x004da2                  _sendData
+                  0x004e3c                  _i2cWriteWrite
+                  0x004e66                  _i2cWriteRead
+                  0x004ea8                  _attachInterrupt
+                  0x004ecc                  _canFTbegin
+                  0x004ee0                  _getCanFThandle
+                  0x004ee8                  _FTC_Init
+                  0x004f40                  _IsFIFOIE
+                  0x004f7a                  _FIFOI_Enable
+                  0x004f98                  _FIFOI_Disable
+                  0x004fb6                  _setCANFTdata
+                  0x005000                  _getCANFTdatas
+                  0x00502c                  _getCANFT_Flag
+                  0x005050                  _getCANFTdata
+                  0x005062                  _getGBL_CANFTdata
+                  0x005074                  _getGBL_CANFTFlag
+                  0x005086                  _getCANFT_RFlag
+                  0x005098                  _CAN_FrameToArray
+                  0x0050ec                  _SetCANFrameData
+                  0x005144                  _SetCANFrameDataByte
+                  0x0051da                  _getReceiveArrayCAN
+                  0x0051e6                  _initCANFT
+                  0x00521e                  _beginCANFast
+                  0x005286                  _setNewDataFlag
+                  0x0052a6                  _clearNewDataFlag
+                  0x0052c6                  _getNewDataFlagStatus
+                  0x0052f6                  _getCANFastData
+                  0x005336                  _clearCANFastDataValue
+                  0x00534e                  _clearCANFastDataValueRange
+                  0x005394                  _FTC_Receive
+                  0x0054c6                  _ReceiveDataCAN
+                  0x005550                  _TransmitCANFast
+                  0x0057cc                  _SetReceiveMode
+                  0x0057e8                  _clearCANFTdataIndex
+                  0x005800                  _GlobalAddressInterpret
+                  0x005818                  _FTC_ToSend
+                  0x005844                  _FTC_Send
+                  0x005882                  _BufferToMSG
+                  0x0059c2                  _CAN1_CallbackBusOff
+                  0x0059ca                  _CAN1_CallbackTxErrorPassive
+                  0x0059d2                  _CAN1_CallbackRxErrorPassive
+                  0x0059da                  _CAN1_CallbackMessageReceived
+                  0x005a3e                  _CAN1_Initialize
+                  0x005b80                  _CAN1_TransmitEnable
+                  0x005b9a                  _CAN1_ReceiveEnable
+                  0x005bb4                  _CAN1_transmit
+                  0x005c20                  _CAN1_receive
+                  0x005c88                  _CAN1_isBusOff
+                  0x005ca0                  _CAN1_isRXErrorPassive
+                  0x005cb8                  _CAN1_isTXErrorPassive
+                  0x005cd0                  _CAN1_messagesInBuffer
+                  0x005d0a                  _CAN1_sleep
+                  0x00600a                  _InitI2C
+                  0x006034                  _SendI2CRepeatStart
+                  0x0060c4                  _SendReadI2C
+                  0x006178                  _SendI2C
+                  0x006208                  _ReceiveI2C
+                  0x006298                  _SendSlaveAddressI2C
+                  0x0062d0                  _SendDataAddressI2C
+                  0x00631a                  _SendDataI2C
+                  0x00637c                  _SendRestartI2C
+                  0x006388                  _SendStartI2C
+                  0x0063a6                  _SendReadRequestI2C
+                  0x0063ba                  _FirstReceiveI2C
+                  0x0063d8                  _ReceiveByteI2C
+                  0x006416                  _EnableReceiveI2C
+                  0x006422                  _NACKFollowUpI2C
+                  0x00642e                  _StopFunctionI2C
+                  0x006436                  _FailFunctionI2C
+                  0x006442                  _SuccessFunctionI2C
+                  0x00644e                  _StatusI2C
+                  0x006458                  _writeBits
+                  0x0064cc                  _writeBit
+                  0x00650c                  _Parser_init
+                  0x00653a                  _Parser_first_byte
+                  0x00657e                  _Parser_second_byte
+                  0x0065c4                  _Parser_sender
+                  0x006600                  _Parser_receiver
+                  0x006648                  _Parser_message_length
+                  0x0066a8                  _Parser_message_content
+                  0x0066e2                  _Parser_crc
+                  0x006756                  _Parser_status
+                  0x00675e                  _Parser_trash_bytes
+                  0x00677c                  _Parser_message
+                  0x0067cc                  _Parser_write_message_data
+                  0x006870                  _parse
+                  0x0068ce                  _rbuffer_init
+                  0x006900                  _rbuffer_size
+                  0x006912                  _rbuffer_empty
+                  0x006934                  _rbuffer_full
+                  0x006960                  _rbuffer_increment
+                  0x0069be                  _rbuffer_pop
+                  0x006a30                  _rbuffer_peek
+                  0x006a60                  _rbuffer_get
+                  0x006aac                  _rbuffer_push
+                  0x006b20                  _rbuffer_push2
+                  0x006b38                  _rbuffer_push3
+                  0x006b58                  _rbuffer_clear
+                  0x006b9e                  _rbuffer_flush
+                  0x006be6                  _rbuffer_reset
+                  0x006c18                  _rbuffer_getarray
+                  0x006c22                  _getFThandle
+                  0x006c2a                  _FT_Init
+                  0x006c82                  _FT_Read
+                  0x006ca8                  _FT_Modified
+                  0x006cce                  _FT_Receive
+                  0x006daa                  _FT_ToSend
+                  0x006ddc                  _FT_Send
+                  0x006e5e                  _FT_ClearFlag
+                  0x006e76                  _Start_Initialization
+                  0x006efe                  _oscillator
+                  0x006f4e                  _timerOne
+                  0x006f72                  _LEDPattern
+                  0x006ff2                  _initGlobalData
+                  0x00701a                  _publishData
+                  0x00709a                  _publishDataIndex
+                  0x0070c8                  _millis
+                  0x0070d2                  _timerDone
+                  0x007108                  _setTimerInterval
+                  0x00712c                  _resetTimer
+                  0x00713c                  _globalTimerTracker
+                  0x00714e                  _delay
+                  0x007172                  _DMA_Initialize
+                  0x0071ea                  _DMA_Channel2_Tasks
+                  0x007204                  _DMA_Channel3_Tasks
+                  0x007216                  _uart1_init
+                  0x00724e                  _uart1_put
+                  0x00726c                  _uart1_put_c
+                  0x00728e                  _uart1_peek
+                  0x007298                  _uart1_get
+                  0x0072a2                  _uart1_rx_empty
+                  0x0072ac                  _uart1_rx_getarray
+                  0x007342                  _main
+                  0x0073ba                  _ECAN1_CallbackBusOff
+                  0x0073c0                  _ECAN1_CallbackTxErrorPassive
+                  0x0073c6                  _ECAN1_CallbackRxErrorPassive
+                  0x0073cc                  _ECAN1_CallbackMessageReceived
+                  0x0073d2                  _ECAN1_Initialize
+                  0x0073d8                  _ECAN1_TransmitEnable
+                  0x0073e0                  _ECAN1_ReceiveEnable
+                  0x0073e8                  _ECAN1_transmit
+                  0x0073fa                  _ECAN1_receive
+                  0x007406                  _ECAN1_isBusOff
+                  0x00740e                  _ECAN1_isRXErrorPassive
+                  0x007416                  _ECAN1_isTXErrorPassive
+                  0x00741e                  _ECAN1_messagesInBuffer
+                  0x007426                  _ECAN1_sleep
+                  0x00742e                  _crc
+                  0x007494                  ___delay32
                   0x0557fa                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x003dca                  _AngleDist
-                  0x0035e4                  _BufferAddVal
-                  0x00542a                  _BufferToMSG
-                  0x00556a                  _CAN1_CallbackBusOff
-                  0x005582                  _CAN1_CallbackMessageReceived
-                  0x00557a                  _CAN1_CallbackRxErrorPassive
-                  0x005572                  _CAN1_CallbackTxErrorPassive
-                  0x0055e6                  _CAN1_Initialize
-                  0x005742                  _CAN1_ReceiveEnable
-                  0x005728                  _CAN1_TransmitEnable
-                  0x005830                  _CAN1_isBusOff
-                  0x005848                  _CAN1_isRXErrorPassive
-                  0x005860                  _CAN1_isTXErrorPassive
-                  0x005878                  _CAN1_messagesInBuffer
-                  0x0057c8                  _CAN1_receive
-                  0x0058b2                  _CAN1_sleep
-                  0x00575c                  _CAN1_transmit
-                  0x004c40                  _CAN_FrameToArray
-                  0x006d92                  _DMA_Channel2_Tasks
-                  0x006dac                  _DMA_Channel3_Tasks
-                  0x006d1a                  _DMA_Initialize
-                  0x006f62                  _ECAN1_CallbackBusOff
-                  0x006f74                  _ECAN1_CallbackMessageReceived
-                  0x006f6e                  _ECAN1_CallbackRxErrorPassive
-                  0x006f68                  _ECAN1_CallbackTxErrorPassive
-                  0x006f7a                  _ECAN1_Initialize
-                  0x006f88                  _ECAN1_ReceiveEnable
-                  0x006f80                  _ECAN1_TransmitEnable
-                  0x006fae                  _ECAN1_isBusOff
-                  0x006fb6                  _ECAN1_isRXErrorPassive
-                  0x006fbe                  _ECAN1_isTXErrorPassive
-                  0x006fc6                  _ECAN1_messagesInBuffer
-                  0x006fa2                  _ECAN1_receive
-                  0x006fce                  _ECAN1_sleep
-                  0x006f90                  _ECAN1_transmit
-                  0x005fbe                  _EnableReceiveI2C
-                  0x004b40                  _FIFOI_Disable
-                  0x004b22                  _FIFOI_Enable
-                  0x004a90                  _FTC_Init
-                  0x004f3c                  _FTC_Receive
-                  0x0053ec                  _FTC_Send
-                  0x0053c0                  _FTC_ToSend
-                  0x006a06                  _FT_ClearFlag
-                  0x0067d2                  _FT_Init
-                  0x006850                  _FT_Modified
-                  0x00682a                  _FT_Read
-                  0x006876                  _FT_Receive
-                  0x006984                  _FT_Send
-                  0x006952                  _FT_ToSend
-                  0x005fde                  _FailFunctionI2C
-                  0x005f62                  _FirstReceiveI2C
-                  0x0053a8                  _GlobalAddressInterpret
-                  0x003fc8                  _IRQ
-                  0x005bb2                  _InitI2C
-                  0x004ae8                  _IsFIFOIE
-                  0x006b1a                  _LEDPattern
-                  0x005fca                  _NACKFollowUpI2C
-                  0x00628a                  _Parser_crc
-                  0x0060e2                  _Parser_first_byte
-                  0x0060b4                  _Parser_init
-                  0x006324                  _Parser_message
-                  0x006250                  _Parser_message_content
-                  0x0061f0                  _Parser_message_length
-                  0x0061a8                  _Parser_receiver
-                  0x006126                  _Parser_second_byte
-                  0x00616c                  _Parser_sender
-                  0x0062fe                  _Parser_status
-                  0x006306                  _Parser_trash_bytes
-                  0x006374                  _Parser_write_message_data
-                  0x003506                  _PozyxBoot
-                  0x004080                  _Pozyx_begin
-                  0x005f80                  _ReceiveByteI2C
-                  0x00506e                  _ReceiveDataCAN
-                  0x005db0                  _ReceiveI2C
-                  0x005e78                  _SendDataAddressI2C
-                  0x005ec2                  _SendDataI2C
-                  0x005d20                  _SendI2C
-                  0x005bdc                  _SendI2CRepeatStart
-                  0x005c6c                  _SendReadI2C
-                  0x005f4e                  _SendReadRequestI2C
-                  0x005f24                  _SendRestartI2C
-                  0x005e40                  _SendSlaveAddressI2C
-                  0x005f30                  _SendStartI2C
-                  0x004c94                  _SetCANFrameData
-                  0x004cec                  _SetCANFrameDataByte
-                  0x005374                  _SetReceiveMode
-                  0x006a1e                  _Start_Initialization
-                  0x005ff6                  _StatusI2C
-                  0x005fd6                  _StopFunctionI2C
-                  0x005fea                  _SuccessFunctionI2C
-                  0x0050f8                  _TransmitCANFast
+                  0x0041ea                  _AngleDist
+                  0x0039fc                  _BufferAddVal
+                  0x005882                  _BufferToMSG
+                  0x0059c2                  _CAN1_CallbackBusOff
+                  0x0059da                  _CAN1_CallbackMessageReceived
+                  0x0059d2                  _CAN1_CallbackRxErrorPassive
+                  0x0059ca                  _CAN1_CallbackTxErrorPassive
+                  0x005a3e                  _CAN1_Initialize
+                  0x005b9a                  _CAN1_ReceiveEnable
+                  0x005b80                  _CAN1_TransmitEnable
+                  0x005c88                  _CAN1_isBusOff
+                  0x005ca0                  _CAN1_isRXErrorPassive
+                  0x005cb8                  _CAN1_isTXErrorPassive
+                  0x005cd0                  _CAN1_messagesInBuffer
+                  0x005c20                  _CAN1_receive
+                  0x005d0a                  _CAN1_sleep
+                  0x005bb4                  _CAN1_transmit
+                  0x005098                  _CAN_FrameToArray
+                  0x0071ea                  _DMA_Channel2_Tasks
+                  0x007204                  _DMA_Channel3_Tasks
+                  0x007172                  _DMA_Initialize
+                  0x0073ba                  _ECAN1_CallbackBusOff
+                  0x0073cc                  _ECAN1_CallbackMessageReceived
+                  0x0073c6                  _ECAN1_CallbackRxErrorPassive
+                  0x0073c0                  _ECAN1_CallbackTxErrorPassive
+                  0x0073d2                  _ECAN1_Initialize
+                  0x0073e0                  _ECAN1_ReceiveEnable
+                  0x0073d8                  _ECAN1_TransmitEnable
+                  0x007406                  _ECAN1_isBusOff
+                  0x00740e                  _ECAN1_isRXErrorPassive
+                  0x007416                  _ECAN1_isTXErrorPassive
+                  0x00741e                  _ECAN1_messagesInBuffer
+                  0x0073fa                  _ECAN1_receive
+                  0x007426                  _ECAN1_sleep
+                  0x0073e8                  _ECAN1_transmit
+                  0x006416                  _EnableReceiveI2C
+                  0x004f98                  _FIFOI_Disable
+                  0x004f7a                  _FIFOI_Enable
+                  0x004ee8                  _FTC_Init
+                  0x005394                  _FTC_Receive
+                  0x005844                  _FTC_Send
+                  0x005818                  _FTC_ToSend
+                  0x006e5e                  _FT_ClearFlag
+                  0x006c2a                  _FT_Init
+                  0x006ca8                  _FT_Modified
+                  0x006c82                  _FT_Read
+                  0x006cce                  _FT_Receive
+                  0x006ddc                  _FT_Send
+                  0x006daa                  _FT_ToSend
+                  0x006436                  _FailFunctionI2C
+                  0x0063ba                  _FirstReceiveI2C
+                  0x005800                  _GlobalAddressInterpret
+                  0x004420                  _IRQ
+                  0x00600a                  _InitI2C
+                  0x004f40                  _IsFIFOIE
+                  0x006f72                  _LEDPattern
+                  0x006422                  _NACKFollowUpI2C
+                  0x0066e2                  _Parser_crc
+                  0x00653a                  _Parser_first_byte
+                  0x00650c                  _Parser_init
+                  0x00677c                  _Parser_message
+                  0x0066a8                  _Parser_message_content
+                  0x006648                  _Parser_message_length
+                  0x006600                  _Parser_receiver
+                  0x00657e                  _Parser_second_byte
+                  0x0065c4                  _Parser_sender
+                  0x006756                  _Parser_status
+                  0x00675e                  _Parser_trash_bytes
+                  0x0067cc                  _Parser_write_message_data
+                  0x003912                  _PozyxBoot
+                  0x0044d8                  _Pozyx_begin
+                  0x0063d8                  _ReceiveByteI2C
+                  0x0054c6                  _ReceiveDataCAN
+                  0x006208                  _ReceiveI2C
+                  0x0062d0                  _SendDataAddressI2C
+                  0x00631a                  _SendDataI2C
+                  0x006178                  _SendI2C
+                  0x006034                  _SendI2CRepeatStart
+                  0x0060c4                  _SendReadI2C
+                  0x0063a6                  _SendReadRequestI2C
+                  0x00637c                  _SendRestartI2C
+                  0x006298                  _SendSlaveAddressI2C
+                  0x006388                  _SendStartI2C
+                  0x0050ec                  _SetCANFrameData
+                  0x005144                  _SetCANFrameDataByte
+                  0x0057cc                  _SetReceiveMode
+                  0x006e76                  _Start_Initialization
+                  0x00644e                  _StatusI2C
+                  0x00642e                  _StopFunctionI2C
+                  0x006442                  _SuccessFunctionI2C
+                  0x005550                  _TransmitCANFast
                   0x00034a                  __C1Interrupt
                   0x0003aa                  __C1RxRdyInterrupt
                   0x0003a2                  __C1TxReqInterrupt
@@ -832,238 +858,250 @@ External Symbols in Program Memory (by name):
                   0x000496                  __U1TXInterrupt
                   0x0004d4                  ___adddf3
                   0x0005d2                  ___addsf3
-                  0x00703c                  ___delay32
+                  0x007494                  ___delay32
                   0x0007a4                  ___divdf3
+                  0x001096                  ___divdi3
                   0x000858                  ___divsf3
                   0x0008dc                  ___divsi3
                   0x000a10                  ___eqsf2
                   0x000984                  ___extendsfdf2
-                  0x000a18                  ___fixsfsi
-                  0x000a5a                  ___fixunssfsi
-                  0x000e00                  ___floatdisf
-                  0x000a90                  ___floatsisf
-                  0x000e20                  ___floatundisf
-                  0x000a96                  ___floatunsisf
+                  0x000a18                  ___fixdfsi
+                  0x000a70                  ___fixsfsi
+                  0x000ab2                  ___fixunssfsi
+                  0x000ae8                  ___floatdidf
+                  0x000b08                  ___floatdisf
+                  0x000b28                  ___floatsisf
+                  0x000b2e                  ___floatundidf
+                  0x000b84                  ___floatundisf
+                  0x000be2                  ___floatunsisf
                   0x000a14                  ___gesf2
                   0x000a14                  ___gtsf2
                   0x000a10                  ___lesf2
                   0x000a10                  ___ltsf2
-                  0x000b40                  ___mulsf3
+                  0x0010f6                  ___moddi3
+                  0x001152                  ___muldi3
+                  0x000c8c                  ___mulsf3
                   0x0005d0                  ___subsf3
-                  0x000ce8                  ___truncdfsf2
-                  0x000d3e                  ___udivsi3
-                  0x000d5e                  __dPropagateNaN
+                  0x000ed4                  ___truncdfsf2
+                  0x001080                  ___udivdi3
+                  0x000f9a                  ___udivmoddi3
+                  0x000f2a                  ___udivsi3
+                  0x00108e                  ___umoddi3
+                  0x0012e8                  ___umuldi3
+                  0x0011a4                  __dPropagateNaN
                   0x000248                  __data_init
                   0x000248                  __data_init_extended
                   0x0008fa                  __dpack
                   0x000974                  __dreturnNaN
-                  0x000d7c                  __dunpack
+                  0x0011c2                  __dunpack
                   0x000952                  __dunpack2
                   0x00097a                  __dunpack2exit
-                  0x000b20                  __fPropagateNaN
-                  0x000b32                  __fbopExit
-                  0x000b3a                  __fbopReturnNaN
+                  0x000c6c                  __fPropagateNaN
+                  0x000c7e                  __fbopExit
+                  0x000c86                  __fbopReturnNaN
                   0x0009c2                  __fchop
-                  0x000dca                  __fcompare
-                  0x000e82                  __fmodrem
-                  0x000a9a                  __fpack
-                  0x000ae6                  __funpack
-                  0x000b10                  __funpack2
+                  0x001210                  __fcompare
+                  0x00124a                  __fmodrem
+                  0x000be6                  __fpack
+                  0x000c32                  __funpack
+                  0x000c5c                  __funpack2
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x000ba8                  __sincosf
-                  0x0031e0                  _addDevice
-                  0x003b24                  _adjustHeading
+                  0x000cf4                  __sincosf
+                  0x0035ec                  _addDevice
+                  0x004006                  _adjustHeading
                   0x00068c                  _atan2f
                   0x0006c6                  _atanf
-                  0x004a50                  _attachInterrupt
-                  0x004dc6                  _beginCANFast
-                  0x00361e                  _calculateCenter
-                  0x003866                  _calculateX1Position
-                  0x0038fc                  _calculateX2Position
-                  0x003992                  _calculateY1Position
-                  0x0039f4                  _calculateY2Position
-                  0x003a74                  _calibrateGyro
-                  0x004a74                  _canFTbegin
+                  0x004ea8                  _attachInterrupt
+                  0x00521e                  _beginCANFast
+                  0x003a4e                  _calculateCenter
+                  0x003d48                  _calculateX1Position
+                  0x003dde                  _calculateX2Position
+                  0x003e74                  _calculateY1Position
+                  0x003ed6                  _calculateY2Position
+                  0x003f56                  _calibrateGyro
+                  0x004ecc                  _canFTbegin
                   0x000790                  _ceilf
-                  0x005390                  _clearCANFTdataIndex
-                  0x004ede                  _clearCANFastDataValue
-                  0x004ef6                  _clearCANFastDataValueRange
-                  0x003388                  _clearConfiguration
-                  0x0031ca                  _clearDevices
-                  0x004e4e                  _clearNewDataFlag
-                  0x003242                  _configInterruptPin
+                  0x0057e8                  _clearCANFTdataIndex
+                  0x005336                  _clearCANFastDataValue
+                  0x00534e                  _clearCANFastDataValueRange
+                  0x003794                  _clearConfiguration
+                  0x0035d6                  _clearDevices
+                  0x0052a6                  _clearNewDataFlag
+                  0x00364e                  _configInterruptPin
                   0x0007a0                  _cosf
-                  0x006fd6                  _crc
-                  0x006cf6                  _delay
-                  0x002fe4                  _doAnchorCalibration
-                  0x002f70                  _doDiscovery
-                  0x002a12                  _doPositioning
-                  0x00292c                  _doRanging
-                  0x002b64                  _doRemotePositioning
-                  0x002990                  _doRemoteRanging
-                  0x000e7e                  _fmodf
-                  0x001f7e                  _getAcceleration_mg
-                  0x0019d4                  _getAllSensorData
-                  0x002d7c                  _getAnchorIds
-                  0x0016fe                  _getAnchorSelectionMode
-                  0x002136                  _getAngularVelocity_dps
-                  0x00358e                  _getBuffAvg
-                  0x004bd4                  _getCANFT_Flag
-                  0x004c2e                  _getCANFT_RFlag
-                  0x004bf8                  _getCANFTdata
-                  0x004ba8                  _getCANFTdatas
-                  0x004e9e                  _getCANFastData
-                  0x0014ee                  _getCalibrationStatus
-                  0x004a88                  _getCanFThandle
-                  0x00157e                  _getConfigModeGPIO
-                  0x0015aa                  _getConfigPullGPIO
-                  0x001972                  _getCoordinates
-                  0x003206                  _getDeviceCoordinates
-                  0x002d2e                  _getDeviceIds
-                  0x0025ba                  _getDeviceListSize
-                  0x003224                  _getDeviceRangeInfo
-                  0x0014c6                  _getErrorCode
-                  0x002210                  _getEulerAngles_deg
-                  0x0067ca                  _getFThandle
-                  0x00148a                  _getFirmwareVersion
-                  0x004c1c                  _getGBL_CANFTFlag
-                  0x004c0a                  _getGBL_CANFTdata
-                  0x0025f8                  _getGPIO
-                  0x0024c8                  _getGravityVector_mg
-                  0x00149e                  _getHardwareVersion
-                  0x001502                  _getInterruptMask
-                  0x0014da                  _getInterruptStatus
-                  0x0025e4                  _getLastDataLength
-                  0x0025ce                  _getLastNetworkId
-                  0x002400                  _getLinearAcceleration_mg
-                  0x00205c                  _getMagnetic_uT
-                  0x002046                  _getMaxLinearAcceleration
-                  0x00176c                  _getNetworkId
-                  0x004e6e                  _getNewDataFlagStatus
-                  0x0033fa                  _getNumRegistersSaved
-                  0x001724                  _getNumberOfAnchors
-                  0x001922                  _getOperationMode
-                  0x00168c                  _getPositionAlgorithm
-                  0x0016ae                  _getPositionDimension
-                  0x0019a8                  _getPositionError
-                  0x001622                  _getPositionFilterStrength
-                  0x001648                  _getPositionFilterType
-                  0x002cec                  _getPositioningAnchorIds
-                  0x003dbc                  _getPozyx_H
-                  0x003da0                  _getPozyx_X
-                  0x003dae                  _getPozyx_Y
-                  0x001f54                  _getPressure_Pa
-                  0x0022ea                  _getQuaternion
-                  0x00156a                  _getRangingProtocol
-                  0x0019be                  _getRawSensorData
-                  0x0013f2                  _getRead
-                  0x004d82                  _getReceiveArrayCAN
-                  0x0014b2                  _getSelftest
-                  0x00194a                  _getSensorMode
-                  0x002658                  _getSystemError
-                  0x002e76                  _getTagIds
-                  0x002590                  _getTemperature_c
-                  0x0018f2                  _getTxPower
-                  0x0018aa                  _getUWBChannel
-                  0x001796                  _getUWBSettings
-                  0x00152a                  _getUpdateInterval
-                  0x001476                  _getWhoAmI
-                  0x006ce4                  _globalTimerTracker
-                  0x004a0e                  _i2cWriteRead
-                  0x0049e4                  _i2cWriteWrite
-                  0x004d8e                  _initCANFT
-                  0x006b9a                  _initGlobalData
-                  0x003454                  _isRegisterSaved
-                  0x003ec0                  _isWithinFloat
-                  0x006eea                  _main
-                  0x000f20                  _memcpy
-                  0x000f2e                  _memset
-                  0x006c70                  _millis
-                  0x006aa6                  _oscillator
-                  0x006418                  _parse
-                  0x0036a4                  _pow2
-                  0x003a56                  _powerOfTwo
-                  0x003fc2                  _printBasicXY
-                  0x003e14                  _printCH
-                  0x006bc2                  _publishData
-                  0x006c42                  _publishDataIndex
-                  0x006700                  _rbuffer_clear
-                  0x0064ba                  _rbuffer_empty
-                  0x006746                  _rbuffer_flush
-                  0x0064dc                  _rbuffer_full
-                  0x006608                  _rbuffer_get
-                  0x0067c0                  _rbuffer_getarray
-                  0x006508                  _rbuffer_increment
-                  0x006476                  _rbuffer_init
-                  0x0065d8                  _rbuffer_peek
-                  0x006566                  _rbuffer_pop
-                  0x006654                  _rbuffer_push
-                  0x0066c8                  _rbuffer_push2
-                  0x0066e0                  _rbuffer_push3
-                  0x00678e                  _rbuffer_reset
-                  0x0064a8                  _rbuffer_size
-                  0x004878                  _readRXBufferData
-                  0x004302                  _regFunction
-                  0x004168                  _regRead
-                  0x00423c                  _regWrite
-                  0x004626                  _remoteRegFunction
-                  0x002a84                  _remoteRegFunctionWithoutCheck
-                  0x0044de                  _remoteRegRead
-                  0x0043be                  _remoteRegWrite
-                  0x002636                  _resetSystem
-                  0x006cd4                  _resetTimer
-                  0x00335e                  _saveAnchorIds
-                  0x00327a                  _saveConfiguration
-                  0x00334c                  _saveNetwork
-                  0x003336                  _saveRegisters
-                  0x003370                  _saveUWBSettings
-                  0x00494a                  _sendData
-                  0x00491a                  _sendTXBufferData
-                  0x004b5e                  _setCANFTdata
-                  0x0015dc                  _setConfigGPIO
-                  0x001988                  _setCoordinates
-                  0x002616                  _setGPIO
-                  0x001516                  _setInterruptMask
-                  0x0028f8                  _setLed
-                  0x00160e                  _setLedConfig
-                  0x001780                  _setNetworkId
-                  0x004e2e                  _setNewDataFlag
-                  0x001936                  _setOperationMode
-                  0x0016d8                  _setPositionAlgorithm
-                  0x00166a                  _setPositionFilter
-                  0x002cca                  _setPositioningAnchorIds
-                  0x001556                  _setRangingProtocol
-                  0x001746                  _setSelectionOfAnchors
-                  0x00195e                  _setSensorMode
-                  0x006cb0                  _setTimerInterval
-                  0x0018c6                  _setTxPower
-                  0x001894                  _setUWBChannel
-                  0x0017e6                  _setUWBSettings
-                  0x001860                  _setUWBSettingsExceptGain
-                  0x001540                  _setUpdateInterval
-                  0x00141a                  _setWrite
-                  0x000c7a                  _sinf
-                  0x000c7e                  _sqrtf
-                  0x006c7a                  _timerDone
-                  0x006af6                  _timerOne
-                  0x006e40                  _uart1_get
-                  0x006dbe                  _uart1_init
-                  0x006e36                  _uart1_peek
-                  0x006df6                  _uart1_put
-                  0x006e14                  _uart1_put_c
-                  0x006e4a                  _uart1_rx_empty
-                  0x006e54                  _uart1_rx_getarray
-                  0x0036c4                  _updateCoordinates
-                  0x0034a0                  _updateHeading
-                  0x00352c                  _updateStatus
-                  0x001442                  _useFunction
-                  0x003f08                  _variance
-                  0x003fec                  _waitForFlag
-                  0x00405e                  _waitForFlag_safe
-                  0x006074                  _writeBit
-                  0x006000                  _writeBits
-                  0x00479e                  _writeTXBufferData
+                  0x00742e                  _crc
+                  0x00714e                  _delay
+                  0x0033f0                  _doAnchorCalibration
+                  0x00337c                  _doDiscovery
+                  0x002e1e                  _doPositioning
+                  0x002d38                  _doRanging
+                  0x002f70                  _doRemotePositioning
+                  0x002d9c                  _doRemoteRanging
+                  0x001246                  _fmodf
+                  0x00238a                  _getAcceleration_mg
+                  0x001de0                  _getAllSensorData
+                  0x003188                  _getAnchorIds
+                  0x001b0a                  _getAnchorSelectionMode
+                  0x002542                  _getAngularVelocity_dps
+                  0x0039a6                  _getBuffAvg
+                  0x00502c                  _getCANFT_Flag
+                  0x005086                  _getCANFT_RFlag
+                  0x005050                  _getCANFTdata
+                  0x005000                  _getCANFTdatas
+                  0x0052f6                  _getCANFastData
+                  0x0018fa                  _getCalibrationStatus
+                  0x004ee0                  _getCanFThandle
+                  0x00198a                  _getConfigModeGPIO
+                  0x0019b6                  _getConfigPullGPIO
+                  0x001d7e                  _getCoordinates
+                  0x003612                  _getDeviceCoordinates
+                  0x00313a                  _getDeviceIds
+                  0x0029c6                  _getDeviceListSize
+                  0x003630                  _getDeviceRangeInfo
+                  0x0018d2                  _getErrorCode
+                  0x00261c                  _getEulerAngles_deg
+                  0x006c22                  _getFThandle
+                  0x001896                  _getFirmwareVersion
+                  0x005074                  _getGBL_CANFTFlag
+                  0x005062                  _getGBL_CANFTdata
+                  0x002a04                  _getGPIO
+                  0x0028d4                  _getGravityVector_mg
+                  0x0018aa                  _getHardwareVersion
+                  0x00190e                  _getInterruptMask
+                  0x0018e6                  _getInterruptStatus
+                  0x0029f0                  _getLastDataLength
+                  0x0029da                  _getLastNetworkId
+                  0x00280c                  _getLinearAcceleration_mg
+                  0x002468                  _getMagnetic_uT
+                  0x002452                  _getMaxLinearAcceleration
+                  0x001b78                  _getNetworkId
+                  0x0052c6                  _getNewDataFlagStatus
+                  0x003806                  _getNumRegistersSaved
+                  0x001b30                  _getNumberOfAnchors
+                  0x001d2e                  _getOperationMode
+                  0x001a98                  _getPositionAlgorithm
+                  0x001aba                  _getPositionDimension
+                  0x001db4                  _getPositionError
+                  0x001a2e                  _getPositionFilterStrength
+                  0x001a54                  _getPositionFilterType
+                  0x0030f8                  _getPositioningAnchorIds
+                  0x0041dc                  _getPozyx_H
+                  0x0041c0                  _getPozyx_X
+                  0x0041ce                  _getPozyx_Y
+                  0x002360                  _getPressure_Pa
+                  0x0026f6                  _getQuaternion
+                  0x001976                  _getRangingProtocol
+                  0x001dca                  _getRawSensorData
+                  0x0017fe                  _getRead
+                  0x0051da                  _getReceiveArrayCAN
+                  0x0018be                  _getSelftest
+                  0x001d56                  _getSensorMode
+                  0x002a64                  _getSystemError
+                  0x003282                  _getTagIds
+                  0x00299c                  _getTemperature_c
+                  0x001cfe                  _getTxPower
+                  0x001cb6                  _getUWBChannel
+                  0x001ba2                  _getUWBSettings
+                  0x001936                  _getUpdateInterval
+                  0x001882                  _getWhoAmI
+                  0x00713c                  _globalTimerTracker
+                  0x004e66                  _i2cWriteRead
+                  0x004e3c                  _i2cWriteWrite
+                  0x0051e6                  _initCANFT
+                  0x006ff2                  _initGlobalData
+                  0x003860                  _isRegisterSaved
+                  0x004318                  _isWithinFloat
+                  0x007342                  _main
+                  0x00132c                  _memcpy
+                  0x00133a                  _memset
+                  0x0070c8                  _millis
+                  0x006efe                  _oscillator
+                  0x006870                  _parse
+                  0x003ac8                  _pow2
+                  0x003f38                  _powerOfTwo
+                  0x00441a                  _printBasicXY
+                  0x004234                  _printCH
+                  0x00701a                  _publishData
+                  0x00709a                  _publishDataIndex
+                  0x006b58                  _rbuffer_clear
+                  0x006912                  _rbuffer_empty
+                  0x006b9e                  _rbuffer_flush
+                  0x006934                  _rbuffer_full
+                  0x006a60                  _rbuffer_get
+                  0x006c18                  _rbuffer_getarray
+                  0x006960                  _rbuffer_increment
+                  0x0068ce                  _rbuffer_init
+                  0x006a30                  _rbuffer_peek
+                  0x0069be                  _rbuffer_pop
+                  0x006aac                  _rbuffer_push
+                  0x006b20                  _rbuffer_push2
+                  0x006b38                  _rbuffer_push3
+                  0x006be6                  _rbuffer_reset
+                  0x006900                  _rbuffer_size
+                  0x004cd0                  _readRXBufferData
+                  0x00475a                  _regFunction
+                  0x0045c0                  _regRead
+                  0x004694                  _regWrite
+                  0x004a7e                  _remoteRegFunction
+                  0x002e90                  _remoteRegFunctionWithoutCheck
+                  0x004936                  _remoteRegRead
+                  0x004816                  _remoteRegWrite
+                  0x002a42                  _resetSystem
+                  0x00712c                  _resetTimer
+                  0x00376a                  _saveAnchorIds
+                  0x003686                  _saveConfiguration
+                  0x003758                  _saveNetwork
+                  0x003742                  _saveRegisters
+                  0x00377c                  _saveUWBSettings
+                  0x004da2                  _sendData
+                  0x004d72                  _sendTXBufferData
+                  0x004fb6                  _setCANFTdata
+                  0x0019e8                  _setConfigGPIO
+                  0x001d94                  _setCoordinates
+                  0x002a22                  _setGPIO
+                  0x001922                  _setInterruptMask
+                  0x002d04                  _setLed
+                  0x001a1a                  _setLedConfig
+                  0x001b8c                  _setNetworkId
+                  0x005286                  _setNewDataFlag
+                  0x001d42                  _setOperationMode
+                  0x001ae4                  _setPositionAlgorithm
+                  0x001a76                  _setPositionFilter
+                  0x0030d6                  _setPositioningAnchorIds
+                  0x001962                  _setRangingProtocol
+                  0x001b52                  _setSelectionOfAnchors
+                  0x001d6a                  _setSensorMode
+                  0x007108                  _setTimerInterval
+                  0x001cd2                  _setTxPower
+                  0x001ca0                  _setUWBChannel
+                  0x001bf2                  _setUWBSettings
+                  0x001c6c                  _setUWBSettingsExceptGain
+                  0x00194c                  _setUpdateInterval
+                  0x001826                  _setWrite
+                  0x000dc6                  _sinf
+                  0x000dca                  _sqrt
+                  0x000e6a                  _sqrtf
+                  0x000dca                  _sqrtl
+                  0x0070d2                  _timerDone
+                  0x006f4e                  _timerOne
+                  0x007298                  _uart1_get
+                  0x007216                  _uart1_init
+                  0x00728e                  _uart1_peek
+                  0x00724e                  _uart1_put
+                  0x00726c                  _uart1_put_c
+                  0x0072a2                  _uart1_rx_empty
+                  0x0072ac                  _uart1_rx_getarray
+                  0x003ae6                  _updateCoordinates
+                  0x0038ac                  _updateHeading
+                  0x003938                  _updateStatus
+                  0x00184e                  _useFunction
+                  0x004360                  _variance
+                  0x004444                  _waitForFlag
+                  0x0044b6                  _waitForFlag_safe
+                  0x0064cc                  _writeBit
+                  0x006458                  _writeBits
+                  0x004bf6                  _writeTXBufferData
 
 Memory Configuration
 
@@ -1130,7 +1168,7 @@ LOAD c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200        0xd3c
+.text             0x000200       0x1148
  *(.init)
  .init            0x000200         0x48 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o)
                   0x000200                  __resetPRI
@@ -1207,68 +1245,103 @@ LOAD c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libfx-elf.a
  .libm.gtsf2      0x000a14          0x4 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fgtge.epeo)
                   0x000a14                  ___gesf2
                   0x000a14                  ___gtsf2
- .libm.fixsfsi    0x000a18         0x42 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fixsfsi.epeo)
-                  0x000a18                  _(float, int, long long, short, float, short, int)
+ .libm.fixdfsi    0x000a18         0x58 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fixdfsi.epeo)
+                  0x000a18                  _(float, int, long long, double, float, short, int)
+ .libm.fixsfsi    0x000a70         0x42 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fixsfsi.epeo)
+                  0x000a70                  _(float, int, long long, short, float, short, int)
  .libm.fixunssfsi
-                  0x000a5a         0x36 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fixunssfsi.epeo)
-                  0x000a5a                  ___fixunssfsi
- .libm.floatsisf
-                  0x000a90          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatsisf.epeo)
-                  0x000a90                  ___floatsisf
- .libm.floatunsisf
-                  0x000a96          0x4 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatunsisf.epeo)
-                  0x000a96                  ___floatunsisf
- .libm.fpack      0x000a9a         0x4c c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fpack.epeo)
-                  0x000a9a                  __fpack
- .libm.funpack    0x000ae6         0x2a c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(funpack.epeo)
-                  0x000ae6                  __funpack
- .libm.funpack2
-                  0x000b10         0x10 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(funpack2.epeo)
-                  0x000b10                  __funpack2
- .libm.fPropagateNaN
-                  0x000b20         0x12 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(futil.epeo)
-                  0x000b20                  __fPropagateNaN
- .libm.fbobExit
-                  0x000b32          0x8 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(futil.epeo)
-                  0x000b32                  __fbopExit
- .libm.fbopReturnNaN
-                  0x000b3a          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(futil.epeo)
-                  0x000b3a                  __fbopReturnNaN
- .libm.mulsf3     0x000b40         0x68 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(mulsf3.epeo)
-                  0x000b40                  ___mulsf3
- .libm.sincosf    0x000ba8         0xd2 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sincosf.epeo)
-                  0x000ba8                  __sincosf
- .libm.sinf       0x000c7a          0x4 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sinf.epeo)
-                  0x000c7a                  _sinf
- .libm.sqrtf      0x000c7e         0x6a c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sqrtf.epeo)
-                  0x000c7e                  _sqrtf
- .libm.truncdfsf2
-                  0x000ce8         0x56 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(truncdfsf.epeo)
-                  0x000ce8                  ___truncdfsf2
- .libm.udivsi3    0x000d3e         0x20 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(udivsi3.epeo)
-                  0x000d3e                  ___udivsi3
- .libm.dPropagateNaN
-                  0x000d5e         0x1e c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(dpropagateNaN.epeo)
-                  0x000d5e                  __dPropagateNaN
- .libm.dunpack    0x000d7c         0x4e c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(dunpack.epeo)
-                  0x000d7c                  __dunpack
- .libm.fcompare
-                  0x000dca         0x36 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fcompare.epeo)
-                  0x000dca                  __fcompare
+                  0x000ab2         0x36 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fixunssfsi.epeo)
+                  0x000ab2                  ___fixunssfsi
+ .libm.floatdidf
+                  0x000ae8         0x20 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatdidf.epeo)
+                  0x000ae8                  ___floatdidf
  .libm.floatdisf
-                  0x000e00         0x20 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatdisf.epeo)
-                  0x000e00                  ___floatdisf
+                  0x000b08         0x20 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatdisf.epeo)
+                  0x000b08                  ___floatdisf
+ .libm.floatsisf
+                  0x000b28          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatsisf.epeo)
+                  0x000b28                  ___floatsisf
+ .libm.floatundidf
+                  0x000b2e         0x56 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatundidf.epeo)
+                  0x000b2e                  ___floatundidf
  .libm.floatundisf
-                  0x000e20         0x5e c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatundisf.epeo)
-                  0x000e20                  ___floatundisf
- .libm.fmodf      0x000e7e          0x4 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fmodf.epeo)
-                  0x000e7e                  _fmodf
- .libm.fmodrem    0x000e82         0x9e c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fmodrem.epeo)
-                  0x000e82                  __fmodrem
- .libc.memcpy     0x000f20          0xe c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libc-elf.a(memcpy.epeo)
-                  0x000f20                  _memcpy
- .libc.memset     0x000f2e          0xe c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libc-elf.a(memset.epeo)
-                  0x000f2e                  _memset
+                  0x000b84         0x5e c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatundisf.epeo)
+                  0x000b84                  ___floatundisf
+ .libm.floatunsisf
+                  0x000be2          0x4 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatunsisf.epeo)
+                  0x000be2                  ___floatunsisf
+ .libm.fpack      0x000be6         0x4c c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fpack.epeo)
+                  0x000be6                  __fpack
+ .libm.funpack    0x000c32         0x2a c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(funpack.epeo)
+                  0x000c32                  __funpack
+ .libm.funpack2
+                  0x000c5c         0x10 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(funpack2.epeo)
+                  0x000c5c                  __funpack2
+ .libm.fPropagateNaN
+                  0x000c6c         0x12 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(futil.epeo)
+                  0x000c6c                  __fPropagateNaN
+ .libm.fbobExit
+                  0x000c7e          0x8 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(futil.epeo)
+                  0x000c7e                  __fbopExit
+ .libm.fbopReturnNaN
+                  0x000c86          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(futil.epeo)
+                  0x000c86                  __fbopReturnNaN
+ .libm.mulsf3     0x000c8c         0x68 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(mulsf3.epeo)
+                  0x000c8c                  ___mulsf3
+ .libm.sincosf    0x000cf4         0xd2 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sincosf.epeo)
+                  0x000cf4                  __sincosf
+ .libm.sinf       0x000dc6          0x4 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sinf.epeo)
+                  0x000dc6                  _sinf
+ .libm.sqrt       0x000dca         0xa0 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sqrt.epeo)
+                  0x000dca                  _sqrtl
+                  0x000dca                  _sqrt
+ .libm.sqrtf      0x000e6a         0x6a c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sqrtf.epeo)
+                  0x000e6a                  _sqrtf
+ .libm.truncdfsf2
+                  0x000ed4         0x56 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(truncdfsf.epeo)
+                  0x000ed4                  ___truncdfsf2
+ .libm.udivsi3    0x000f2a         0x20 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(udivsi3.epeo)
+                  0x000f2a                  ___udivsi3
+ .libm.__PplusBdi
+                  0x000f4a         0x26 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+ .libm.__PminusBdi
+                  0x000f70         0x2a c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+ .libm.__udivmoddi3
+                  0x000f9a         0xe6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+                  0x000f9a                  ___udivmoddi3
+ .libm.__udivdi3
+                  0x001080          0xe c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+                  0x001080                  ___udivdi3
+ .libm.__umoddi3
+                  0x00108e          0x8 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+                  0x00108e                  ___umoddi3
+ .libm.__divdi3
+                  0x001096         0x60 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+                  0x001096                  ___divdi3
+ .libm.__moddi3
+                  0x0010f6         0x5c c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
+                  0x0010f6                  ___moddi3
+ .libm.__muldi3
+                  0x001152         0x52 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(muldi3.epeo)
+                  0x001152                  ___muldi3
+ .libm.dPropagateNaN
+                  0x0011a4         0x1e c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(dpropagateNaN.epeo)
+                  0x0011a4                  __dPropagateNaN
+ .libm.dunpack    0x0011c2         0x4e c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(dunpack.epeo)
+                  0x0011c2                  __dunpack
+ .libm.fcompare
+                  0x001210         0x36 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fcompare.epeo)
+                  0x001210                  __fcompare
+ .libm.fmodf      0x001246          0x4 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fmodf.epeo)
+                  0x001246                  _fmodf
+ .libm.fmodrem    0x00124a         0x9e c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fmodrem.epeo)
+                  0x00124a                  __fmodrem
+ .libm.umuldi3    0x0012e8         0x44 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(umuldi3.epeo)
+                  0x0012e8                  ___umuldi3
+ .libc.memcpy     0x00132c          0xe c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libc-elf.a(memcpy.epeo)
+                  0x00132c                  _memcpy
+ .libc.memset     0x00133a          0xe c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libc-elf.a(memset.epeo)
+                  0x00133a                  _memset
 
 usercode
  *(usercode)
@@ -1308,7 +1381,7 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000      0x15ca7
+.debug_info       0x000000      0x15cf4
  *(.debug_info)
  .debug_info      0x000000        0x1df build/default/production/FastTransfer/crc.o
  .debug_info      0x0001df        0x5e9 build/default/production/FastTransfer/ft.o
@@ -1323,10 +1396,10 @@ __FUID3
  .debug_info      0x00dd12       0x299e build/default/production/Initialize.o
  .debug_info      0x0106b0       0x1aed build/default/production/main.o
  .debug_info      0x01219d        0x45f build/default/production/Timers.o
- .debug_info      0x0125fc        0xf06 build/default/production/PozyxWrapper.o
- .debug_info      0x013502        0x5a4 build/default/production/DataPublishing.o
- .debug_info      0x013aa6       0x14ce build/default/production/FastTransfer_CAN.o
- .debug_info      0x014f74        0xd33 build/default/production/uart1_config.o
+ .debug_info      0x0125fc        0xf53 build/default/production/PozyxWrapper.o
+ .debug_info      0x01354f        0x5a4 build/default/production/DataPublishing.o
+ .debug_info      0x013af3       0x14ce build/default/production/FastTransfer_CAN.o
+ .debug_info      0x014fc1        0xd33 build/default/production/uart1_config.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000       0x191c
@@ -1349,7 +1422,7 @@ __FUID3
  .debug_abbrev    0x00154d        0x267 build/default/production/FastTransfer_CAN.o
  .debug_abbrev    0x0017b4        0x168 build/default/production/uart1_config.o
 
-.debug_line       0x000000       0x1bd8
+.debug_line       0x000000       0x1bdf
  *(.debug_line)
  .debug_line      0x000000         0x9d build/default/production/FastTransfer/crc.o
  .debug_line      0x00009d        0x103 build/default/production/FastTransfer/ft.o
@@ -1364,12 +1437,12 @@ __FUID3
  .debug_line      0x0011bf        0x13d build/default/production/Initialize.o
  .debug_line      0x0012fc        0x109 build/default/production/main.o
  .debug_line      0x001405        0x11a build/default/production/Timers.o
- .debug_line      0x00151f        0x1b8 build/default/production/PozyxWrapper.o
- .debug_line      0x0016d7        0x121 build/default/production/DataPublishing.o
- .debug_line      0x0017f8        0x298 build/default/production/FastTransfer_CAN.o
- .debug_line      0x001a90        0x148 build/default/production/uart1_config.o
+ .debug_line      0x00151f        0x1bf build/default/production/PozyxWrapper.o
+ .debug_line      0x0016de        0x121 build/default/production/DataPublishing.o
+ .debug_line      0x0017ff        0x298 build/default/production/FastTransfer_CAN.o
+ .debug_line      0x001a97        0x148 build/default/production/uart1_config.o
 
-.debug_frame      0x000000       0x2382
+.debug_frame      0x000000       0x2384
  *(.debug_frame)
  .debug_frame     0x000000         0x30 build/default/production/FastTransfer/crc.o
  .debug_frame     0x000030         0xfa build/default/production/FastTransfer/ft.o
@@ -1384,10 +1457,10 @@ __FUID3
  .debug_frame     0x00194c         0x84 build/default/production/Initialize.o
  .debug_frame     0x0019d0         0x30 build/default/production/main.o
  .debug_frame     0x001a00         0xfc build/default/production/Timers.o
- .debug_frame     0x001afc        0x2e2 build/default/production/PozyxWrapper.o
- .debug_frame     0x001dde         0x74 build/default/production/DataPublishing.o
- .debug_frame     0x001e52        0x3d8 build/default/production/FastTransfer_CAN.o
- .debug_frame     0x00222a        0x158 build/default/production/uart1_config.o
+ .debug_frame     0x001afc        0x2e4 build/default/production/PozyxWrapper.o
+ .debug_frame     0x001de0         0x74 build/default/production/DataPublishing.o
+ .debug_frame     0x001e54        0x3d8 build/default/production/FastTransfer_CAN.o
+ .debug_frame     0x00222c        0x158 build/default/production/uart1_config.o
 
 .debug_str        0x000000       0x1043
  *(.debug_str)
@@ -3651,7 +3724,7 @@ LOAD data_init
                   0x0017e3        0x118 build/default/production/uart1_config.o
 
 __c30_signature
-                  0x0018fb        0x162
+                  0x0018fb        0x18c
  __c30_signature
                   0x0018fb          0x6 build/default/production/FastTransfer/crc.o
  __c30_signature
@@ -3725,51 +3798,65 @@ __c30_signature
  __c30_signature
                   0x0019cd          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fgtge.epeo)
  __c30_signature
-                  0x0019d3          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fixsfsi.epeo)
+                  0x0019d3          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fixdfsi.epeo)
  __c30_signature
-                  0x0019d9          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fixunssfsi.epeo)
+                  0x0019d9          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fixsfsi.epeo)
  __c30_signature
-                  0x0019df          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatsisf.epeo)
+                  0x0019df          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fixunssfsi.epeo)
  __c30_signature
-                  0x0019e5          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatunsisf.epeo)
+                  0x0019e5          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatdidf.epeo)
  __c30_signature
-                  0x0019eb          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fpack.epeo)
+                  0x0019eb          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatdisf.epeo)
  __c30_signature
-                  0x0019f1          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(funpack.epeo)
+                  0x0019f1          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatsisf.epeo)
  __c30_signature
-                  0x0019f7          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(funpack2.epeo)
+                  0x0019f7          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatundidf.epeo)
  __c30_signature
-                  0x0019fd          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(futil.epeo)
+                  0x0019fd          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatundisf.epeo)
  __c30_signature
-                  0x001a03          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(mulsf3.epeo)
+                  0x001a03          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatunsisf.epeo)
  __c30_signature
-                  0x001a09          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sincosf.epeo)
+                  0x001a09          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fpack.epeo)
  __c30_signature
-                  0x001a0f          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sinf.epeo)
+                  0x001a0f          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(funpack.epeo)
  __c30_signature
-                  0x001a15          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sqrtf.epeo)
+                  0x001a15          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(funpack2.epeo)
  __c30_signature
-                  0x001a1b          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(truncdfsf.epeo)
+                  0x001a1b          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(futil.epeo)
  __c30_signature
-                  0x001a21          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(udivsi3.epeo)
+                  0x001a21          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(mulsf3.epeo)
  __c30_signature
-                  0x001a27          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(dpropagateNaN.epeo)
+                  0x001a27          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sincosf.epeo)
  __c30_signature
-                  0x001a2d          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(dunpack.epeo)
+                  0x001a2d          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sinf.epeo)
  __c30_signature
-                  0x001a33          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fcompare.epeo)
+                  0x001a33          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sqrt.epeo)
  __c30_signature
-                  0x001a39          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatdisf.epeo)
+                  0x001a39          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(sqrtf.epeo)
  __c30_signature
-                  0x001a3f          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(floatundisf.epeo)
+                  0x001a3f          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(truncdfsf.epeo)
  __c30_signature
-                  0x001a45          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fmodf.epeo)
+                  0x001a45          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(udivsi3.epeo)
  __c30_signature
-                  0x001a4b          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fmodrem.epeo)
+                  0x001a4b          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(divmoddi3.epeo)
  __c30_signature
-                  0x001a51          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libc-elf.a(memcpy.epeo)
+                  0x001a51          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(muldi3.epeo)
  __c30_signature
-                  0x001a57          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libc-elf.a(memset.epeo)
+                  0x001a57          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(dpropagateNaN.epeo)
+ __c30_signature
+                  0x001a5d          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(dunpack.epeo)
+ __c30_signature
+                  0x001a63          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fcompare.epeo)
+ __c30_signature
+                  0x001a69          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fmodf.epeo)
+ __c30_signature
+                  0x001a6f          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(fmodrem.epeo)
+ __c30_signature
+                  0x001a75          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libm-elf.a(umuldi3.epeo)
+ __c30_signature
+                  0x001a7b          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libc-elf.a(memcpy.epeo)
+ __c30_signature
+                  0x001a81          0x6 c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libc-elf.a(memset.epeo)
 
 .nbss               0x1000         0x8a
  .nbss              0x1000         0x78 build/default/production/PozyxWrapper.o
@@ -3857,9 +3944,9 @@ __c30_signature
  .bss               0x10c6        0x276 build/default/production/FastTransfer_CAN.o
                     0x10c6                  _ftc_handle
 
-_058D84E05e62e471
+_059974E05e682dab
                     0x1400        0x200
- _058D84E05e62e471
+ _059974E05e682dab
                     0x1400        0x200 build/default/production/mcc_generated_files/can1.o
 
 .bss                0x1600         0xd4
@@ -3960,311 +4047,311 @@ _058D84E05e62e471
  .ivt._U1TXInterrupt
                   0x00002c          0x2 build/default/production/uart1_config.o
 
-.const              0x8f3c        0x4b6 load address 0x000f3c  
- .const             0x8f3c        0x4b6 build/default/production/Pozyx_lib.o
+.const              0x9348        0x4b6 load address 0x001348  
+ .const             0x9348        0x4b6 build/default/production/Pozyx_lib.o
 
-.text             0x0013f2       0x5a6c
- .text            0x0013f2       0x20ae build/default/production/Pozyx_lib.o
-                  0x0013f2                  _getRead
-                  0x00141a                  _setWrite
-                  0x001442                  _useFunction
-                  0x001476                  _getWhoAmI
-                  0x00148a                  _getFirmwareVersion
-                  0x00149e                  _getHardwareVersion
-                  0x0014b2                  _getSelftest
-                  0x0014c6                  _getErrorCode
-                  0x0014da                  _getInterruptStatus
-                  0x0014ee                  _getCalibrationStatus
-                  0x001502                  _getInterruptMask
-                  0x001516                  _setInterruptMask
-                  0x00152a                  _getUpdateInterval
-                  0x001540                  _setUpdateInterval
-                  0x001556                  _setRangingProtocol
-                  0x00156a                  _getRangingProtocol
-                  0x00157e                  _getConfigModeGPIO
-                  0x0015aa                  _getConfigPullGPIO
-                  0x0015dc                  _setConfigGPIO
-                  0x00160e                  _setLedConfig
-                  0x001622                  _getPositionFilterStrength
-                  0x001648                  _getPositionFilterType
-                  0x00166a                  _setPositionFilter
-                  0x00168c                  _getPositionAlgorithm
-                  0x0016ae                  _getPositionDimension
-                  0x0016d8                  _setPositionAlgorithm
-                  0x0016fe                  _getAnchorSelectionMode
-                  0x001724                  _getNumberOfAnchors
-                  0x001746                  _setSelectionOfAnchors
-                  0x00176c                  _getNetworkId
-                  0x001780                  _setNetworkId
-                  0x001796                  _getUWBSettings
-                  0x0017e6                  _setUWBSettings
-                  0x001860                  _setUWBSettingsExceptGain
-                  0x001894                  _setUWBChannel
-                  0x0018aa                  _getUWBChannel
-                  0x0018c6                  _setTxPower
-                  0x0018f2                  _getTxPower
-                  0x001922                  _getOperationMode
-                  0x001936                  _setOperationMode
-                  0x00194a                  _getSensorMode
-                  0x00195e                  _setSensorMode
-                  0x001972                  _getCoordinates
-                  0x001988                  _setCoordinates
-                  0x0019a8                  _getPositionError
-                  0x0019be                  _getRawSensorData
-                  0x0019d4                  _getAllSensorData
-                  0x001f54                  _getPressure_Pa
-                  0x001f7e                  _getAcceleration_mg
-                  0x002046                  _getMaxLinearAcceleration
-                  0x00205c                  _getMagnetic_uT
-                  0x002136                  _getAngularVelocity_dps
-                  0x002210                  _getEulerAngles_deg
-                  0x0022ea                  _getQuaternion
-                  0x002400                  _getLinearAcceleration_mg
-                  0x0024c8                  _getGravityVector_mg
-                  0x002590                  _getTemperature_c
-                  0x0025ba                  _getDeviceListSize
-                  0x0025ce                  _getLastNetworkId
-                  0x0025e4                  _getLastDataLength
-                  0x0025f8                  _getGPIO
-                  0x002616                  _setGPIO
-                  0x002636                  _resetSystem
-                  0x002658                  _getSystemError
-                  0x0028f8                  _setLed
-                  0x00292c                  _doRanging
-                  0x002990                  _doRemoteRanging
-                  0x002a12                  _doPositioning
-                  0x002a84                  _remoteRegFunctionWithoutCheck
-                  0x002b64                  _doRemotePositioning
-                  0x002cca                  _setPositioningAnchorIds
-                  0x002cec                  _getPositioningAnchorIds
-                  0x002d2e                  _getDeviceIds
-                  0x002d7c                  _getAnchorIds
-                  0x002e76                  _getTagIds
-                  0x002f70                  _doDiscovery
-                  0x002fe4                  _doAnchorCalibration
-                  0x0031ca                  _clearDevices
-                  0x0031e0                  _addDevice
-                  0x003206                  _getDeviceCoordinates
-                  0x003224                  _getDeviceRangeInfo
-                  0x003242                  _configInterruptPin
-                  0x00327a                  _saveConfiguration
-                  0x003336                  _saveRegisters
-                  0x00334c                  _saveNetwork
-                  0x00335e                  _saveAnchorIds
-                  0x003370                  _saveUWBSettings
-                  0x003388                  _clearConfiguration
-                  0x0033fa                  _getNumRegistersSaved
-                  0x003454                  _isRegisterSaved
- .text            0x0034a0        0xb28 build/default/production/PozyxWrapper.o
-                  0x0034a0                  _updateHeading
-                  0x003506                  _PozyxBoot
-                  0x00352c                  _updateStatus
-                  0x00358e                  _getBuffAvg
-                  0x0035e4                  _BufferAddVal
-                  0x00361e                  _calculateCenter
-                  0x0036a4                  _pow2
-                  0x0036c4                  _updateCoordinates
-                  0x003866                  _calculateX1Position
-                  0x0038fc                  _calculateX2Position
-                  0x003992                  _calculateY1Position
-                  0x0039f4                  _calculateY2Position
-                  0x003a56                  _powerOfTwo
-                  0x003a74                  _calibrateGyro
-                  0x003b24                  _adjustHeading
-                  0x003da0                  _getPozyx_X
-                  0x003dae                  _getPozyx_Y
-                  0x003dbc                  _getPozyx_H
-                  0x003dca                  _AngleDist
-                  0x003e14                  _printCH
-                  0x003ec0                  _isWithinFloat
-                  0x003f08                  _variance
-                  0x003fc2                  _printBasicXY
- .text            0x003fc8        0xaac build/default/production/Pozyx_Core.o
-                  0x003fc8                  _IRQ
-                  0x003fec                  _waitForFlag
-                  0x00405e                  _waitForFlag_safe
-                  0x004080                  _Pozyx_begin
-                  0x004168                  _regRead
-                  0x00423c                  _regWrite
-                  0x004302                  _regFunction
-                  0x0043be                  _remoteRegWrite
-                  0x0044de                  _remoteRegRead
-                  0x004626                  _remoteRegFunction
-                  0x00479e                  _writeTXBufferData
-                  0x004878                  _readRXBufferData
-                  0x00491a                  _sendTXBufferData
-                  0x00494a                  _sendData
-                  0x0049e4                  _i2cWriteWrite
-                  0x004a0e                  _i2cWriteRead
-                  0x004a50                  _attachInterrupt
- .text            0x004a74        0xa56 build/default/production/FastTransfer_CAN.o
-                  0x004a74                  _canFTbegin
-                  0x004a88                  _getCanFThandle
-                  0x004a90                  _FTC_Init
-                  0x004ae8                  _IsFIFOIE
-                  0x004b22                  _FIFOI_Enable
-                  0x004b40                  _FIFOI_Disable
-                  0x004b5e                  _setCANFTdata
-                  0x004ba8                  _getCANFTdatas
-                  0x004bd4                  _getCANFT_Flag
-                  0x004bf8                  _getCANFTdata
-                  0x004c0a                  _getGBL_CANFTdata
-                  0x004c1c                  _getGBL_CANFTFlag
-                  0x004c2e                  _getCANFT_RFlag
-                  0x004c40                  _CAN_FrameToArray
-                  0x004c94                  _SetCANFrameData
-                  0x004cec                  _SetCANFrameDataByte
-                  0x004d82                  _getReceiveArrayCAN
-                  0x004d8e                  _initCANFT
-                  0x004dc6                  _beginCANFast
-                  0x004e2e                  _setNewDataFlag
-                  0x004e4e                  _clearNewDataFlag
-                  0x004e6e                  _getNewDataFlagStatus
-                  0x004e9e                  _getCANFastData
-                  0x004ede                  _clearCANFastDataValue
-                  0x004ef6                  _clearCANFastDataValueRange
-                  0x004f3c                  _FTC_Receive
-                  0x00506e                  _ReceiveDataCAN
-                  0x0050f8                  _TransmitCANFast
-                  0x005374                  _SetReceiveMode
-                  0x005390                  _clearCANFTdataIndex
-                  0x0053a8                  _GlobalAddressInterpret
-                  0x0053c0                  _FTC_ToSend
-                  0x0053ec                  _FTC_Send
-                  0x00542a                  _BufferToMSG
- .text            0x0054ca        0x6e8 build/default/production/mcc_generated_files/can1.o
-                  0x00556a                  _CAN1_CallbackBusOff
-                  0x005572                  _CAN1_CallbackTxErrorPassive
-                  0x00557a                  _CAN1_CallbackRxErrorPassive
-                  0x005582                  _CAN1_CallbackMessageReceived
-                  0x0055e6                  _CAN1_Initialize
-                  0x005728                  _CAN1_TransmitEnable
-                  0x005742                  _CAN1_ReceiveEnable
-                  0x00575c                  _CAN1_transmit
-                  0x0057c8                  _CAN1_receive
-                  0x005830                  _CAN1_isBusOff
-                  0x005848                  _CAN1_isRXErrorPassive
-                  0x005860                  _CAN1_isTXErrorPassive
-                  0x005878                  _CAN1_messagesInBuffer
-                  0x0058b2                  _CAN1_sleep
- .text            0x005bb2        0x502 build/default/production/PozyxPIC_I2C.o
-                  0x005bb2                  _InitI2C
-                  0x005bdc                  _SendI2CRepeatStart
-                  0x005c6c                  _SendReadI2C
-                  0x005d20                  _SendI2C
-                  0x005db0                  _ReceiveI2C
-                  0x005e40                  _SendSlaveAddressI2C
-                  0x005e78                  _SendDataAddressI2C
-                  0x005ec2                  _SendDataI2C
-                  0x005f24                  _SendRestartI2C
-                  0x005f30                  _SendStartI2C
-                  0x005f4e                  _SendReadRequestI2C
-                  0x005f62                  _FirstReceiveI2C
-                  0x005f80                  _ReceiveByteI2C
-                  0x005fbe                  _EnableReceiveI2C
-                  0x005fca                  _NACKFollowUpI2C
-                  0x005fd6                  _StopFunctionI2C
-                  0x005fde                  _FailFunctionI2C
-                  0x005fea                  _SuccessFunctionI2C
-                  0x005ff6                  _StatusI2C
-                  0x006000                  _writeBits
-                  0x006074                  _writeBit
- .text            0x0060b4        0x3c2 build/default/production/FastTransfer/parser.o
-                  0x0060b4                  _Parser_init
-                  0x0060e2                  _Parser_first_byte
-                  0x006126                  _Parser_second_byte
-                  0x00616c                  _Parser_sender
-                  0x0061a8                  _Parser_receiver
-                  0x0061f0                  _Parser_message_length
-                  0x006250                  _Parser_message_content
-                  0x00628a                  _Parser_crc
-                  0x0062fe                  _Parser_status
-                  0x006306                  _Parser_trash_bytes
-                  0x006324                  _Parser_message
-                  0x006374                  _Parser_write_message_data
-                  0x006418                  _parse
- .text            0x006476        0x354 build/default/production/FastTransfer/ring_buffer.o
-                  0x006476                  _rbuffer_init
-                  0x0064a8                  _rbuffer_size
-                  0x0064ba                  _rbuffer_empty
-                  0x0064dc                  _rbuffer_full
-                  0x006508                  _rbuffer_increment
-                  0x006566                  _rbuffer_pop
-                  0x0065d8                  _rbuffer_peek
-                  0x006608                  _rbuffer_get
-                  0x006654                  _rbuffer_push
-                  0x0066c8                  _rbuffer_push2
-                  0x0066e0                  _rbuffer_push3
-                  0x006700                  _rbuffer_clear
-                  0x006746                  _rbuffer_flush
-                  0x00678e                  _rbuffer_reset
-                  0x0067c0                  _rbuffer_getarray
- .text            0x0067ca        0x254 build/default/production/FastTransfer/ft.o
-                  0x0067ca                  _getFThandle
-                  0x0067d2                  _FT_Init
-                  0x00682a                  _FT_Read
-                  0x006850                  _FT_Modified
-                  0x006876                  _FT_Receive
-                  0x006952                  _FT_ToSend
-                  0x006984                  _FT_Send
-                  0x006a06                  _FT_ClearFlag
- .text            0x006a1e        0x17c build/default/production/Initialize.o
-                  0x006a1e                  _Start_Initialization
-                  0x006aa6                  _oscillator
-                  0x006af6                  _timerOne
-                  0x006b1a                  _LEDPattern
- .text            0x006b9a         0xd6 build/default/production/DataPublishing.o
-                  0x006b9a                  _initGlobalData
-                  0x006bc2                  _publishData
-                  0x006c42                  _publishDataIndex
- .text            0x006c70         0xaa build/default/production/Timers.o
-                  0x006c70                  _millis
-                  0x006c7a                  _timerDone
-                  0x006cb0                  _setTimerInterval
-                  0x006cd4                  _resetTimer
-                  0x006ce4                  _globalTimerTracker
-                  0x006cf6                  _delay
- .text            0x006d1a         0xa4 build/default/production/mcc_generated_files/dma.o
-                  0x006d1a                  _DMA_Initialize
-                  0x006d80                  _DMA_Channel0_CallBack
-                  0x006d86                  _DMA_Channel1_CallBack
-                  0x006d8c                  _DMA_Channel2_CallBack
-                  0x006d92                  _DMA_Channel2_Tasks
-                  0x006da6                  _DMA_Channel3_CallBack
-                  0x006dac                  _DMA_Channel3_Tasks
- .text            0x006dbe         0xa0 build/default/production/uart1_config.o
-                  0x006dbe                  _uart1_init
-                  0x006df6                  _uart1_put
-                  0x006e14                  _uart1_put_c
-                  0x006e36                  _uart1_peek
-                  0x006e40                  _uart1_get
-                  0x006e4a                  _uart1_rx_empty
-                  0x006e54                  _uart1_rx_getarray
+.text             0x0017fe       0x5ab8
+ .text            0x0017fe       0x20ae build/default/production/Pozyx_lib.o
+                  0x0017fe                  _getRead
+                  0x001826                  _setWrite
+                  0x00184e                  _useFunction
+                  0x001882                  _getWhoAmI
+                  0x001896                  _getFirmwareVersion
+                  0x0018aa                  _getHardwareVersion
+                  0x0018be                  _getSelftest
+                  0x0018d2                  _getErrorCode
+                  0x0018e6                  _getInterruptStatus
+                  0x0018fa                  _getCalibrationStatus
+                  0x00190e                  _getInterruptMask
+                  0x001922                  _setInterruptMask
+                  0x001936                  _getUpdateInterval
+                  0x00194c                  _setUpdateInterval
+                  0x001962                  _setRangingProtocol
+                  0x001976                  _getRangingProtocol
+                  0x00198a                  _getConfigModeGPIO
+                  0x0019b6                  _getConfigPullGPIO
+                  0x0019e8                  _setConfigGPIO
+                  0x001a1a                  _setLedConfig
+                  0x001a2e                  _getPositionFilterStrength
+                  0x001a54                  _getPositionFilterType
+                  0x001a76                  _setPositionFilter
+                  0x001a98                  _getPositionAlgorithm
+                  0x001aba                  _getPositionDimension
+                  0x001ae4                  _setPositionAlgorithm
+                  0x001b0a                  _getAnchorSelectionMode
+                  0x001b30                  _getNumberOfAnchors
+                  0x001b52                  _setSelectionOfAnchors
+                  0x001b78                  _getNetworkId
+                  0x001b8c                  _setNetworkId
+                  0x001ba2                  _getUWBSettings
+                  0x001bf2                  _setUWBSettings
+                  0x001c6c                  _setUWBSettingsExceptGain
+                  0x001ca0                  _setUWBChannel
+                  0x001cb6                  _getUWBChannel
+                  0x001cd2                  _setTxPower
+                  0x001cfe                  _getTxPower
+                  0x001d2e                  _getOperationMode
+                  0x001d42                  _setOperationMode
+                  0x001d56                  _getSensorMode
+                  0x001d6a                  _setSensorMode
+                  0x001d7e                  _getCoordinates
+                  0x001d94                  _setCoordinates
+                  0x001db4                  _getPositionError
+                  0x001dca                  _getRawSensorData
+                  0x001de0                  _getAllSensorData
+                  0x002360                  _getPressure_Pa
+                  0x00238a                  _getAcceleration_mg
+                  0x002452                  _getMaxLinearAcceleration
+                  0x002468                  _getMagnetic_uT
+                  0x002542                  _getAngularVelocity_dps
+                  0x00261c                  _getEulerAngles_deg
+                  0x0026f6                  _getQuaternion
+                  0x00280c                  _getLinearAcceleration_mg
+                  0x0028d4                  _getGravityVector_mg
+                  0x00299c                  _getTemperature_c
+                  0x0029c6                  _getDeviceListSize
+                  0x0029da                  _getLastNetworkId
+                  0x0029f0                  _getLastDataLength
+                  0x002a04                  _getGPIO
+                  0x002a22                  _setGPIO
+                  0x002a42                  _resetSystem
+                  0x002a64                  _getSystemError
+                  0x002d04                  _setLed
+                  0x002d38                  _doRanging
+                  0x002d9c                  _doRemoteRanging
+                  0x002e1e                  _doPositioning
+                  0x002e90                  _remoteRegFunctionWithoutCheck
+                  0x002f70                  _doRemotePositioning
+                  0x0030d6                  _setPositioningAnchorIds
+                  0x0030f8                  _getPositioningAnchorIds
+                  0x00313a                  _getDeviceIds
+                  0x003188                  _getAnchorIds
+                  0x003282                  _getTagIds
+                  0x00337c                  _doDiscovery
+                  0x0033f0                  _doAnchorCalibration
+                  0x0035d6                  _clearDevices
+                  0x0035ec                  _addDevice
+                  0x003612                  _getDeviceCoordinates
+                  0x003630                  _getDeviceRangeInfo
+                  0x00364e                  _configInterruptPin
+                  0x003686                  _saveConfiguration
+                  0x003742                  _saveRegisters
+                  0x003758                  _saveNetwork
+                  0x00376a                  _saveAnchorIds
+                  0x00377c                  _saveUWBSettings
+                  0x003794                  _clearConfiguration
+                  0x003806                  _getNumRegistersSaved
+                  0x003860                  _isRegisterSaved
+ .text            0x0038ac        0xb74 build/default/production/PozyxWrapper.o
+                  0x0038ac                  _updateHeading
+                  0x003912                  _PozyxBoot
+                  0x003938                  _updateStatus
+                  0x0039a6                  _getBuffAvg
+                  0x0039fc                  _BufferAddVal
+                  0x003a4e                  _calculateCenter
+                  0x003ac8                  _pow2
+                  0x003ae6                  _updateCoordinates
+                  0x003d48                  _calculateX1Position
+                  0x003dde                  _calculateX2Position
+                  0x003e74                  _calculateY1Position
+                  0x003ed6                  _calculateY2Position
+                  0x003f38                  _powerOfTwo
+                  0x003f56                  _calibrateGyro
+                  0x004006                  _adjustHeading
+                  0x0041c0                  _getPozyx_X
+                  0x0041ce                  _getPozyx_Y
+                  0x0041dc                  _getPozyx_H
+                  0x0041ea                  _AngleDist
+                  0x004234                  _printCH
+                  0x004318                  _isWithinFloat
+                  0x004360                  _variance
+                  0x00441a                  _printBasicXY
+ .text            0x004420        0xaac build/default/production/Pozyx_Core.o
+                  0x004420                  _IRQ
+                  0x004444                  _waitForFlag
+                  0x0044b6                  _waitForFlag_safe
+                  0x0044d8                  _Pozyx_begin
+                  0x0045c0                  _regRead
+                  0x004694                  _regWrite
+                  0x00475a                  _regFunction
+                  0x004816                  _remoteRegWrite
+                  0x004936                  _remoteRegRead
+                  0x004a7e                  _remoteRegFunction
+                  0x004bf6                  _writeTXBufferData
+                  0x004cd0                  _readRXBufferData
+                  0x004d72                  _sendTXBufferData
+                  0x004da2                  _sendData
+                  0x004e3c                  _i2cWriteWrite
+                  0x004e66                  _i2cWriteRead
+                  0x004ea8                  _attachInterrupt
+ .text            0x004ecc        0xa56 build/default/production/FastTransfer_CAN.o
+                  0x004ecc                  _canFTbegin
+                  0x004ee0                  _getCanFThandle
+                  0x004ee8                  _FTC_Init
+                  0x004f40                  _IsFIFOIE
+                  0x004f7a                  _FIFOI_Enable
+                  0x004f98                  _FIFOI_Disable
+                  0x004fb6                  _setCANFTdata
+                  0x005000                  _getCANFTdatas
+                  0x00502c                  _getCANFT_Flag
+                  0x005050                  _getCANFTdata
+                  0x005062                  _getGBL_CANFTdata
+                  0x005074                  _getGBL_CANFTFlag
+                  0x005086                  _getCANFT_RFlag
+                  0x005098                  _CAN_FrameToArray
+                  0x0050ec                  _SetCANFrameData
+                  0x005144                  _SetCANFrameDataByte
+                  0x0051da                  _getReceiveArrayCAN
+                  0x0051e6                  _initCANFT
+                  0x00521e                  _beginCANFast
+                  0x005286                  _setNewDataFlag
+                  0x0052a6                  _clearNewDataFlag
+                  0x0052c6                  _getNewDataFlagStatus
+                  0x0052f6                  _getCANFastData
+                  0x005336                  _clearCANFastDataValue
+                  0x00534e                  _clearCANFastDataValueRange
+                  0x005394                  _FTC_Receive
+                  0x0054c6                  _ReceiveDataCAN
+                  0x005550                  _TransmitCANFast
+                  0x0057cc                  _SetReceiveMode
+                  0x0057e8                  _clearCANFTdataIndex
+                  0x005800                  _GlobalAddressInterpret
+                  0x005818                  _FTC_ToSend
+                  0x005844                  _FTC_Send
+                  0x005882                  _BufferToMSG
+ .text            0x005922        0x6e8 build/default/production/mcc_generated_files/can1.o
+                  0x0059c2                  _CAN1_CallbackBusOff
+                  0x0059ca                  _CAN1_CallbackTxErrorPassive
+                  0x0059d2                  _CAN1_CallbackRxErrorPassive
+                  0x0059da                  _CAN1_CallbackMessageReceived
+                  0x005a3e                  _CAN1_Initialize
+                  0x005b80                  _CAN1_TransmitEnable
+                  0x005b9a                  _CAN1_ReceiveEnable
+                  0x005bb4                  _CAN1_transmit
+                  0x005c20                  _CAN1_receive
+                  0x005c88                  _CAN1_isBusOff
+                  0x005ca0                  _CAN1_isRXErrorPassive
+                  0x005cb8                  _CAN1_isTXErrorPassive
+                  0x005cd0                  _CAN1_messagesInBuffer
+                  0x005d0a                  _CAN1_sleep
+ .text            0x00600a        0x502 build/default/production/PozyxPIC_I2C.o
+                  0x00600a                  _InitI2C
+                  0x006034                  _SendI2CRepeatStart
+                  0x0060c4                  _SendReadI2C
+                  0x006178                  _SendI2C
+                  0x006208                  _ReceiveI2C
+                  0x006298                  _SendSlaveAddressI2C
+                  0x0062d0                  _SendDataAddressI2C
+                  0x00631a                  _SendDataI2C
+                  0x00637c                  _SendRestartI2C
+                  0x006388                  _SendStartI2C
+                  0x0063a6                  _SendReadRequestI2C
+                  0x0063ba                  _FirstReceiveI2C
+                  0x0063d8                  _ReceiveByteI2C
+                  0x006416                  _EnableReceiveI2C
+                  0x006422                  _NACKFollowUpI2C
+                  0x00642e                  _StopFunctionI2C
+                  0x006436                  _FailFunctionI2C
+                  0x006442                  _SuccessFunctionI2C
+                  0x00644e                  _StatusI2C
+                  0x006458                  _writeBits
+                  0x0064cc                  _writeBit
+ .text            0x00650c        0x3c2 build/default/production/FastTransfer/parser.o
+                  0x00650c                  _Parser_init
+                  0x00653a                  _Parser_first_byte
+                  0x00657e                  _Parser_second_byte
+                  0x0065c4                  _Parser_sender
+                  0x006600                  _Parser_receiver
+                  0x006648                  _Parser_message_length
+                  0x0066a8                  _Parser_message_content
+                  0x0066e2                  _Parser_crc
+                  0x006756                  _Parser_status
+                  0x00675e                  _Parser_trash_bytes
+                  0x00677c                  _Parser_message
+                  0x0067cc                  _Parser_write_message_data
+                  0x006870                  _parse
+ .text            0x0068ce        0x354 build/default/production/FastTransfer/ring_buffer.o
+                  0x0068ce                  _rbuffer_init
+                  0x006900                  _rbuffer_size
+                  0x006912                  _rbuffer_empty
+                  0x006934                  _rbuffer_full
+                  0x006960                  _rbuffer_increment
+                  0x0069be                  _rbuffer_pop
+                  0x006a30                  _rbuffer_peek
+                  0x006a60                  _rbuffer_get
+                  0x006aac                  _rbuffer_push
+                  0x006b20                  _rbuffer_push2
+                  0x006b38                  _rbuffer_push3
+                  0x006b58                  _rbuffer_clear
+                  0x006b9e                  _rbuffer_flush
+                  0x006be6                  _rbuffer_reset
+                  0x006c18                  _rbuffer_getarray
+ .text            0x006c22        0x254 build/default/production/FastTransfer/ft.o
+                  0x006c22                  _getFThandle
+                  0x006c2a                  _FT_Init
+                  0x006c82                  _FT_Read
+                  0x006ca8                  _FT_Modified
+                  0x006cce                  _FT_Receive
+                  0x006daa                  _FT_ToSend
+                  0x006ddc                  _FT_Send
+                  0x006e5e                  _FT_ClearFlag
+ .text            0x006e76        0x17c build/default/production/Initialize.o
+                  0x006e76                  _Start_Initialization
+                  0x006efe                  _oscillator
+                  0x006f4e                  _timerOne
+                  0x006f72                  _LEDPattern
+ .text            0x006ff2         0xd6 build/default/production/DataPublishing.o
+                  0x006ff2                  _initGlobalData
+                  0x00701a                  _publishData
+                  0x00709a                  _publishDataIndex
+ .text            0x0070c8         0xaa build/default/production/Timers.o
+                  0x0070c8                  _millis
+                  0x0070d2                  _timerDone
+                  0x007108                  _setTimerInterval
+                  0x00712c                  _resetTimer
+                  0x00713c                  _globalTimerTracker
+                  0x00714e                  _delay
+ .text            0x007172         0xa4 build/default/production/mcc_generated_files/dma.o
+                  0x007172                  _DMA_Initialize
+                  0x0071d8                  _DMA_Channel0_CallBack
+                  0x0071de                  _DMA_Channel1_CallBack
+                  0x0071e4                  _DMA_Channel2_CallBack
+                  0x0071ea                  _DMA_Channel2_Tasks
+                  0x0071fe                  _DMA_Channel3_CallBack
+                  0x007204                  _DMA_Channel3_Tasks
+ .text            0x007216         0xa0 build/default/production/uart1_config.o
+                  0x007216                  _uart1_init
+                  0x00724e                  _uart1_put
+                  0x00726c                  _uart1_put_c
+                  0x00728e                  _uart1_peek
+                  0x007298                  _uart1_get
+                  0x0072a2                  _uart1_rx_empty
+                  0x0072ac                  _uart1_rx_getarray
 
-.dinit            0x006e5e         0x8c
- .dinit           0x006e5e         0x8c data_init
+.dinit            0x0072b6         0x8c
+ .dinit           0x0072b6         0x8c data_init
 
-.text             0x006eea        0x152
- .text            0x006eea         0x78 build/default/production/main.o
-                  0x006eea                  _main
- .text            0x006f62         0x74 build/default/production/mcc_generated_files/ecan1.o
-                  0x006f62                  _ECAN1_CallbackBusOff
-                  0x006f68                  _ECAN1_CallbackTxErrorPassive
-                  0x006f6e                  _ECAN1_CallbackRxErrorPassive
-                  0x006f74                  _ECAN1_CallbackMessageReceived
-                  0x006f7a                  _ECAN1_Initialize
-                  0x006f80                  _ECAN1_TransmitEnable
-                  0x006f88                  _ECAN1_ReceiveEnable
-                  0x006f90                  _ECAN1_transmit
-                  0x006fa2                  _ECAN1_receive
-                  0x006fae                  _ECAN1_isBusOff
-                  0x006fb6                  _ECAN1_isRXErrorPassive
-                  0x006fbe                  _ECAN1_isTXErrorPassive
-                  0x006fc6                  _ECAN1_messagesInBuffer
-                  0x006fce                  _ECAN1_sleep
- .text            0x006fd6         0x66 build/default/production/FastTransfer/crc.o
-                  0x006fd6                  _crc
+.text             0x007342        0x152
+ .text            0x007342         0x78 build/default/production/main.o
+                  0x007342                  _main
+ .text            0x0073ba         0x74 build/default/production/mcc_generated_files/ecan1.o
+                  0x0073ba                  _ECAN1_CallbackBusOff
+                  0x0073c0                  _ECAN1_CallbackTxErrorPassive
+                  0x0073c6                  _ECAN1_CallbackRxErrorPassive
+                  0x0073cc                  _ECAN1_CallbackMessageReceived
+                  0x0073d2                  _ECAN1_Initialize
+                  0x0073d8                  _ECAN1_TransmitEnable
+                  0x0073e0                  _ECAN1_ReceiveEnable
+                  0x0073e8                  _ECAN1_transmit
+                  0x0073fa                  _ECAN1_receive
+                  0x007406                  _ECAN1_isBusOff
+                  0x00740e                  _ECAN1_isRXErrorPassive
+                  0x007416                  _ECAN1_isTXErrorPassive
+                  0x00741e                  _ECAN1_messagesInBuffer
+                  0x007426                  _ECAN1_sleep
+ .text            0x00742e         0x66 build/default/production/FastTransfer/crc.o
+                  0x00742e                  _crc
 
-.init.delay32     0x00703c         0x1c
- .init.delay32    0x00703c         0x1c c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
-                  0x00703c                  ___delay32
+.init.delay32     0x007494         0x1c
+ .init.delay32    0x007494         0x1c c:/program files (x86)/microchip/xc16/v1.33/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+                  0x007494                  ___delay32
