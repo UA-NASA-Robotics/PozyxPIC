@@ -440,7 +440,7 @@ int getPozyx_Y() {
 }
 
 int getPozyx_H() {
-    return currentHeading;
+    return heading;
 }
 
 int AngleDist(double a1, double a2) {
