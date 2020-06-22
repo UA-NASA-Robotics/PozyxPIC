@@ -9,19 +9,19 @@
 #ifdef DEBUG
 #include <stdio.h>
 #endif
- FTC_t ftc_handle;
- void canFTbegin()
- {
-      FTC_Init(&ftc_handle, ROUTER_CARD, 1, CAN1_Initialize, CAN1_transmit, CAN1_receive);
- }
- FTC_t* getCanFThandle()
- {
-     return &ftc_handle;
- }
+FTC_t ftc_handle;
+
+void canFTbegin() {
+    FTC_Init(&ftc_handle, POZYX, 1, CAN1_Initialize, CAN1_transmit, CAN1_receive);
+}
+
+FTC_t* getCanFThandle() {
+    return &ftc_handle;
+}
+
 void FTC_Init(FTC_t* handle, uint8_t address, int8_t id, void(*mcc_init)(FTC_t*), bool(*f_tx)(CAN_TX_PRIOIRTY, uCAN_MSG*), bool(*f_rx)(uCAN_MSG*)) {
     handle->address = address;
-    if (id == 1 || id == 2)
-    {
+    if (id == 1 || id == 2) {
         handle->can_id = id;
         handle->transmit = f_tx;
         handle->receive = f_rx;
@@ -35,21 +35,17 @@ void FTC_Init(FTC_t* handle, uint8_t address, int8_t id, void(*mcc_init)(FTC_t*)
 }
 
 bool IsFIFOIE(FTC_t* handle) {
-    if (handle->can_id == 1)
-    {
+    if (handle->can_id == 1) {
         if (C1INTEbits.FIFOIE == 1)
             return true;
         else
             return false;
-    }
-    else if (handle->can_id == 2)
-    {
+    } else if (handle->can_id == 2) {
         if (C2INTEbits.FIFOIE == 1)
             return true;
         else
             return false;
-    }
-    else return true;
+    } else return true;
 }
 
 void FIFOI_Enable(FTC_t* handle) {
@@ -172,6 +168,7 @@ void initCANFT(FTC_t* handle) {
     beginCANFast(handle, handle->receiveArrayCAN, handle->CAN_FT_recievedFlag, sizeof (handle->receiveArrayCAN), handle->address, FT_LOCAL);
     beginCANFast(handle, handle->receiveArrayCAN_Global, handle->GBL_CAN_FT_recievedFlag, sizeof (handle->receiveArrayCAN_Global), GLOBAL_ADDRESS, FT_GLOBAL);
 }
+
 void beginCANFast(FTC_t* handle, int * ptr, bool *flagPtr, unsigned int maxSize, uint8_t givenAddress, FT_Type_t _t) {
 
     handle->receiveArrayAddressCAN[_t] = ptr;
@@ -234,8 +231,8 @@ void clearCANFastDataValueRange(FTC_t* handle, int startIndex, int end) {
 }
 
 //void ReceiveCANFast(FTC_t* handle, uCAN_MSG* p, FT_Type_t _t) // interrupt callback
-void FTC_Receive(FTC_t* handle, uCAN_MSG* p, FT_Type_t _t)
-{
+
+void FTC_Receive(FTC_t* handle, uCAN_MSG* p, FT_Type_t _t) {
     ring_buffer_t* rx_Buff;
     if (_t == FT_LOCAL)
         rx_Buff = &handle->rx_buffer_CAN;
@@ -267,7 +264,7 @@ void FTC_Receive(FTC_t* handle, uCAN_MSG* p, FT_Type_t _t)
 }
 
 int ReceiveDataCAN(FTC_t* handle, FT_Type_t _t) {
-//int FTC_Read(FTC_t* handle, FT_Type_t _t) {
+    //int FTC_Read(FTC_t* handle, FT_Type_t _t) {
     ring_buffer_t *rx_Buff;
     if (_t == FT_LOCAL) rx_Buff = &handle->rx_buffer_CAN;
     else rx_Buff = &handle->rx_buffer_CAN_Global;
@@ -332,12 +329,12 @@ bool TransmitCANFast(FTC_t* handle, uCAN_MSG *p) // interrupt callback
                 p->frame.dlc = 4;
             }
             SetCANFrameData(p, msg_arr);
-        }            //if exactly 2 data/index pairs left send with length 9. Receiver
+        }//if exactly 2 data/index pairs left send with length 9. Receiver
             //will read the "wrong" length correctly, but realize this is the last packet.
             //note: still need to check incase two different destinations. 
         else if (rbuffer_size(&handle->transmit_buffer_CAN) == 6) {
             unsigned int address = rbuffer_pop(&handle->transmit_buffer_CAN);
-            p->frame.id = (address << 6) + handle->address;//MY_ADDRESS; //not passed through messages will have wrong sender address
+            p->frame.id = (address << 6) + handle->address; //MY_ADDRESS; //not passed through messages will have wrong sender address
             //we are good to send the first index/value pair for sure.
             int i = 0;
             for (i = 0; i < 2; i++) {
@@ -361,10 +358,10 @@ bool TransmitCANFast(FTC_t* handle, uCAN_MSG *p) // interrupt callback
                 p->frame.dlc = 4;
             }
             SetCANFrameData(p, msg_arr);
-        }            //if only 1 data/index pair receiver will know it is the last packet.
+        }//if only 1 data/index pair receiver will know it is the last packet.
         else if (rbuffer_size(&handle->transmit_buffer_CAN) == 3) {
             unsigned int address = rbuffer_pop(&handle->transmit_buffer_CAN);
-            p->frame.id = (address << 6) + handle->address;//MY_ADDRESS; //not passed through messages will have wrong sender address
+            p->frame.id = (address << 6) + handle->address; //MY_ADDRESS; //not passed through messages will have wrong sender address
             p->frame.dlc = 4;
             int i = 0;
             for (i = 0; i < 2; i++) {
@@ -405,38 +402,40 @@ int GlobalAddressInterpret(FTC_t* handle, int index) {
 
 void FTC_ToSend(FTC_t* handle, unsigned int where, unsigned int what) {
     rbuffer_push2(&handle->send_buffer_CAN_FT, where >> 8, where);
-    rbuffer_push2(&handle->send_buffer_CAN_FT, what >>8, what);
+    rbuffer_push2(&handle->send_buffer_CAN_FT, what >> 8, what);
 }
 
 void FTC_Send(FTC_t* handle, unsigned int whereToSend) {
     //NEW STATIC METHOD
     //int temp = rbuffer_size(&handle->send_buffer_CAN_FT); //get size of things to send
 
-//    int i = 0;
-//    for (i = 0; i < (temp >> 1); i++) { //need to divid by two since reading index/value pairs, hence >>1
-//        int index = rbuffer_pop(&send_buffer_CAN_FT);
-//        int value = rbuffer_pop(&send_buffer_CAN_FT);
-//        rbuffer_push3(&transmit_buffer_CAN, whereToSend, index, value);
-//    }
-    uCAN_MSG msg = BufferToMSG(&handle->send_buffer_CAN_FT, (uint32_t)handle->moduleAddressCAN[FT_LOCAL], (uint32_t) whereToSend);
-    //CAN1_transmit(CAN_PRIORITY_HIGH, &msg);
-    handle->transmit(CAN_PRIORITY_HIGH, &msg);
+    //    int i = 0;
+    //    for (i = 0; i < (temp >> 1); i++) { //need to divid by two since reading index/value pairs, hence >>1
+    //        int index = rbuffer_pop(&send_buffer_CAN_FT);
+    //        int value = rbuffer_pop(&send_buffer_CAN_FT);
+    //        rbuffer_push3(&transmit_buffer_CAN, whereToSend, index, value);
+    //    }
+
+    while ((uint8_t) rbuffer_size(& handle->send_buffer_CAN_FT) >= 4) {
+        uCAN_MSG msg = BufferToMSG(&handle->send_buffer_CAN_FT, (uint32_t) handle->moduleAddressCAN[FT_LOCAL], (uint32_t) whereToSend);
+        //CAN1_transmit(CAN_PRIORITY_HIGH, &msg);
+        handle->transmit(CAN_PRIORITY_HIGH, &msg);
+    }
     /*
     if (C1INTEbits.FIFOIE == 0) {
         C1INTEbits.FIFOIE = 1;
         //C1FIFOINT2bits.TXEMPTYIE = 1;
     }
-    */
-   /*
-   if (!handle->CAN_STRUCT_PTR->isfifoie())
-   {
-       handle->CAN_STRUCT_PTR->enable_fifoi();
-   }
-   */
-    if (!IsFIFOIE(handle))
-   {
-       FIFOI_Enable(handle);
-   }
+     */
+    /*
+    if (!handle->CAN_STRUCT_PTR->isfifoie())
+    {
+        handle->CAN_STRUCT_PTR->enable_fifoi();
+    }
+     */
+    if (!IsFIFOIE(handle)) {
+        FIFOI_Enable(handle);
+    }
 }
 
 uCAN_MSG BufferToMSG(struct ring_buffer_t* buf, uint32_t sender, uint32_t whereToSend) {
@@ -526,4 +525,4 @@ uCAN_MSG BufferToMSG(struct ring_buffer_t* buf, FT_Type_t _t, uint32_t whereToSe
     }
     return t;
 }
-*/
+ */

@@ -38,7 +38,7 @@ int main(void) {
     LED3 = 1;
 
     /*Initialize FastTransfer for uart processes*/
-    FT_Init(getFThandle(), ROUTER_CARD, uart1_put_c, uart1_get, uart1_rx_empty);
+    FT_Init(getFThandle(), POZYX, uart1_put_c, uart1_get, uart1_rx_empty);
     LED4 = 1;
 
     /*Initialize FastTransfer_CAN processes*/
@@ -52,9 +52,9 @@ int main(void) {
     calibrateGyro();
     LED6 = 1;
 
-    initGlobalData(1, getPozyx_X, 300);
-    initGlobalData(2, getPozyx_Y, 300);
-    initGlobalData(3, getPozyx_H, 300);
+    initGlobalData(DATA_0, getPozyx_X, 300);
+    initGlobalData(DATA_1, getPozyx_Y, 300);
+    initGlobalData(DATA_2, getPozyx_H, 300);
     LEDPattern();
     while (1) {
         /* Get the range data from the Pozyx and calculate the location */
@@ -62,7 +62,7 @@ int main(void) {
         /* Getting the heading of the robot based on the pozyx devices */
         updateHeading();
         /* use the Gyro to adjust the heading found in 'updateHeading()' */
-        adjustHeading();
+        //adjustHeading();
         /* Calculate the location of the robot with the center as the base point */
         calculateCenter();
         

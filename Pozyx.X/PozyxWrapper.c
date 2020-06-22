@@ -222,8 +222,8 @@ void calculateCenter() {
     //        centX = mid_X - Clc;
     //    center_X = mid_X - ((MID_DIST * y_component) / TAG_DIST);
     //    center_Y = mid_Y + ((MID_DIST * x_component) / TAG_DIST);
-    center_X = mid_X + MID_DIST * cos(currentHeading * DegToRad);
-    center_Y = mid_Y + MID_DIST * sin(currentHeading * DegToRad);
+    center_X = mid_X;// + MID_DIST * cos(currentHeading * DegToRad);
+    center_Y = mid_Y;// + MID_DIST * sin(currentHeading * DegToRad);
 
 }
 
